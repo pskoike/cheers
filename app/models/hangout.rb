@@ -3,5 +3,5 @@ class Hangout < ApplicationRecord
   belongs_to :place
 
   geocoded_by :center_address
-  after_validation :geocode
+  after_validation :geocode, if: :center_address?
 end
