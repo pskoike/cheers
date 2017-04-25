@@ -1,5 +1,5 @@
 ---
-en:
+pt-BR:
   devise:
     confirmations:
       new:
@@ -46,26 +46,26 @@ en:
         we_need_your_current_password_to_confirm_your_changes: We need your current
           password to confirm your changes
       new:
-        sign_up: Sign up
+        sign_up: Criar conta
     sessions:
       new:
-        sign_in: Sign in
+        sign_in: Entrar
     shared:
       links:
-        back: Back
+        back: Voltar
         didn_t_receive_confirmation_instructions: Didn t receive confirmation instructions
         didn_t_receive_unlock_instructions: Didn t receive unlock instructions
-        forgot_your_password: Forgot your password
-        sign_in: Sign in
-        sign_in_with_provider: Sign in with provider
-        sign_up: Sign up
+        forgot_your_password: Esqueceu a senha?
+        sign_in: Entrar
+        sign_in_with_provider: Entrar com o %{provider}
+        sign_up: Criar conta
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
   hello: Hello world
   shared:
     navbar:
-      profile: Profile
-      sign_in: Sign in
-      sign_out: Sign out
+      profile: Perfil
+      sign_in: Entrar
+      sign_out: Sair
       top_call_to_action: Top call to action
