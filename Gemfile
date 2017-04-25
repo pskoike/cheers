@@ -7,6 +7,7 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'devise-i18n'
 gem 'redis'
 gem 'cloudinary'
 
@@ -18,6 +19,10 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
+# geocoding configuration
+gem 'geocoder'
+
 gem 'omniauth-facebook'
 
 #Authorizations

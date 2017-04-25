@@ -11,8 +11,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
 
   # mount_uploader :photo, PhotoUploader
 
