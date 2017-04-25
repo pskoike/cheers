@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 
+#Authorizations
+gem 'pundit'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
