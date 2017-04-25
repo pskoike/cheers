@@ -10,6 +10,7 @@
 Confirmation.destroy_all
 Hangout.destroy_all
 User.destroy_all
+Place.destroy_all
 
 a = User.new( first_name: "Abilio",
   last_name: "Diniz",
@@ -174,3 +175,81 @@ conf34 = Confirmation.new(
 
 
 print "Created: #{Confirmation.count} confirmations "
+
+bar1 = Place.new(
+  name: "Empanadas Bar",
+  address: "Rua Wizard, 489 - Vila Madalena, São Paulo - SP, 05434-080"
+)
+
+bar2 = Place.new(
+  name: "Sabiá",
+  address: "R. Purpurina, 370 - Vila Madalena, São Paulo - SP, 05435-030"
+)
+
+bar3 = Place.new(
+  name: "Ambar",
+  address: "R. Cunha Gago, 129 - Pinheiros, São Paulo - SP, 03178-200"
+)
+
+bar4 = Place.new(
+  name: "Empório Alto dos Pinheiros",
+  address: "R. Vupabussu, 305 - Pinheiros, São Paulo - SP, 05429-040"
+)
+
+bar5 = Place.new(
+  name: "Frank",
+  address: "Rua São Carlos do Pinhal, 424 - Bela Vista, São Paulo - SP, 01333-000"
+)
+
+restaurant1 = Place.new(
+  name: "Esquina Mocotó",
+  address: "Av. Nossa Sra. do Lorêto, 1108 - Vila Medeiros, São Paulo - SP, 02219-001"
+)
+
+restaurant2 = Place.new(
+  name: "Rubaiyat",
+  address: "Av. Brg. Faria Lima, 2954 - Jardim Paulistano, São Paulo - SP, 01401-000"
+)
+
+restaurant3 = Place.new(
+  name: "D.O.M.",
+  address: "R. Barão de Capanema, 549 - Jardins, São Paulo - SP, 01411-011"
+)
+
+restaurant4 = Place.new(
+  name: "Komah",
+  address: "R. Cônego Vicente Miguel Marino, 378 - Barra Funda, São Paulo - SP, 01135-020"
+)
+
+restaurant5 = Place.new(
+  name: "Parigi Bistro",
+  address: "Av. Magalhães de Castro, 12000 - Morumbi, São Paulo - SP, 05502-001"
+)
+
+bonbarato1 = Place.new(
+  name: "Canaille Bar",
+  address: "R. Cristiano Viana, 390 - Cerqueira César, São Paulo - SP, 05411-000"
+)
+
+bonbarato2 = Place.new(
+  name: "Dali Daqui",
+  address: "Rua Vitorino Camilo 1093 - Esquina com Rua Conselheiro Brotero 71 - Barra Funda, São Paulo - SP, 01154-001"
+)
+
+bonbarato3 = Place.new(
+  name: "Lambe-Lambe",
+  address: "Rua Aracaju, 239 - Higienópolis, São Paulo - SP, 01240-030"
+)
+
+bonbarato4 = Place.new(
+  name: "Z-deli",
+  address: "R. Francisco Leitão, 16 - Pinheiros, São Paulo - SP, 05414-020"
+)
+
+bonbarato5 = Place.new(
+  name: "Belga Corner",
+  address: "R. Pedroso Alvarenga, 666 - Itaim Bibi, São Paulo - SP, 04531-001"
+)
+
+
+print "Created: #{Place.count} places "
