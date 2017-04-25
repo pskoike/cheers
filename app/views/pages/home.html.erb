@@ -7,3 +7,13 @@
 <%= current_user.last_name %><br>
 <%= current_user.email %>
 <% end %>
+
+<div id="map" style="width: 500px; height: 500px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+    });
+  <% end %>
+<% end %>
