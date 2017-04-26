@@ -45,4 +45,5 @@ end
     @hangout = Hangout.find(params[:id])
     authorize @hangout
   end
+
 end
