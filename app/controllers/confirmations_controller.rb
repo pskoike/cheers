@@ -11,6 +11,7 @@ class ConfirmationsController < ApplicationController
     @confirmation= Confirmation.new(confirmation_params)
     @confirmation.user = current_user
     @confirmation.hangout = @hangout
+
     authorize @confirmation
 
     if @confirmation.save

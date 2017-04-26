@@ -29,14 +29,14 @@ $(document).ready(function() {
       if (err) return console.log(err);
       var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
       map.panTo(coord);
-
+      console.log(location);
       marker = new google.maps.Marker({position: coord, map: map});
       markers.push(marker)
       map.setZoom(14);
-      console.log(location.coords.latitude);
+
       $('#confirmation_latitude').val(location.coords.latitude);
       $('#confirmation_longitude').val(location.coords.longitude);
-      // $('#confirmation_leaving_address').val(location.coords.leaving_address);
+      $('#confirmation_leaving_address').val(location.formattedAddress);
     });
   };
 
