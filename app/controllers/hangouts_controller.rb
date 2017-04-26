@@ -16,7 +16,8 @@ class HangoutsController < ApplicationController
        session[:hangout] = params
        @hangout = Hangout.new
        authorize @hangout
-       redirect_to new_user_session_path
+      #  redirect_to new_user_session_path
+      redirect_to user_facebook_omniauth_authorize_path
      else
        @hangout = Hangout.new(hangout_params)
        authorize @hangout
