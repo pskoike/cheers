@@ -1,0 +1,23 @@
+<div>
+
+  <h1> <%= @user.first_name %></h1>
+
+  <h2>What's coming next?</h2>
+
+  <h3>Behave you will be the host of <%= @hangouts_as_host.count %> Hangouts</h3>
+
+  <ul>
+    <%@hangouts_as_host.each do |hangout|%>
+      <li> <%= hangout.title%> </li>
+      <% end %>
+  </ul>
+
+  <h3>You have <%= @hangouts_as_guest.count %> Hangouts to get crazy</h3>
+
+  <ul>
+    <%@hangouts_as_guest.each do |hangout|%>
+      <li> <%= hangout.title%> </li>
+      <% end %>
+  </ul>
+
+</div>

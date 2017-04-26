@@ -58,8 +58,6 @@ e = User.new( first_name: "Phil",
 e.save
 
 
-
-
 print "Created: #{User.count} users "
 
 hang1 = Hangout.new(
@@ -87,6 +85,13 @@ hang3 = Hangout.new(
 hang3.user = b
 hang3.save
 
+hang4 = Hangout.new(
+    title:"Porque a Noite uma crianca",
+    date:"13/02/2017",
+    category:"Bar"
+    )
+hang4.user = b
+hang4.save
 
 print "Created: #{Hangout.count} hangouts "
 
@@ -114,6 +119,13 @@ conf13 = Confirmation.new(
   conf13.user =  d
   conf13.save
 
+conf14 = Confirmation.new(
+  leaving_address: "1304 rua Mourato Coelho, São Paulo - SP",
+  transportation: "bicicleta"
+  )
+  conf14.hangout = hang1
+  conf14.user =  a
+  conf14.save
 
 conf21 = Confirmation.new(
   leaving_address: "R. Treze de Maio, 1947 - Bela Vista, São Paulo - SP, 01327-000",
@@ -172,6 +184,39 @@ conf34 = Confirmation.new(
   conf34.hangout = hang3
   conf34.user =  e
   conf34.save
+
+######################
+conf41 = Confirmation.new(
+  leaving_address: "R. Pedroso Alvarenga, 66 - Itaim Bibi, São Paulo - SP",
+  transportation: "carro"
+  )
+  conf41.hangout = hang4
+  conf41.user =  b
+  conf41.save
+
+conf42 = Confirmation.new(
+  leaving_address: "R. Treze de Maio, 147 - Bela Vista, São Paulo - SP",
+  transportation: "carro"
+  )
+  conf42.hangout = hang4
+  conf42.user =  c
+  conf42.save
+
+conf43 = Confirmation.new(
+  leaving_address: "Rua Vergueiro, 399 - Vila Mariana, São Paulo - SP, 04101-300",
+  transportation: "metro"
+  )
+  conf43.hangout = hang4
+  conf43.user =  a
+  conf43.save
+
+conf44 = Confirmation.new(
+  leaving_address: "Av. São João, 177 - Centro, São Paulo - SP, 01036-000",
+  transportation: "carro"
+  )
+  conf44.hangout = hang4
+  conf44.user =  e
+  conf44.save
 
 
 print "Created: #{Confirmation.count} confirmations "

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :confirmations, only: [:new, :create, :edit, :update, :destroy]
     end
 
+    get 'profiles/show'
 
     root to: 'pages#home'
   end
