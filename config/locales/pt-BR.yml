@@ -73,6 +73,21 @@ pt-BR:
     new:
       title: Crie um encontro, convide facilmente seus amigos e deixe o Cheers te ajudar na escolho do melhor lugar!
 
+  profiles:
+    show:
+      title: "Sus Eventos:"
+      host_summary:
+        zero:  "Nao tem Hangouts?! Bora agitar e criar um"
+        one:   "Se prepara o seu Hangout ta chegando:"
+        other: "Muitas coisas, voce organizou %{count} Hangouts"
+      host_list_html: "Dia %{day} as %{hour}, <strong>%{link}</strong> com %{confirmation_count} confirmados"
+
+      guest_summary:
+        zero:  "Ninguem convidou?! Fala para seus amigos usar o Cheers"
+        one:   "Voce tem um hangout chegando:"
+        other: "Que agenda! Voce foi convidado para %{count} Hangouts"
+      guest_list_html: "Dia %{day} as %{hour}, <strong>%{link}</strong> organizado por %{host}"
+
   layouts:
     application:
       title: Cheers! - Encontre com seus amigos de forma fácil!
@@ -80,3 +95,4 @@ pt-BR:
   hangouts:
     share:
       message: Hangout pronto! Convide seus amigos!
+
