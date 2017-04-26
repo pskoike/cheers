@@ -1,5 +1,5 @@
 class HangoutsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :new, :index]
+  skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
   before_action :set_hangout, only: [:show, :edit, :update, :destroy]
 
   def new

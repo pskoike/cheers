@@ -1,0 +1,90 @@
+$(document).ready(function() {
+  geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
+
+  window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+  var markers = [];
+
+  var transportation = 'DRIVING';
+  $('#confirmation_transportation').val(transportation);
+
+  listen_transporation();
+
+  //Geolocator:
+  getcoord();
+
+  //Google auto-complete:
+  var leaving_address = $('#confirmation_leaving_address').get(0);
+  if (leaving_address) {
+    var autocomplete = new google.maps.places.Autocomplete(leaving_address, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(leaving_address, 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
+
+  function getcoord() {
+    geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {
+      if (err) return console.log(err);
+      var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
+      map.panTo(coord);
+      console.log(location);
+      marker = new google.maps.Marker({position: coord, map: map});
+      markers.push(marker)
+      map.setZoom(14);
+
+      $('#confirmation_latitude').val(location.coords.latitude);
+      $('#confirmation_longitude').val(location.coords.longitude);
+      $('#confirmation_leaving_address').val(location.formattedAddress);
+    });
+  };
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    var coord = {lat: place.geometry.location.lat(), lng:  place.geometry.location.lng()};
+
+    markers[0].setMap(null);
+    markers = [];
+    map.panTo(coord);
+    var marker = new google.maps.Marker({position: coord, map: map});
+    markers.push(marker);
+    console.log(marker);
+    map.setZoom(14);
+    $('#confirmation_latitude').val(place.geometry.location.lat());
+    $('#confirmation_longitude').val(place.geometry.location.lng());
+    // $('#confirmation_leaving_address').val(place.formated_address);
+  }
+
+
+
+});
+
+
+function listen_transporation(){
+
+  $("#driving").on("click", function(e){e.preventDefault();
+    transportation = 'DRIVING';
+    $(".transport-btn").removeClass('active');
+    $("#driving").toggleClass('active');
+    $('#confirmation_transportation').val(transportation);
+  });
+  $("#transit").on("click", function(e){e.preventDefault();
+    transportation = 'TRANSIT';
+    $(".transport-btn").removeClass('active');
+    $("#transit").toggleClass('active');
+    $('#confirmation_transportation').val(transportation);
+  });
+  $("#walking").on("click", function(e){e.preventDefault();
+    transportation = 'WALKING';
+    $(".transport-btn").removeClass('active');
+    $("#walking").toggleClass('active');
+    $('#confirmation_transportation').val(transportation);
+  });
+  $("#cycling").on("click", function(e){e.preventDefault();
+    transportation = 'BICYCLING';
+    $(".transport-btn").removeClass('active');
+    $("#cycling").toggleClass('active');
+    $('#confirmation_transportation').val(transportation);
+  });
+}

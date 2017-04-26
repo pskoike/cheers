@@ -90,3 +90,11 @@ en:
         other: "What an agenda! You've been invited to %{count} Hangouts"
       guest_list_html: "Day %{day} at %{hour}, <strong>%{link}</strong> organized by %{host}"
 
+  layouts:
+    application:
+      title: Cheers! - Real hangouts made easy!
+
+  hangouts:
+    share:
+      message: Hangout ready! Invite your friends!
+

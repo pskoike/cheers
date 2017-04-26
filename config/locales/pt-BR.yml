@@ -87,3 +87,12 @@ pt-BR:
         one:   "Voce tem um hangout chegando:"
         other: "Que agenda! Voce foi convidado para %{count} Hangouts"
       guest_list_html: "Dia %{day} as %{hour}, <strong>%{link}</strong> organizado por %{host}"
+
+  layouts:
+    application:
+      title: Cheers! - Encontre com seus amigos de forma fácil!
+
+  hangouts:
+    share:
+      message: Hangout pronto! Convide seus amigos!
+
