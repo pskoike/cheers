@@ -72,3 +72,11 @@ pt-BR:
   hangouts:
     new:
       title: Crie um encontro, convide facilmente seus amigos e deixe o Cheers te ajudar na escolho do melhor lugar!
+
+  layouts:
+    application:
+      title: Cheers! - Encontre com seus amigos de forma fácil!
+
+  hangouts:
+    share:
+      message: Hangout pronto! Convide seus amigos!

@@ -20,6 +20,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+# Social Share
+gem 'rails-assets-jssocials', source: 'https://rails-assets.org'
+
 # geocoding configuration
 gem 'geocoder'
 gem 'omniauth'
