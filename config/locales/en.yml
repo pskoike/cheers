@@ -74,3 +74,11 @@ en:
     new:
       placeholder: Leaving location
       btn-text: Go
+
+  layouts:
+    application:
+      title: Cheers! - Real hangouts made easy!
+
+  hangouts:
+    share:
+      message: Hangout ready! Invite your friends!
