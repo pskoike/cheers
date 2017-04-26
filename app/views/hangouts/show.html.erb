@@ -1,0 +1,15 @@
+<%= render 'share'%>
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function(){
+      $("#share").jsSocials({
+        text: " <% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        title: "<% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        shareIn : "blank",
+        showLabel: false,
+        showCount: false,
+        shares: ["email", "messenger","whatsapp"]
+      });
+    });
+  </script>
+<% end %>

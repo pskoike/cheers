@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # has_many hangouts, dependent: :destroy
-  # has_many confirmations, dependent: :destroy
+  has_many :hangouts, dependent: :destroy
+  has_many :confirmations, dependent: :destroy
 
   # after_create :send_welcome_email
   before_save :set_avatar_placeholder
