@@ -90,7 +90,15 @@ hang4 = Hangout.new(
     date:"13/02/2017",
     category:"Bar"
     )
-hang4.user = b
+hang4.user = a
+hang4.save
+
+hang4 = Hangout.new(
+    title:"La no passado",
+    date:"13/06/2016",
+    category:"Bar"
+    )
+hang4.user = d
 hang4.save
 
 print "Created: #{Hangout.count} hangouts "
