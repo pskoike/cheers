@@ -1,0 +1,10 @@
+<h1><%= t('.title') %></h1>
+
+<%= simple_form_for(@hangout) do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :title, placeholder: "" %>
+    <%= f.input :category, placeholder: "" %>
+    <%= f.input :date %>
+    <%= f.input :center_address %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
