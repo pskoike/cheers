@@ -15,10 +15,5 @@ class ProfilesController < ApplicationController
 end
 
 
-private
-  def past_hangout?
-    self.date < Date.today
-  end
-
 end
         #Hangout.where("DATE(date) < ?", '2018-04-26')
