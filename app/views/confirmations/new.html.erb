@@ -1,13 +1,77 @@
 <div class="container">
   <div class="row">
     <div class="col-xs 12">
+
         <%= simple_form_for([@hangout, @confirmation]) do |f| %>
-          <%= f.input :leaving_address, id: "leaving_address", placeholder: t('.placeholder'), label: false %>
-          <%= f.submit class: 'btn btn-default', value: t(".btn-text") %>
+          <div class="form-inline">
+            <%= f.input :leaving_address, id: "leaving_address", placeholder: t('.placeholder'), label: false %>
+            <%= f.submit class: 'btn btn-default', value: t(".btn-text") %>
+          </div>
         <% end %>
+
     </div>
   </div>
+
+<div class="row">
+    <div class="col-xs 12">
+      <div id="map" style="width:100%;height:300px"></div>
+    </div>
+  </div>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+    geolocator.config({
+        language: "en",
+        google: {
+            version: "3",
+            key: "AIzaSyC5Kbm9FeqjfniSjpUWy7ml0gJjyXjXkpQ"
+        }
+    });
+
+    geolocator.ensureGoogleLoaded(function (err) {
+    if (err) return;
+    console.log('google' in window); // true
+    });
+
+    $(document).ready(function() {
+      window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+      window.markers = [];
+
+      function getcoord() {
+        var options = {
+          enableHighAccuracy: false,
+          timeout: 5000,
+          maximumWait: 10000,     // max wait time for desired accuracy
+          maximumAge: 0,          // disable cache
+          desiredAccuracy: 30,    // meters
+          fallbackToIP: true,     // fallback to IP if Geolocation fails or rejected
+          addressLookup: true,    // requires Google API key if true
+          //timezone: true,         // requires Google API key if true
+          //map: {element: "map-canvas"},      // interactive map element id (or options object)
+          //staticMap: true         // map image URL (boolean or options object)
+          };
+
+        geolocator.locate(options, function (err, location) {
+          if (err) return console.log(err);
+          var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
+          map.panTo(coord);
+
+          marker = new google.maps.Marker({position: coord, map: map});
+          markers.push(marker)
+          map.setZoom(14);
+        });
+      };
+
+      getcoord();
+
+    });
+
+
+
+
+  <% end %>
+<% end %>
+
+
+
 </div>
-
-
-

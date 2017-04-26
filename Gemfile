@@ -22,6 +22,7 @@ gem 'autoprefixer-rails'
 
 # geocoding configuration
 gem 'geocoder'
+gem 'rails-assets-geolocator', source: 'https://rails-assets.org'
 
 gem 'omniauth-facebook'
 
