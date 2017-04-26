@@ -12,9 +12,9 @@ class ConfirmationPolicy < ApplicationPolicy
 #    true  # Anyone Logged In can view a confirmation
 #  end
 #
-#  def create?
-#    true  # Anyone Logged In can create a confirmation
-#  end
+  def create?
+    true  # Anyone Logged In can create a confirmation
+  end
 #
 #  def update?
 #    record.user == user  # Only confirmation creator can update it
