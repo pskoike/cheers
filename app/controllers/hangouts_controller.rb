@@ -25,7 +25,7 @@ class HangoutsController < ApplicationController
        if @hangout.save
           redirect_to hangouts_path
        else
-         render 'hangouts/new'
+         render :new
        end
      end
   end

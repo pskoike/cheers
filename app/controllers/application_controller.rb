@@ -25,9 +25,9 @@ class ApplicationController < ActionController::Base
      @hangout.user = current_user
      @hangout.save
      # clear session
-      session[:list] = nil
+      session[:hangout] = nil
       #redirect
-      return @hangout
+      new_hangout_confirmation_path(@hangout)
     else
       super
     end
