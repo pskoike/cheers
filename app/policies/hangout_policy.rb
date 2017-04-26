@@ -16,16 +16,8 @@ class HangoutPolicy < ApplicationPolicy
    true  # Anyone Logged In can create a hangout
  end
 
- # def update?
- #   record.user == user  # Only hangout creator can update it
- # end
- #
- # def destroy?
- #   record.user == user  # Only hangout creator can update it
- # end
- #
- #  def set_hangout?
- #    true
- #  end
+ def set_hangout?
+   true
+ end
 
 end

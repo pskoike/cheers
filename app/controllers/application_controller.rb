@@ -18,20 +18,20 @@ class ApplicationController < ActionController::Base
   end
 
   # Check if there is a session hangout information
-  # def after_sign_in_path_for(resource)
-  #   if session[:hangout].present?
-  #     # save hangout
-  #    @hangout = Hangout.new(session[:hangout])
-  #    @hangout.user = current_user
-  #    @hangout.save
-  #    # clear session
-  #     session[:list] = nil
-  #     #redirect
-  #     redirect_to root
-  #   else
-  #     super
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    if session[:hangout].present?
+      # save hangout
+     @hangout = Hangout.new(session[:hangout]["hangout"])
+     @hangout.user = current_user
+     @hangout.save
+     # clear session
+      session[:list] = nil
+      #redirect
+      return @hangout
+    else
+      super
+    end
+  end
 
   private
 
