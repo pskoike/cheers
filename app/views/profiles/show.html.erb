@@ -10,7 +10,7 @@
 
   <ul>
     <%@hangouts_as_host.each do |hangout|%>
-      <li> Dia <%= hangout.date.strftime('%d %b, %Y')%> as <%= hangout.date.strftime('%I:%M%P')%> <strong><%= hangout.title%></strong> com <%= hangout.confirmations.count%> confirmados </li>
+      <li> Dia <%= hangout.date.strftime('%d %b, %Y')%> as <%= hangout.date.strftime('%I:%M%P')%> <strong><%= link_to hangout.title, hangout_path(hangout)%></strong> com <%= hangout.confirmations.count%> confirmados </li>
       <% end %>
   </ul>
 
@@ -18,7 +18,7 @@
 
   <ul>
     <%@hangouts_as_guest.each do |hangout|%>
-      <li> Dia <%= hangout.date.strftime('%d %b, %Y')%> as <%= hangout.date.strftime('%I:%M%P')%> <strong><%= hangout.title%></strong> organizado por <%= hangout.user.first_name %> </li>
+      <li> Dia <%= hangout.date.strftime('%d %b, %Y')%> as <%= hangout.date.strftime('%I:%M%P')%> <strong><%= link_to hangout.title, hangout_path(hangout)%></strong> organizado por <%= hangout.user.first_name %> </li>
     <% end %>
   </ul>
 
