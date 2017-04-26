@@ -69,4 +69,6 @@ pt-BR:
       sign_in: Entrar
       sign_out: Sair
       top_call_to_action: Top call to action
-
+  hangouts:
+    new:
+      title: Crie um encontro, convide facilmente seus amigos e deixe o Cheers te ajudar na escolho do melhor lugar!
