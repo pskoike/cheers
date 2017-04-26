@@ -23,3 +23,15 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+
+.transport-btn{
+  width: 35px;
+  border-radius: 15%;
+  border: 1px solid lightgrey;
+  z-index: 1;
+}
+
+.active{
+  background-color: blue;
+}

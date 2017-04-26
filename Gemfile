@@ -25,6 +25,8 @@ gem 'rails-assets-jssocials', source: 'https://rails-assets.org'
 
 # geocoding configuration
 gem 'geocoder'
+gem 'rails-assets-geolocator', source: 'https://rails-assets.org'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 

@@ -1,13 +1,34 @@
 <div class="container">
   <div class="row">
     <div class="col-xs 12">
+
         <%= simple_form_for([@hangout, @confirmation]) do |f| %>
-          <%= f.input :leaving_address, id: "leaving_address", placeholder: t('.placeholder'), label: false %>
-          <%= f.submit class: 'btn btn-default', value: t(".btn-text") %>
+          <div class="form-inline">
+            <%= f.input :leaving_address, placeholder: t('.placeholder'), label: false %>
+            <%= f.input :transportation, label: false %>
+            <%= f.input :latitude, label: false %>
+            <%= f.input :longitude, label: false %>
+            <%= f.submit class: 'btn btn-default', value: t(".btn-text") %>
+          </div>
         <% end %>
+
     </div>
   </div>
+
+
+<div class="row">
+    <div class="col-xs 12">
+      <div id="map" style="width:100%;height:200px"></div>
+      <ul class="list-inline">
+      <li><button><%= image_tag "driving.png", id: "driving", class: "active transport-btn"%></button></li>
+      <li><button><%= image_tag "transit.png", id: "transit", class: "transport-btn"%></button></li>
+      <li><button><%= image_tag "walking.png", id: "walking", class: "transport-btn"%></button></li>
+      <li><button><%= image_tag "cycling.png", id: "cycling", class: "transport-btn"%></button></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
 </div>
-
-
-
