@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  //Google auto-complete
   var flat_address = $('#confirmation_leaving_address').get(0);
 
   if (flat_address) {
@@ -11,6 +12,22 @@ $(document).ready(function() {
       }
     });
   }
+
+  //Changing transportation mode if click
+  var transportation = 'DRIVING';
+  listen_transporation();
+
+console.log(transportation);
+  //var post = {leaving_address: 'x',latitude: 'x', longitude: 'x',transportation:'drive'}
+ // $.ajax({
+ //    type: "POST",
+ //    url: url,
+ //    data: post,
+ //    success: function(data) {
+ //      console.log(data);
+ //      }
+ //    });
+
 });
 
 
@@ -64,4 +81,33 @@ function getAddressComponents(place) {
   }
 
   return {address: place.formated_address};
+}
+
+
+function listen_transporation(){
+
+  $("#driving").on("click", function(e){e.preventDefault();
+    transportation = 'DRIVING';
+    $(".transport-btn").removeClass('active');
+    $("#driving").toggleClass('active');
+    console.log(transportation);
+  });
+  $("#transit").on("click", function(e){e.preventDefault();
+    transportation = 'TRANSIT';
+    $(".transport-btn").removeClass('active');
+    $("#transit").toggleClass('active');
+    console.log(transportation);
+  });
+  $("#walking").on("click", function(e){e.preventDefault();
+    transportation = 'WALKING';
+    $(".transport-btn").removeClass('active');
+    $("#walking").toggleClass('active');
+    console.log(transportation);
+  });
+  $("#cycling").on("click", function(e){e.preventDefault();
+    transportation = 'BICYCLING';
+    $(".transport-btn").removeClass('active');
+    $("#cycling").toggleClass('active');
+    console.log(transportation);
+  });
 }

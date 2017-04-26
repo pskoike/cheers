@@ -15,43 +15,26 @@
 <div class="row">
     <div class="col-xs 12">
       <div id="map" style="width:100%;height:300px"></div>
+      <ul class="list-inline">
+      <li><button><%= image_tag "driving.png", id: "driving", class: "active transport-btn"%></button></li>
+      <li><button><%= image_tag "transit.png", id: "transit", class: "transport-btn"%></button></li>
+      <li><button><%= image_tag "walking.png", id: "walking", class: "transport-btn"%></button></li>
+      <li><button><%= image_tag "cycling.png", id: "cycling", class: "transport-btn"%></button></li>
+      </ul>
     </div>
   </div>
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
 
-    geolocator.config({
-        language: "en",
-        google: {
-            version: "3",
-            key: "AIzaSyC5Kbm9FeqjfniSjpUWy7ml0gJjyXjXkpQ"
-        }
-    });
 
-    geolocator.ensureGoogleLoaded(function (err) {
-    if (err) return;
-    console.log('google' in window); // true
-    });
+    geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
 
     $(document).ready(function() {
       window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
       window.markers = [];
 
       function getcoord() {
-        var options = {
-          enableHighAccuracy: false,
-          timeout: 5000,
-          maximumWait: 10000,     // max wait time for desired accuracy
-          maximumAge: 0,          // disable cache
-          desiredAccuracy: 30,    // meters
-          fallbackToIP: true,     // fallback to IP if Geolocation fails or rejected
-          addressLookup: true,    // requires Google API key if true
-          //timezone: true,         // requires Google API key if true
-          //map: {element: "map-canvas"},      // interactive map element id (or options object)
-          //staticMap: true         // map image URL (boolean or options object)
-          };
-
-        geolocator.locate(options, function (err, location) {
+        geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {
           if (err) return console.log(err);
           var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
           map.panTo(coord);
@@ -61,17 +44,9 @@
           map.setZoom(14);
         });
       };
-
       getcoord();
-
     });
-
-
-
-
   <% end %>
 <% end %>
-
-
 
 </div>
