@@ -1,0 +1,16 @@
+<div class="text-center padded">
+
+<h2>Cheers!</h2>
+
+
+  <p><%= t('.message', host_name: @hangout.user.first_name ) %></p>
+<h2><%= @hangout.title%></h2>
+
+  <p><%= t('.day', day: @hangout.date.strftime('%d %b, %Y') ) %></p>
+  <p><%= t('.hour', hour: @hangout.date.strftime('%I:%M%P') ) %></p>
+
+
+</button></p>
+  <div id="share"></div>
+</div>
+

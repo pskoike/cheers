@@ -98,3 +98,8 @@ en:
     share:
       message: Hangout ready! Invite your friends!
 
+    invitation:
+      message: "%{host_name} invited to hangout!"
+      day: "On: %{day}"
+      hour: "At: %{hour}"
+
