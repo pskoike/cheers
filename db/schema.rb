@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20170427192059) do
     t.index ["user_id"], name: "index_hangouts_on_user_id", using: :btree
   end
 
+  create_table "place_options", force: :cascade do |t|
+    t.integer  "hangout_id"
+    t.integer  "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hangout_id"], name: "index_place_options_on_hangout_id", using: :btree
+    t.index ["place_id"], name: "index_place_options_on_place_id", using: :btree
+  end
+
   create_table "places", force: :cascade do |t|
     t.string   "address"
     t.string   "name"
@@ -57,15 +66,6 @@ ActiveRecord::Schema.define(version: 20170427192059) do
     t.string   "category"
     t.string   "fsq_url"
     t.string   "fsq_id"
-  end
-
-  create_table "places_options", force: :cascade do |t|
-    t.integer  "hangout_id"
-    t.integer  "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hangout_id"], name: "index_places_options_on_hangout_id", using: :btree
-    t.index ["place_id"], name: "index_places_options_on_place_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +99,6 @@ ActiveRecord::Schema.define(version: 20170427192059) do
   add_foreign_key "confirmations", "users"
   add_foreign_key "hangouts", "places"
   add_foreign_key "hangouts", "users"
-  add_foreign_key "places_options", "hangouts"
-  add_foreign_key "places_options", "places"
+  add_foreign_key "place_options", "hangouts"
+  add_foreign_key "place_options", "places"
 end
