@@ -23,7 +23,7 @@ class HangoutsController < ApplicationController
        authorize @hangout
        @hangout.user = current_user
        if @hangout.save
-          redirect_to hangouts_path
+          redirect_to new_hangout_confirmation_path(@hangout)
        else
          render :new
        end
