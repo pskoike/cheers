@@ -3,6 +3,7 @@ class ConfirmationsController < ApplicationController
   before_action :set_confirmation, only: [:edit, :update, :destroy]
 
   def new
+    #check if exist confirmation for current and hg if yes redirect to hangshow
     @confirmation = Confirmation.new
     authorize @confirmation
   end
