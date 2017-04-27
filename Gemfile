@@ -19,6 +19,11 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'rails-assets-clipboard', source: 'https://rails-assets.org'
+
+# date picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 # Social Share
 gem 'rails-assets-jssocials', source: 'https://rails-assets.org'
