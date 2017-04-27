@@ -99,3 +99,13 @@ en:
       message: Hangout ready! Invite your friends!
     confirmationfollowup:
       button_launch_vote: Enough confirmations, propose places
+    invitation:
+      message: "%{host_name} invited to hangout!"
+      day: " on %{day}"
+      hour: " starting at %{hour}"
+      where: "Where 'll it be?"
+      concept_explanation_html: "Our crazy scientists will calculate the best location %{link}"
+      explanation_link_html: "learn more"
+      question: "Are you going?"
+      yes_btn: "Of course, I'm In!"
+      no_btn: "Can't make it..."
