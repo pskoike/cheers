@@ -1,0 +1,60 @@
+    <div class="hangout-title">
+      <h1><%=@hangout.title%></h1>
+
+      <%= image_tag current_user.facebook_picture_url, class: "avatar"%>
+    </div>
+    <div id="map" style="width: 100%; height: 300px;"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).ready(function initMap() {
+
+          var markers = (<%= raw @confirmation_markers.to_json %>);
+          var bounds = new google.maps.LatLngBounds();
+          markers.forEach(function(marker) {
+            var marker = new google.maps.Marker({
+              position: {lat: marker.lat, lng: marker.lng},
+              map: map,
+            });
+          bounds.extend(marker.position);
+          });
+
+          map.fitBounds(bounds);
+          var center = (<%= raw @center.to_json %>);
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: {lat: center.lat, lng: center.lng},
+            radius: <%=@radius%>
+          });
+        });
+
+      <% end %>
+    <% end %>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="text-center calendar-wrapper">
+        <p><%=@hangout.category%></p>
+        <%= image_tag 'calendar.png', class: "calendar"%>
+        <p><%=@hangout.date.strftime('%d %b, %Y')%></p>
+        <p><%=@hangout.date.strftime('%I:%M%P')%></p>
+      </div>
+    </div>
+    <div class="col-xs-8">
+    <ul class="guest">
+      <% @confirmations.each do |confirmation| %>
+      <p> <%= image_tag confirmation.user.facebook_picture_url, class: "avatar"%>
+        <%= "#{confirmation.user.first_name} #{confirmation.user.last_name}"%></p>
+      <%end%>
+    </ul>
+    </div>
+  </div>
+
+
+<div class="launch-vote">
+  <button><%=t('.button_launch_vote')%></button>
+</div>

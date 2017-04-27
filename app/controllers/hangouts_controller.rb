@@ -31,7 +31,25 @@ class HangoutsController < ApplicationController
   end
 
 def show
+  @confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
+  @confirmation_markers = []
+  @confirmations.each do |confirmation|
+    @confirmation_markers << {lat: confirmation.latitude, lng: confirmation.longitude}
+  end
 
+  nb = @confirmations.count
+  avg_lat = @confirmations.reduce(0){ |sum, el| sum + el.latitude }.to_f / nb
+  avg_ln = @confirmations.reduce(0){ |sum, el| sum + el.longitude }.to_f / nb
+  @center = {lat: avg_lat, lng: avg_ln}
+
+  delta_lat = (@confirmations.max_by {|x| x.latitude}).latitude - (@confirmations.min_by {|x| x.latitude}).latitude
+  delta_lng = (@confirmations.max_by {|x| x.longitude}).longitude - (@confirmations.min_by {|x| x.longitude}).longitude
+
+  raw_radius = (delta_lat + delta_lng) / 4
+
+  magic_factor = 20000
+
+  @radius = raw_radius * magic_factor
 end
 
 

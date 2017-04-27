@@ -1,7 +1,15 @@
 $(document).ready(function() {
+  window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+
+  if ($('#confirmation_page').length === 0) {
+   return;
+  };
+
+  console.log('keyyy')
   geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
 
-  window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+  // window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
+
   var markers = [];
 
   var transportation = 'DRIVING';
@@ -59,6 +67,8 @@ $(document).ready(function() {
 
 
 });
+
+
 
 
 function listen_transporation(){
