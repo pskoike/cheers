@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'rails-assets-clipboard', source: 'https://rails-assets.org'
 
 # Social Share
 gem 'rails-assets-jssocials', source: 'https://rails-assets.org'

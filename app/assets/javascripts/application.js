@@ -1,4 +1,5 @@
 //= require geolocator
+//= require clipboard
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
