@@ -1,2 +1,0 @@
-class PlacesOptionsController < ApplicationController
-end
