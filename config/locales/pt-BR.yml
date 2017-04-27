@@ -95,4 +95,17 @@ pt-BR:
   hangouts:
     share:
       message: Hangout pronto! Convide seus amigos!
+    confirmationfollowup:
+      button_launch_vote: Chega de enrolçao, cade?
+
+    invitation:
+      message: "%{host_name} te convido para um hangout!"
+      day: " no dia %{day}"
+      hour: " as %{hour}"
+      where: "Onde vai ser?"
+      concept_explanation_html: "Nosso time de scientistas vao calcular o melhor lugar, %{link}"
+      explanation_link_html: "como?"
+      question: "Voce vai ficar fora dessa?"
+      yes_btn: "Nem pensar to dentro!"
+      no_btn: "... nao posso"
 

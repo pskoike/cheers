@@ -25,13 +25,72 @@
 }
 
 
+//Button on the confirmation new view
 .transport-btn{
   width: 35px;
-  border-radius: 15%;
+  border-radius: 25%;
+  background-color: #E5E5E5;
+  opacity: 50%;
   border: 1px solid lightgrey;
   z-index: 1;
 }
 
 .active{
-  background-color: blue;
+  filter: invert(100%);
+  // background-color: #FFF0A4;
+}
+
+.btn-wrapper{
+  padding-right: 10%;
+  padding-left:10%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position:absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  li{
+    padding: 5%;
+  }
+}
+
+
+.hangout-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin: 0.3em;
+  h1{
+  font-size: 1em;
+  margin: 0px;
+  }
+}
+
+.guest{
+  p{ font-size: 0.8em;
+  }
+}
+
+.calendar{
+  width: 2.5em;
+}
+
+.calendar-wrapper{
+  p{font-size: 0.8em;
+  }
+}
+
+.gmnoprint{
+  visibility: hidden;
+}
+
+.launch-vote{
+  position:absolute;
+  top: 35px;
+  right: 33%;
 }
