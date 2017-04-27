@@ -7,6 +7,7 @@
 #  encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
 #)
 #d.save
+PlaceOption.destroy_all
 Confirmation.destroy_all
 Hangout.destroy_all
 User.destroy_all
@@ -41,7 +42,7 @@ c.save
 
 d = User.new( first_name: "Jean-Baptiste",
   last_name: "Feldis",
-  facebook_picture_url: "",
+  facebook_picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAj6AAAAJGQzNDFjMTAxLTc5YTMtNDQ0Ni1hYTc4LTRhNWZiYTY2MGI0Zg.jpg",
   email: "jb@gmail.com",
   password: "123456",
   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
@@ -320,3 +321,47 @@ bonbarato5 = Place.new(
 bonbarato5.save
 
 print "Created: #{Place.count} places "
+
+opt11 = PlaceOption.new()
+opt12 = PlaceOption.new()
+opt13 = PlaceOption.new()
+opt14 = PlaceOption.new()
+opt15 = PlaceOption.new()
+  opt11.hangout = hang1
+  opt12.hangout = hang1
+  opt13.hangout = hang1
+  opt14.hangout = hang1
+  opt15.hangout = hang1
+    opt11.place = bar1
+    opt12.place = bar2
+    opt13.place = bar3
+    opt14.place = bar4
+    opt15.place = bar5
+      opt11.save
+      opt12.save
+      opt13.save
+      opt14.save
+      opt15.save
+
+opt21 = PlaceOption.new()
+opt22 = PlaceOption.new()
+opt23 = PlaceOption.new()
+opt24 = PlaceOption.new()
+opt25 = PlaceOption.new()
+  opt21.hangout = hang2
+  opt22.hangout = hang2
+  opt23.hangout = hang2
+  opt24.hangout = hang2
+  opt25.hangout = hang2
+    opt21.place = restaurant1
+    opt22.place = restaurant2
+    opt23.place = restaurant3
+    opt24.place = restaurant4
+    opt25.place = restaurant5
+      opt21.save
+      opt22.save
+      opt23.save
+      opt24.save
+      opt25.save
+
+print "Created: #{PlaceOption.count} Place Option "
