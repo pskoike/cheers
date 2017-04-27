@@ -97,4 +97,5 @@ en:
   hangouts:
     share:
       message: Hangout ready! Invite your friends!
-
+    confirmationfollowup:
+      button_launch_vote: Enough confirmations, propose places

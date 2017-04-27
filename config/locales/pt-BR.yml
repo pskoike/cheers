@@ -95,4 +95,6 @@ pt-BR:
   hangouts:
     share:
       message: Hangout pronto! Convide seus amigos!
+    confirmationfollowup:
+      button_launch_vote: Chega de enrolçao, cade?
 
