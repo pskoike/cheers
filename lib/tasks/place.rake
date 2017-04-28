@@ -17,7 +17,7 @@ namespace :place do
     venues_list = {}
     CATEGORIES.each do |k, v|
       puts "Importing venues from #{k}"
-       url ="https://api.foursquare.com/v2/venues/search?v=20161016&ll=-23.557321,-46.693461&categoryId=#{v}&client_id=NHMKJWILK1SJM00EQ1WNDI5EQS3TYNVUOQFBUARSGDTIVJK1&client_secret=JFZQACYBUYN4TDKJUWB5X45RVV3PRLLBXCPBEEUVZ2MJKLET"
+       url ="https://api.foursquare.com/v2/venues/search?v=20161016&near=Sao%20Paulo%2C%20SP&categoryId=#{v}&client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}"
         url.gsub!('"')
         venues_from_k = RestClient.get url.to_s
         # list of venues from each category
@@ -31,6 +31,9 @@ namespace :place do
     end
     venues_list.each do |k, v|
       puts "#{v.count} venues  form #{k} imported"
+      v.each do |n|
+        puts n # print a list od venues ID estored in the hash venues_list
+      end
     end
   end
 end
