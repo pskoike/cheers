@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+<%= simple_form_for(@hangout) do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :title, placeholder: "" %>
+    <%= f.input :category, placeholder: "" %>
+    <%= f.input :date, as: "string", input_html: { class: 'datetimepicker' }%>
+    <%= f.input :center_address %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+            $(function () {
+                $('.datetimepicker').datetimepicker({
+                   format: 'DD-MM-YYYY HH:m',
+                });
+            });
+  </script>
+<% end %>

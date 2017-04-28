@@ -10,6 +10,7 @@
 
           var markers = (<%= raw @confirmation_markers.to_json %>);
           var bounds = new google.maps.LatLngBounds();
+
           markers.forEach(function(marker) {
             var marker = new google.maps.Marker({
               position: {lat: marker.lat, lng: marker.lng},
@@ -18,7 +19,15 @@
           bounds.extend(marker.position);
           });
 
-          map.fitBounds(bounds);
+          console.log(<%= @confirmation_markers.count%>)
+
+          if ( <%= @confirmation_markers.count%> > 1) {map.fitBounds(bounds);}
+          else {
+            map.setZoom(14);
+            console.log('lat:' + ''  + markers[0].lat)
+            map.panTo({lat: markers[0].lat, lng: markers[0].lng})
+          };
+
           var center = (<%= raw @center.to_json %>);
           var cityCircle = new google.maps.Circle({
             strokeColor: '#FF0000',
@@ -54,7 +63,12 @@
     </div>
   </div>
 
+<% if @hangout.user = current_user %>
+  <div class="launch-vote">
+    <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
+  </div>
+  <%= link_to edit_hangout_path(@hangout) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>&nbsp
+  <%= button_to cancel_hg_hangout_path(@hangout), method: :patch, data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %>
+<% end %>
 
-<div class="launch-vote">
-  <button><%=t('.button_launch_vote')%></button>
-</div>
+
