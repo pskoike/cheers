@@ -5,6 +5,11 @@
 </button></p>
   <div id="share"></div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<%= button_to "View Hangout", hangout_path(@hangout), method: :get, class: "btn btn-success" %>
 
 <% content_for :after_js do %>
   <script>
@@ -20,3 +25,4 @@
     });
   </script>
 <% end %>
+

@@ -1,6 +1,6 @@
 class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
-  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :close_vote]
+  before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :close_vote]
 
   def new
     @hangout = Hangout.new
@@ -102,6 +102,9 @@ class HangoutsController < ApplicationController
     @hangout.place = Place.find(62)  # XXXXXXXXXX put calculation here to get the real vote ouput
     @hangout.save
     redirect_to hangout_path(@hangout)
+  end
+
+  def share
   end
 
   private
