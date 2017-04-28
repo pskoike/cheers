@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     resources :hangouts do
       member do
+        get "share"
         patch "launch_vote"
         patch "cancel_hg"
         patch "close_vote"
