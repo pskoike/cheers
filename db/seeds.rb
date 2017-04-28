@@ -64,6 +64,7 @@ print "Created: #{User.count} users "
 hang1 = Hangout.new(
     title:"Aniversario no Empanadas",
     date:"20/05/2017",
+    status: "confirmations_on_going",
     category:"Boteco",
     center_address:"Rua Wizard, 489 - Vila Madalena, São Paulo - SP, 05434-080"
     )
@@ -73,6 +74,7 @@ hang1.save
 hang2 = Hangout.new(
     title:"Comemoracao Demoday",
     date:"07/05/2017",
+    status: "confirmations_on_going",
     category:"Bar",
     )
 hang2.user = d
@@ -81,6 +83,7 @@ hang2.save
 hang3 = Hangout.new(
     title:"So pra beber",
     date:"20/06/2017",
+    status: "confirmations_on_going",
     category:"Restaurante"
     )
 hang3.user = b
@@ -89,6 +92,7 @@ hang3.save
 hang4 = Hangout.new(
     title:"Porque a Noite uma crianca",
     date:"13/02/2017",
+    status: "confirmations_on_going",
     category:"Bar"
     )
 hang4.user = a
@@ -97,6 +101,7 @@ hang4.save
 hang4 = Hangout.new(
     title:"La no passado",
     date:"13/06/2016",
+    status: "confirmations_on_going",
     category:"Bar"
     )
 hang4.user = d
