@@ -34,4 +34,23 @@ class ConfirmationsController < ApplicationController
 
   def update
   end
+
+  def destroy
+  end
+
+private
+
+ def set_confirmation
+    @confirmation = Confirmation.find(params[:id])
+  end
+
+   def set_hangout
+    @hangout = Hangout.find(params[:hangout_id])
+  end
+
+ def confirmation_params
+    # *Strong params*: You need to *whitelist* what can be updated by the user
+    # Never trust user data!
+    params.require(:confirmation).permit(:leaving_address, :transportation, :latitude, :longitude)
+  end
 end
