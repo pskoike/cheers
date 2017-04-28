@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       member do
         patch "launch_vote"
         patch "cancel_hg"
+        patch "close_vote"
       end
       resources :confirmations, only: [:new, :create, :edit, :update, :destroy]
     end

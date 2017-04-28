@@ -63,7 +63,7 @@
     </div>
   </div>
 
-<% if @hangout.user = current_user %>
+<% if @hangout.user == current_user %>
   <div class="launch-vote">
     <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
   </div>

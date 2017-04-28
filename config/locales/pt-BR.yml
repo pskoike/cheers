@@ -108,4 +108,9 @@ pt-BR:
       question: "Voce vai ficar fora dessa?"
       yes_btn: "Nem pensar to dentro!"
       no_btn: "... nao posso"
+    vote_option:
+      message: "%{title} esta chegando!"
+      list: "XXXXX to translate"
+      vote: "XXXXX to translate"
+      button_final_vote: "Encerrar votação"
 
