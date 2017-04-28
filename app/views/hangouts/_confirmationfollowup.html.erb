@@ -64,10 +64,12 @@
   </div>
 
 <% if @hangout.user == current_user %>
-  <div class="launch-vote">
+    <%= button_to "share", share_hangout_path(@hangout), method: :get, class: "btn btn-success" %> <br>
     <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
   </div>
-  <%= link_to edit_hangout_path(@hangout) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>&nbsp
+  <%= link_to edit_hangout_path(@hangout) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+  <br>
+  <br>
   <%= button_to cancel_hg_hangout_path(@hangout), method: :patch, data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %>
 <% end %>
 

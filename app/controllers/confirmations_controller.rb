@@ -19,7 +19,11 @@ class ConfirmationsController < ApplicationController
     authorize @confirmation
 
     if @confirmation.save
-      redirect_to hangout_path(@hangout)
+      if @hangout.user == current_user
+        redirect_to share_hangout_path(@hangout)
+      else
+        redirect_to hangout_path(@hangout)
+      end
     else
       render :new
     end

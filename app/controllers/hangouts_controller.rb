@@ -1,6 +1,7 @@
 class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
-  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?, :close_vote]
+
+  before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?,:close_vote]
 
 
   def new
@@ -30,7 +31,7 @@ class HangoutsController < ApplicationController
       else
         render :new
       end
-     end
+    end
   end
 
   def show
@@ -60,6 +61,11 @@ class HangoutsController < ApplicationController
         magic_factor = 20000
 
         @radius = raw_radius * magic_factor
+
+        @hangout.latitude = @center[:lat]
+        @hangout.longitude = @center[:lng]
+        @hangout.radius = @radius
+        @hangout.save
 
       elsif @hangout.status == "vote_on_going"
         @render = 'vote_option'
@@ -134,7 +140,11 @@ class HangoutsController < ApplicationController
     redirect_to hangout_path(@hangout)
   end
 
-private
+
+  def share
+  end
+
+  private
 
   def hangout_params
     params.require(:hangout).permit(:title, :date, :category, :center_address, :status)
