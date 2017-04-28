@@ -8,10 +8,11 @@
 
  <ul >
     <% @hangout.place_options.each do |option|%>
-      <li class="text-center" ><%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      <li class="text-center" ><%= button_to( submit_vote_hangout_path(@hangout), method: :patch, params: {place_id: option.place_id}, class: "btn btn-primary") do %>
         <i class="icon-ok icon-white"></i> Vote
       <% end %>
-      </div> <%= option.place.name %></li>
+      <%= option.place.name %></li>
+      </div>
       <br>
       <% end %>
   </ul>

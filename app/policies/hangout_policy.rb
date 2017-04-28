@@ -34,6 +34,10 @@ class HangoutPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def submit_vote?
+    record.user == user
+  end
+
   def set_hangout?
     true
   end

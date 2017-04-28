@@ -1,6 +1,6 @@
 class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
-  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :close_vote]
+  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :close_vote]
 
   def new
     @hangout = Hangout.new
@@ -68,6 +68,16 @@ class HangoutsController < ApplicationController
         @render = 'cancelled'
       end
     end
+  end
+
+  def submit_vote
+    a = params[:place_id]
+    place = Place.find(params[:place_id])
+    @confirmation = Confirmation.find_by(user: @current_user, hangout: @hangout)
+    @confirmation.place = place
+    authorize @hangout
+    @confirmation.save
+    redirect_to hangout_path(@hangout)
   end
 
   def launch_vote
