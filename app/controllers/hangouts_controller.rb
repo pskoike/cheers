@@ -94,7 +94,6 @@ class HangoutsController < ApplicationController
   end
   helper_method :voted_place
 
-
   def launch_vote
     @hangout.status = "vote_on_going"
     @hangout.save
@@ -119,8 +118,19 @@ class HangoutsController < ApplicationController
 
   def close_vote
     @hangout.status = "result"
-    @hangout.place = Place.find(62)  # XXXXXXXXXX put calculation here to get the real vote ouput
-    @hangout.save
+    votes = []
+      @hangout.confirmations.each do |conf|
+        if conf.place
+         votes << conf.place
+        end
+      end
+    counts = Hash.new 0
+    votes.each do |place|
+     counts[place] += 1
+    end
+    winner = counts.max_by{|k,v| v}[0] # put logic if there is 2 places with same vote
+    @hangout.place = winner
+    @hangout.save!
     redirect_to hangout_path(@hangout)
   end
 
