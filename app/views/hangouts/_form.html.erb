@@ -10,13 +10,14 @@
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 </div>
-
+<div id="test">xxx</div>
 <% content_for :after_js do %>
   <script>
             $(function () {
-                $('.datetimepicker').datetimepicker({
-                   format: 'DD-MM-YYYY HH:m',
+                var date = $('.datetimepicker').datetimepicker({
+                   format:'DD/MM/YYYY HH:mm',
                 });
+            $('#test').text = date;
             });
   </script>
 <% end %>

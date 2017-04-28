@@ -29,7 +29,7 @@ class HangoutsController < ApplicationController
       else
         render :new
       end
-     end
+    end
   end
 
   def show
@@ -59,6 +59,11 @@ class HangoutsController < ApplicationController
         magic_factor = 20000
 
         @radius = raw_radius * magic_factor
+
+        @hangout.latitude = @center[:lat]
+        @hangout.longitude = @center[:lng]
+        @hangout.radius = @radius
+        @hangout.save
 
       elsif @hangout.status == "vote_on_going"
         @render = 'vote_option'
