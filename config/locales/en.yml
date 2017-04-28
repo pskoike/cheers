@@ -116,4 +116,6 @@ en:
       message: "%{title} is coming soon!"
       list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
       vote: "Vote for your Favorite!"
+      has_voted: "Your champion:"
+      wait: "Wait for the votation to finish"
       button_final_vote: "Close votation"

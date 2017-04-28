@@ -1,6 +1,7 @@
 class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
-  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :close_vote]
+  before_action :set_hangout, only: [:show, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?, :close_vote]
+
 
   def new
     @hangout = Hangout.new
@@ -71,14 +72,28 @@ class HangoutsController < ApplicationController
   end
 
   def submit_vote
-    a = params[:place_id]
     place = Place.find(params[:place_id])
-    @confirmation = Confirmation.find_by(user: @current_user, hangout: @hangout)
-    @confirmation.place = place
+    confirmation.place = place
     authorize @hangout
     @confirmation.save
     redirect_to hangout_path(@hangout)
   end
+
+  def has_voted?
+    confirmation.place.present?
+  end
+  helper_method :has_voted?
+
+  def place_list
+    @hangout.place_options
+  end
+  helper_method :place_list
+
+  def voted_place
+    confirmation.place
+  end
+  helper_method :voted_place
+
 
   def launch_vote
     @hangout.status = "vote_on_going"
@@ -109,7 +124,7 @@ class HangoutsController < ApplicationController
     redirect_to hangout_path(@hangout)
   end
 
-  private
+private
 
   def hangout_params
     params.require(:hangout).permit(:title, :date, :category, :center_address, :status)
@@ -120,4 +135,7 @@ class HangoutsController < ApplicationController
     authorize @hangout
   end
 
+  def confirmation
+    @confirmation ||= Confirmation.find_by(user: @current_user, hangout: @hangout)
+  end
 end
