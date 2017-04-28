@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
+    authorize @user
     @hangouts_as_host = @user.hangouts
 
     @hangouts_as_guest = []
@@ -10,7 +11,6 @@ class ProfilesController < ApplicationController
         @hangouts_as_guest << conf.hangout
       end
     @hangouts_as_guest
-    authorize @user
   end
 end
 
