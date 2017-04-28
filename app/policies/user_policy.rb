@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    record == user  # Anyone Logged In can view his own profile
+    record == user # Anyone Logged In can view his own profile
   end
 
 

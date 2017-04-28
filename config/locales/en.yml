@@ -99,6 +99,9 @@ en:
       message: Hangout ready! Invite your friends!
     confirmationfollowup:
       button_launch_vote: Enough confirmations, propose places
+      alert_delete: Are you sure you want to delete the event?
+    edit:
+      alert_delete: Are you sure you want to delete the event?
     invitation:
       message: "%{host_name} invited to hangout!"
       day: " on %{day}"
@@ -109,3 +112,8 @@ en:
       question: "Are you going?"
       yes_btn: "Of course, I'm In!"
       no_btn: "Can't make it..."
+    vote_option:
+      message: "%{title} is coming soon!"
+      list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
+      vote: "Vote for your Favorite!"
+      button_final_vote: "Close votation"

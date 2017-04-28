@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pt-BR/ do
 
     resources :hangouts do
+      member do
+        patch "launch_vote"
+        patch "cancel_hg"
+        patch "close_vote"
+      end
       resources :confirmations, only: [:new, :create, :edit, :update, :destroy]
     end
 

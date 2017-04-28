@@ -3,8 +3,12 @@ class ConfirmationsController < ApplicationController
   before_action :set_confirmation, only: [:edit, :update, :destroy]
 
   def new
-    @confirmation = Confirmation.new
-    authorize @confirmation
+    if @hangout.confirmations.where('user_id = ?', current_user).count == 0
+      @confirmation = Confirmation.new
+      authorize @confirmation
+    else
+      redirect_to hangout_path(@hangout)
+    end
   end
 
   def create
