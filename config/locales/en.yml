@@ -100,8 +100,12 @@ en:
     confirmationfollowup:
       button_launch_vote: Enough confirmations, propose places
       alert_delete: Are you sure you want to delete the event?
+    new:
+      new_title1: Hangout with your friend
+      new_title2: Create an event!
     edit:
       alert_delete: Are you sure you want to delete the event?
+      edit_title: Edit you Cheers event
     invitation:
       message: "%{host_name} invited to hangout!"
       day: " on %{day}"
@@ -117,3 +121,10 @@ en:
       list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
       vote: "Vote for your Favorite!"
       button_final_vote: "Close votation"
+    form:
+      placeholder_title: Title of your event
+      placeholder_catergory: Category
+      placeholder_date: 01/01/2017 20:00
+      address: Impose a neighborhood to the others!
+      placeholder_address: Neighborhood
+
