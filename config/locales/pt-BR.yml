@@ -110,7 +110,9 @@ pt-BR:
       no_btn: "... nao posso"
     vote_option:
       message: "%{title} esta chegando!"
-      list: "XXXXX to translate"
-      vote: "XXXXX to translate"
+      list: "Escolhimos a dedo 5 dos melhores %{category}s, na zona mais adequada para todosS."
+      vote: "Selecione o seu favorito!"
+      has_voted: "A sua escolha foi:"
+      wait: "Agora so aguardar a votação terminar"
       button_final_vote: "Encerrar votação"
 

@@ -1,6 +1,8 @@
 class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :index, :show]
-  before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :close_vote]
+
+  before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?,:close_vote]
+
 
   def new
     @hangout = Hangout.new
@@ -75,6 +77,29 @@ class HangoutsController < ApplicationController
     end
   end
 
+  def submit_vote
+    place = Place.find(params[:place_id])
+    confirmation.place = place
+    authorize @hangout
+    @confirmation.save
+    redirect_to hangout_path(@hangout)
+  end
+
+  def has_voted?
+    confirmation.place.present?
+  end
+  helper_method :has_voted?
+
+  def place_list
+    @hangout.place_options
+  end
+  helper_method :place_list
+
+  def voted_place
+    confirmation.place
+  end
+  helper_method :voted_place
+
   def launch_vote
     @hangout.status = "vote_on_going"
     @hangout.save
@@ -99,10 +124,22 @@ class HangoutsController < ApplicationController
 
   def close_vote
     @hangout.status = "result"
-    @hangout.place = Place.find(62)  # XXXXXXXXXX put calculation here to get the real vote ouput
-    @hangout.save
+    votes = []
+      @hangout.confirmations.each do |conf|
+        if conf.place
+         votes << conf.place
+        end
+      end
+    counts = Hash.new 0
+    votes.each do |place|
+     counts[place] += 1
+    end
+    winner = counts.max_by{|k,v| v}[0] # put logic if there is 2 places with same vote
+    @hangout.place = winner
+    @hangout.save!
     redirect_to hangout_path(@hangout)
   end
+
 
   def share
   end
@@ -118,4 +155,7 @@ class HangoutsController < ApplicationController
     authorize @hangout
   end
 
+  def confirmation
+    @confirmation ||= Confirmation.find_by(user: @current_user, hangout: @hangout)
+  end
 end
