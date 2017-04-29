@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         patch "close_vote"
       end
       resources :confirmations, only: [:new, :create, :edit, :update, :destroy]
+      resources :place_options, only: [:new, :create]
     end
 
     get 'profiles/show'

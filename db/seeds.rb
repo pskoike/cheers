@@ -65,7 +65,7 @@ hang1 = Hangout.new(
     title:"Aniversario no Empanadas",
     date:"20/05/2017",
     status: "confirmations_on_going",
-    category:"Boteco",
+    category:"bar",
     center_address:"Rua Wizard, 489 - Vila Madalena, São Paulo - SP, 05434-080"
     )
 hang1.user = a
@@ -75,7 +75,7 @@ hang2 = Hangout.new(
     title:"Comemoracao Demoday",
     date:"07/05/2017",
     status: "confirmations_on_going",
-    category:"Bar",
+    category:"bar",
     )
 hang2.user = d
 hang2.save
@@ -84,7 +84,7 @@ hang3 = Hangout.new(
     title:"So pra beber",
     date:"20/06/2017",
     status: "confirmations_on_going",
-    category:"Restaurante"
+    category:"restaurant"
     )
 hang3.user = b
 hang3.save
@@ -93,7 +93,7 @@ hang4 = Hangout.new(
     title:"Porque a Noite uma crianca",
     date:"13/02/2017",
     status: "confirmations_on_going",
-    category:"Bar"
+    category:"bar"
     )
 hang4.user = a
 hang4.save
@@ -102,7 +102,7 @@ hang4 = Hangout.new(
     title:"La no passado",
     date:"13/06/2016",
     status: "confirmations_on_going",
-    category:"Bar"
+    category:"bar"
     )
 hang4.user = d
 hang4.save
@@ -236,7 +236,7 @@ conf44 = Confirmation.new(
 print "Created: #{Confirmation.count} confirmations "
 
 bar1 = Place.new(
-  name: "Empanadas Bar",
+  name: "Empanadas bar",
   address: "Rua Wizard, 489 - Vila Madalena, São Paulo - SP, 05434-080"
 )
 bar1.save
@@ -279,13 +279,13 @@ restaurant2.save
 
 restaurant3 = Place.new(
   name: "D.O.M.",
-  address: "R. Barão de Capanema, 549 - Jardins, São Paulo - SP, 01411-011"
+  address: "R. barão de Capanema, 549 - Jardins, São Paulo - SP, 01411-011"
 )
 restaurant3.save
 
 restaurant4 = Place.new(
   name: "Komah",
-  address: "R. Cônego Vicente Miguel Marino, 378 - Barra Funda, São Paulo - SP, 01135-020"
+  address: "R. Cônego Vicente Miguel Marino, 378 - barra Funda, São Paulo - SP, 01135-020"
 )
 restaurant4.save
 
@@ -296,14 +296,14 @@ restaurant5 = Place.new(
 restaurant5.save
 
 bonbarato1 = Place.new(
-  name: "Canaille Bar",
+  name: "Canaille bar",
   address: "R. Cristiano Viana, 390 - Cerqueira César, São Paulo - SP, 05411-000"
 )
 bonbarato1.save
 
 bonbarato2 = Place.new(
   name: "Dali Daqui",
-  address: "Rua Vitorino Camilo 1093 - Esquina com Rua Conselheiro Brotero 71 - Barra Funda, São Paulo - SP, 01154-001"
+  address: "Rua Vitorino Camilo 1093 - Esquina com Rua Conselheiro Brotero 71 - barra Funda, São Paulo - SP, 01154-001"
 )
 bonbarato2.save
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427204028) do
+ActiveRecord::Schema.define(version: 20170429182900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170427204028) do
     t.string   "category"
     t.string   "fsq_url"
     t.string   "fsq_id"
+    t.string   "fsq_cat_id"
   end
 
   create_table "users", force: :cascade do |t|
