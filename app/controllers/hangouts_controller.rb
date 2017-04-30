@@ -99,16 +99,15 @@ class HangoutsController < ApplicationController
   end
 
   def close_vote
-
     votes = []
-      @hangout.confirmations.each do |conf|
-        if conf.place
-         votes << conf.place
-        end
+    @hangout.confirmations.each do |conf|
+      if conf.place
+       votes << conf.place
       end
+    end
     counts = Hash.new 0
     votes.each do |place|
-     counts[place] += 1
+      counts[place] += 1
     end
     winner = counts.max_by{|k,v| v}[0] # put logic if there is 2 places with same vote
     @hangout.place = winner
@@ -116,7 +115,6 @@ class HangoutsController < ApplicationController
     @hangout.save!
     redirect_to hangout_path(@hangout)
   end
-
 
   def share
   end
@@ -139,39 +137,22 @@ private
   def hangoutshow_by_status
     if @hangout.status == "confirmations_on_going"
       @render = 'confirmationfollowup'
-
       @confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
       @confirmation_markers = []
-      @confirmations.each do |confirmation|
-        @confirmation_markers << {lat: confirmation.latitude, lng: confirmation.longitude}
-      end
+        @confirmations.each do |confirmation|
+          @confirmation_markers << {lat: confirmation.latitude, lng: confirmation.longitude}
+        end
 
-      nb = @confirmations.count
-      avg_lat = @confirmations.reduce(0){ |sum, el| sum + el.latitude }.to_f / nb
-      avg_ln = @confirmations.reduce(0){ |sum, el| sum + el.longitude }.to_f / nb
-      @center = {lat: avg_lat, lng: avg_ln}
-
-      delta_lat = (@confirmations.max_by {|x| x.latitude}).latitude - (@confirmations.min_by {|x| x.latitude}).latitude
-      delta_lng = (@confirmations.max_by {|x| x.longitude}).longitude - (@confirmations.min_by {|x| x.longitude}).longitude
-
-      raw_radius = (delta_lat + delta_lng) / 4
-
-      magic_factor = 20000
-
-      @radius = raw_radius * magic_factor
-
-      @hangout.latitude = @center[:lat]
-      @hangout.longitude = @center[:lng]
-      @hangout.radius = @radius
-      @hangout.save
-
+      @center = {lat: @hangout.latitude, lng: @hangout.longitude}
+      @adj_center = {lat: @hangout.adj_latitude, lng: @hangout.adj_longitude}
+      @hangout.radius? ? @radius = @hangout.radius : @radius = 1  #necessary so that javascript can be compiled with radius nil
     elsif @hangout.status == "vote_on_going"
       @render = 'vote_option'
       @nb_conf = @hangout.confirmations.count
       @nb_vote = @hangout.confirmations.reduce(0) {|sum,conf| conf.place_id.nil? ? sum : sum  += 1}
     elsif @hangout.status == "result"
       @render = 'result'
-      confirmation
+      #confirmation
       #@confirmation = @hangout.confirmations.select {|confirmation| confirmation.user == current_user}
       @transport = confirmation.transportation
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
@@ -186,4 +167,5 @@ private
     venues = fetch.fetch_places
     fetch.find_places(venues)
   end
+
 end
