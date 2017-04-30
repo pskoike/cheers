@@ -118,7 +118,7 @@ class HangoutsController < ApplicationController
   def share
   end
 
-  private
+private
 
   def hangout_params
     params.require(:hangout).permit(:title, :date, :category, :center_address, :status)
@@ -168,6 +168,11 @@ class HangoutsController < ApplicationController
       @nb_vote = @hangout.confirmations.reduce(0) {|sum,conf| conf.place_id.nil? ? sum : sum  += 1}
     elsif @hangout.status == "result"
       @render = 'result'
+      confirmation
+      #@confirmation = @hangout.confirmations.select {|confirmation| confirmation.user == current_user}
+      @transport = confirmation.transportation
+      @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
+      @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
     elsif @hangout.status == "cancelled"
       @render = 'cancelled'
     end
