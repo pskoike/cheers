@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
       # save hangout
      @hangout = Hangout.new(session[:hangout]["hangout"])
      @hangout.user = current_user
+     @hangout.status = "confirmations_on_going"
      @hangout.save
      # clear session
       session[:hangout] = nil

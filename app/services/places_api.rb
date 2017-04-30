@@ -1,14 +1,14 @@
 class PlacesApi
 
-  def initialize(lat, lng, hangout)
-    @lat = lat
-    @lng = lng
-    @hangout = hangout
+  def initialize(hangout)
+    # @lat = lat
+    # @lng = lng
+    @hg = hangout
   end
 
   def fetch_places
     # URl to explore by Section
-    url = "https://api.foursquare.com/v2/venues/explore?ll=#{@lat},#{@lng}&radius=2000&section=drinks&client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}&v=20170101"
+    url = "https://api.foursquare.com/v2/venues/explore?ll=#{@hg.latitude},#{@hg.longitude}&radius=2000&section=#{@hg.category}&client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}&v=20170101"
     url.gsub!('"')
     venues_from_category = RestClient.get url
     # list of venues from each category
@@ -34,7 +34,7 @@ class PlacesApi
           address: "#{venue_hash['location']['address']}, #{venue_hash['location']['city']}, #{venue_hash['location']['state']} ",
           longitude:venue_hash['location']['lat'],
           latitude:venue_hash['location']['lng'],
-          category: @hangout.category,
+          category: @hg.category,
           rating: venue_hash['rating'],
           fsq_id: venue_hash['id'],
           fsq_url: venue_hash['canonicalUrl'],
@@ -46,6 +46,12 @@ class PlacesApi
       end
     end
     results.sort! {|x,y| y.rating <=> x.rating }
-    results.take(15).sample(5) #Take the first 15 and sample.
+    r = results.take(15).sample(5) #Take the first 15 and sample.
+    r.each do |result|
+      po = PlaceOption.new
+      po.hangout = @hg
+      po.place =  result
+      po.save
+    end
   end
 end

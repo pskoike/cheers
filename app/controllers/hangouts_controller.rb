@@ -75,6 +75,8 @@ class HangoutsController < ApplicationController
   helper_method :voted_place
 
   def launch_vote
+    # Call PlacesAPI to create place_options
+    initialize_places_api
     @hangout.status = "vote_on_going"
     @hangout.save
     redirect_to hangout_path(@hangout)
@@ -97,7 +99,7 @@ class HangoutsController < ApplicationController
   end
 
   def close_vote
-    @hangout.status = "result"
+
     votes = []
       @hangout.confirmations.each do |conf|
         if conf.place
@@ -110,6 +112,7 @@ class HangoutsController < ApplicationController
     end
     winner = counts.max_by{|k,v| v}[0] # put logic if there is 2 places with same vote
     @hangout.place = winner
+    @hangout.status = "result"
     @hangout.save!
     redirect_to hangout_path(@hangout)
   end
@@ -171,5 +174,11 @@ class HangoutsController < ApplicationController
     elsif @hangout.status == "cancelled"
       @render = 'cancelled'
     end
+  end
+
+  def initialize_places_api
+    fetch = PlacesApi.new(@hangout)
+    venues = fetch.fetch_places
+    fetch.find_places(venues)
   end
 end
