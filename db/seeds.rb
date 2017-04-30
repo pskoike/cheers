@@ -111,7 +111,7 @@ print "Created: #{Hangout.count} hangouts "
 
 conf11 = Confirmation.new(
   leaving_address: "R. Treze de Maio, 1947 - Bela Vista, São Paulo - SP, 01327-000",
-  transportation: "carro"
+  transportation: "BICYCLING"
   )
   conf11.hangout = hang1
   conf11.user =  b
@@ -119,7 +119,7 @@ conf11 = Confirmation.new(
 
 conf12 = Confirmation.new(
   leaving_address: "Francisco Matarazzo, 1705 - Água Branca, São Paulo - SP, 05001-200",
-  transportation: "metro"
+  transportation: "TRANSIT"
   )
   conf12.hangout = hang1
   conf12.user =  e
@@ -127,7 +127,7 @@ conf12 = Confirmation.new(
 
 conf13 = Confirmation.new(
   leaving_address: "Butantã, São Paulo - SP, 03178-200",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf13.hangout = hang1
   conf13.user =  d
@@ -135,7 +135,7 @@ conf13 = Confirmation.new(
 
 conf14 = Confirmation.new(
   leaving_address: "1304 rua Mourato Coelho, São Paulo - SP",
-  transportation: "bicicleta"
+  transportation: "WALKING"
   )
   conf14.hangout = hang1
   conf14.user =  a
@@ -143,7 +143,7 @@ conf14 = Confirmation.new(
 
 conf21 = Confirmation.new(
   leaving_address: "R. Treze de Maio, 1947 - Bela Vista, São Paulo - SP, 01327-000",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf21.hangout = hang2
   conf21.user =  b
@@ -152,7 +152,7 @@ conf21 = Confirmation.new(
 ######################
 conf22 = Confirmation.new(
   leaving_address: "R. Pedroso Alvarenga, 666 - Itaim Bibi, São Paulo - SP, 04531-001",
-  transportation: "a pe"
+  transportation: "BICYCLING"
   )
   conf22.hangout = hang2
   conf22.user =  c
@@ -160,7 +160,7 @@ conf22 = Confirmation.new(
 
 conf23 = Confirmation.new(
   leaving_address: "Av. Ibirapuera, 3103 - Moema, São Paulo - SP, 04029-902",
-  transportation: "carro"
+  transportation: "TRANSIT"
   )
   conf23.hangout = hang2
   conf23.user =  e
@@ -169,7 +169,7 @@ conf23 = Confirmation.new(
 ######################
 conf31 = Confirmation.new(
   leaving_address: "R. Treze de Maio, 1947 - Bela Vista, São Paulo - SP, 01327-000",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf31.hangout = hang3
   conf31.user =  b
@@ -177,7 +177,7 @@ conf31 = Confirmation.new(
 
 conf32 = Confirmation.new(
   leaving_address: "R. Pedroso Alvarenga, 666 - Itaim Bibi, São Paulo - SP, 04531-001",
-  transportation: "a pe"
+  transportation: "WALKING"
   )
   conf32.hangout = hang3
   conf32.user =  c
@@ -185,7 +185,7 @@ conf32 = Confirmation.new(
 
 conf33 = Confirmation.new(
   leaving_address: "Av. São João, 677 - Centro, São Paulo - SP, 01036-000",
-  transportation: "bicicleta"
+  transportation: "DRIVING"
   )
   conf33.hangout = hang3
   conf33.user =  a
@@ -193,7 +193,7 @@ conf33 = Confirmation.new(
 
 conf34 = Confirmation.new(
   leaving_address: "Rua Vergueiro, 3799 - Vila Mariana, São Paulo - SP, 04101-300",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf34.hangout = hang3
   conf34.user =  e
@@ -202,7 +202,7 @@ conf34 = Confirmation.new(
 ######################
 conf41 = Confirmation.new(
   leaving_address: "R. Pedroso Alvarenga, 66 - Itaim Bibi, São Paulo - SP",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf41.hangout = hang4
   conf41.user =  b
@@ -210,7 +210,7 @@ conf41 = Confirmation.new(
 
 conf42 = Confirmation.new(
   leaving_address: "R. Treze de Maio, 147 - Bela Vista, São Paulo - SP",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf42.hangout = hang4
   conf42.user =  c
@@ -218,7 +218,7 @@ conf42 = Confirmation.new(
 
 conf43 = Confirmation.new(
   leaving_address: "Rua Vergueiro, 399 - Vila Mariana, São Paulo - SP, 04101-300",
-  transportation: "metro"
+  transportation: "DRIVING"
   )
   conf43.hangout = hang4
   conf43.user =  a
@@ -226,7 +226,7 @@ conf43 = Confirmation.new(
 
 conf44 = Confirmation.new(
   leaving_address: "Av. São João, 177 - Centro, São Paulo - SP, 01036-000",
-  transportation: "carro"
+  transportation: "DRIVING"
   )
   conf44.hangout = hang4
   conf44.user =  e
