@@ -16,7 +16,7 @@
     </form>
 
     <!-- Different navigation if login or not -->
-    <% if user_signed_in? %>
+    <% unless current_user.nil? %>
 
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
