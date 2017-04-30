@@ -2,20 +2,35 @@
 
 <h2><%= t('.message', title: @hangout.title )%></h2>
 
-  <p> <%= t('.list', category: @hangout.category ) %></p>
+  <p><%= t('.list', category: @hangout.category )%></p>
+
+
+
+<% if has_voted? %>
+  <p><%= t('.has_voted')%></p>
+  <h1><%= voted_place.name %></h1>
+  <h2><%= t('.wait')%></h2>
+
+<% else %>
 
   <p> <%= t('.vote', category: @hangout.category ) %></p>
-
- <ul >
-    <% @hangout.place_options.each do |option|%>
-      <li class="text-center" ><%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+  <ul>
+    <% place_list.each do |option|%>
+      <%= option.place.name %>
+      <li class="text-center" ><%= button_to( submit_vote_hangout_path(@hangout), method: :patch, params: {place_id: option.place_id}, class: "btn btn-primary") do %>
         <i class="icon-ok icon-white"></i> Vote
+        <% end %>
       <% end %>
-      </div> <%= option.place.name %></li>
-      <br>
-      <% end %>
+    </li>
+    <br>
   </ul>
+<% end %>
 
-<div class="final-vote">
+<% if @hangout.user == current_user %>
+  <p><%=t('.nb_conf') + ": #{@nb_conf}"%></p>
+  <p><%=t('.nb_vote') + ": #{@nb_vote}"%></p>
+
+  <div class="final-vote">
     <%= button_to t('.button_final_vote'), close_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
-</div>
+  </div>
+<% end %>

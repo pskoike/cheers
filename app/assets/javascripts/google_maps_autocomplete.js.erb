@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+  if ($('#map').length === 0) {
+   return;
+  };
   window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
 
   if ($('#confirmation_page').length === 0) {

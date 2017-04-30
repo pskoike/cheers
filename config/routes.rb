@@ -6,12 +6,16 @@ Rails.application.routes.draw do
 
     resources :hangouts do
       member do
+        get "share"
         patch "launch_vote"
         patch "cancel_hg"
         patch "close_vote"
+        patch "submit_vote"
+        get "submit_vote"
       end
-      resources :confirmations, only: [:new, :create, :edit, :update, :destroy]
-      resources :place_options, only: [:new, :create]
+      resources :confirmations, only: [:new, :create, :edit, :update, :destroy] do
+      end
+
     end
 
     get 'profiles/show'

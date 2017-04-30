@@ -1,12 +1,15 @@
 <div class="container">
     <div class="row">
         <div class='col-sm-6'>
+
 <%= simple_form_for(@hangout) do |f| %>
   <%= f.error_notification %>
-    <%= f.input :title, placeholder: "" %>
-    <%= f.input :category, placeholder: "" %>
-    <%= f.input :date, as: "string", input_html: { class: 'datetimepicker' }%>
-    <%= f.input :center_address %>
+    <%= f.input :title, label: false, placeholder: t('.placeholder_title') %>
+    <%= f.input :category, label: false, prompt: t('.placeholder_catergory'), collection: ["food", "bar", "brewery", "lounge", "nightclub"] %>
+    <%= f.input :date, as: :string, label: false,  placeholder: t('.placeholder_date'), input_html: {
+        class: 'datetimepicker', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
+    <button id="center_address_btn"><%=t('.address')%></button>
+    <%= f.input :center_address, label: false, placeholder: t('.placeholder_address'), wrapper_html: { id:"center_address", class: 'visibility' }  %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 </div>
@@ -14,9 +17,10 @@
 <% content_for :after_js do %>
   <script>
             $(function () {
-                $('.datetimepicker').datetimepicker({
-                   format: 'DD-MM-YYYY HH:m',
+                var date = $('.datetimepicker').datetimepicker({
+                   format:'DD/MM/YYYY HH:mm',
                 });
             });
   </script>
 <% end %>
+

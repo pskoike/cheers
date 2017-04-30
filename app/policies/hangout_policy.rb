@@ -7,7 +7,6 @@ class HangoutPolicy < ApplicationPolicy
     end
   end
 
-
   def show?
     true  # Anyone can view a hangout
   end
@@ -34,8 +33,16 @@ class HangoutPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def submit_vote?
+    true
+  end
+
   def set_hangout?
     true
+  end
+
+  def share?
+    record.user == user
   end
 
 end

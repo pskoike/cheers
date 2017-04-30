@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170429182900) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "status"
+    t.integer  "radius"
     t.index ["place_id"], name: "index_hangouts_on_place_id", using: :btree
     t.index ["user_id"], name: "index_hangouts_on_user_id", using: :btree
   end

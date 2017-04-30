@@ -51,7 +51,7 @@ d.save
 
 e = User.new( first_name: "Phil",
   last_name: "Doe",
-  facebook_picture_url: "https://www.cegepgarneau.ca/assets/img/programmes/stages/informatique.jpg",
+  facebook_picture_url: "https://media.creativemornings.com/uploads/user/avatar/15261/Matthew_Avatar_square.jpg",
   email: "pd@gmail.com",
   password: "123456",
   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
