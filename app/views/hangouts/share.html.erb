@@ -1,6 +1,6 @@
 <div class="text-center padded">
 <p><%= t('.message') %></p>
-<p><%= request.original_url %> <button class="btn" data-clipboard-text='<%= request.original_url.html_safe %>'>
+<p><%= hangout_url(@hangout) %> <button class="btn" data-clipboard-text='<%= hangout_url(@hangout).html_safe %>'>
   <i class="fa fa-files-o" aria-hidden="true"></i>
 </button></p>
   <div id="share"></div>
@@ -25,4 +25,3 @@
     });
   </script>
 <% end %>
-
