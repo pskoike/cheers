@@ -1,7 +1,7 @@
     <div class="hangout-title">
       <h1><%=@hangout.title%></h1>
 
-      <%= image_tag current_user.facebook_picture_url, class: "avatar"%>
+      <%= image_tag @hangout.user.facebook_picture_url, class: "avatar"%>
     </div>
     <div id="map" style="width: 100%; height: 300px;"></div>
     <% content_for(:after_js) do %>

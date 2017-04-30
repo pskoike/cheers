@@ -26,6 +26,11 @@
   </ul>
 <% end %>
 
-<div class="final-vote">
+<% if @hangout.user == current_user %>
+  <p><%=t('.nb_conf') + ": #{@nb_conf}"%></p>
+  <p><%=t('.nb_vote') + ": #{@nb_vote}"%></p>
+
+  <div class="final-vote">
     <%= button_to t('.button_final_vote'), close_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
-</div>
+  </div>
+<% end %>

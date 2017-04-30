@@ -46,6 +46,7 @@ private
 
    def set_hangout
     @hangout = Hangout.find(params[:hangout_id])
+    authorize @hangout
   end
 
  def confirmation_params
