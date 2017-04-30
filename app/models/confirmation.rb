@@ -8,7 +8,7 @@ class Confirmation < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
   validates :transportation, presence: true, inclusion:{in: TRANSPORTATION_MODE}
-  validates :user_id, presence: true
+  validates :user_id, presence: true, uniqueness: { scope: :hangout }
   validates :hangout_id, presence: true
 
   geocoded_by :leaving_address
