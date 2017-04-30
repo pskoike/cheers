@@ -29,6 +29,13 @@ class PlacesApi
         response_venue = RestClient.get url
         response_venue = JSON.parse(response_venue)
         venue_hash = response_venue['response']['venue']
+        if venue_hash['photos']['count'] != 0
+          photo_path = "#{venue_hash['photos']['groups'][0]['items'][0]['prefix']}200x200#{venue_hash['photos']['groups'][0]['items'][0]['suffix']}"
+        elsif
+          photo_path = "#{venue_hash['tips']['groups'][0]['items'][0]['photo']['prefix']}200x200#{venue_hash['tips']['groups'][0]['items'][0]['photo']['suffix']}"
+        else
+          photo_path = "" #add placeholder
+        end
         venue = Place.create(
           name: venue_hash['name'],
           address: "#{venue_hash['location']['address']}, #{venue_hash['location']['city']}, #{venue_hash['location']['state']} ",
@@ -39,7 +46,7 @@ class PlacesApi
           fsq_id: venue_hash['id'],
           fsq_url: venue_hash['canonicalUrl'],
           fsq_cat_id: venue_hash['categories'][0]['id'],
-          # photo_url: venue_details['response']['venue']['photos']['groups'][0]['items'][0]['prefix'] + "200x200" + venue_details['response']['venue']['photos']['groups'][0]['items'][0]['suffix'] ,
+          photo_url: photo_path,
         )
       else
         p

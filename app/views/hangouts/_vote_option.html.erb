@@ -16,6 +16,7 @@
   <p> <%= t('.vote', category: @hangout.category ) %></p>
   <ul>
     <% place_list.each do |option|%>
+      <%= image_tag(option.place.photo_url) %> <br>
       <%= option.place.name %> <br>
       <%= option.place.address %><br>
       <%= option.place.rating %><br>
