@@ -1,0 +1,4 @@
+<h5><%=t('.edit_title')%></h5>
+<%= render 'form' %>
+
+<%= button_to cancel_hg_hangout_path(@hangout), method: :patch, data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %>

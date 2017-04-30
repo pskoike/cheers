@@ -1,0 +1,28 @@
+<div class="text-center padded">
+<p><%= t('.message') %></p>
+<p><%= request.original_url %> <button class="btn" data-clipboard-text='<%= request.original_url.html_safe %>'>
+  <i class="fa fa-files-o" aria-hidden="true"></i>
+</button></p>
+  <div id="share"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<%= button_to "View Hangout", hangout_path(@hangout), method: :get, class: "btn btn-success" %>
+
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function(){
+      $("#share").jsSocials({
+        text: " <% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        title: "<% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        shareIn : "blank",
+        showLabel: false,
+        showCount: false,
+        shares: ["email", "messenger","whatsapp"]
+      });
+    });
+  </script>
+<% end %>
+

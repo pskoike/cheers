@@ -3,8 +3,12 @@ class ConfirmationsController < ApplicationController
   before_action :set_confirmation, only: [:edit, :update, :destroy]
 
   def new
-    @confirmation = Confirmation.new
-    authorize @confirmation
+    if @hangout.confirmations.where('user_id = ?', current_user).count == 0
+      @confirmation = Confirmation.new
+      authorize @confirmation
+    else
+      redirect_to hangout_path(@hangout)
+    end
   end
 
   def create
@@ -15,7 +19,11 @@ class ConfirmationsController < ApplicationController
     authorize @confirmation
 
     if @confirmation.save
-      redirect_to hangout_path(@hangout)
+      if @hangout.user == current_user
+        redirect_to share_hangout_path(@hangout)
+      else
+        redirect_to hangout_path(@hangout)
+      end
     else
       render :new
     end
@@ -32,15 +40,16 @@ class ConfirmationsController < ApplicationController
 
 private
 
-  def set_confirmation
+ def set_confirmation
     @confirmation = Confirmation.find(params[:id])
   end
 
-    def set_hangout
+   def set_hangout
     @hangout = Hangout.find(params[:hangout_id])
+    authorize @hangout
   end
 
-  def confirmation_params
+ def confirmation_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
     params.require(:confirmation).permit(:leaving_address, :transportation, :latitude, :longitude)

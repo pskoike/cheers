@@ -1,23 +1,5 @@
-<h1><%= t('.title') %></h1>
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-<%= simple_form_for(@hangout) do |f| %>
-  <%= f.error_notification %>
-    <%= f.input :title, placeholder: "" %>
-    <%= f.input :category, placeholder: "" %>
-    <%= f.input :date, as: "string", input_html: { class: 'datetimepicker' }%>
-    <%= f.input :center_address %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+<div class="text-center">
+  <h5><%=t('.new_title1')%></h5>
+  <h5><%=t('.new_title2')%></h5>
 </div>
-
-<% content_for :after_js do %>
-  <script>
-            $(function () {
-                $('.datetimepicker').datetimepicker({
-                   format: 'DD-MM-YY HH:m',
-                });
-            });
-  </script>
-<% end %>
+<%= render 'form' %>
