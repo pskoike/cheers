@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       end
       resources :confirmations, only: [:new, :create, :edit, :update, :destroy] do
       end
+      
+
     end
 
     get 'profiles/show'

@@ -21,6 +21,10 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'rails-assets-clipboard', source: 'https://rails-assets.org'
 
+# parsing json
+gem 'json'
+gem 'rest-client'
+
 # date picker
 gem 'momentjs-rails', '>= 2.9.0'
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'

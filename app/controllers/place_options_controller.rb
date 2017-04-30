@@ -1,7 +1,14 @@
 class PlaceOptionsController < ApplicationController
+  def new
 
-  def show
   end
 
+  def create
+
+  end
+
+  def show
+
+  end
 
 end
