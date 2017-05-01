@@ -7,7 +7,7 @@
     <%= f.input :title, label: false, placeholder: t('.placeholder_title') %>
     <%= f.input :category, label: false, prompt: t('.placeholder_catergory'), collection: ["food", "drinks", "coffee"]%>
     <%= f.input :date, as: :string, label: false,  placeholder: t('.placeholder_date'), input_html: {
-        class: 'datetimepicker', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
+        class: '', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
     <%=f.input :force_location, as: :boolean%>
  <br>
     <%= f.input :center_address, label: false %>
