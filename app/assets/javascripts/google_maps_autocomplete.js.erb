@@ -9,7 +9,6 @@ $(document).ready(function() {
    return;
   };
 
-  console.log('keyyy')
   geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
 
   // window.map = new google.maps.Map(document.getElementById('map'), window.MAP_OPTIONS);
@@ -43,7 +42,7 @@ $(document).ready(function() {
       map.panTo(coord);
       console.log(location);
       marker = new google.maps.Marker({position: coord, map: map});
-      markers.push(marker)
+      markers.push(marker);
       map.setZoom(14);
 
       $('#confirmation_latitude').val(location.coords.latitude);

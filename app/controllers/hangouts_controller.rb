@@ -26,7 +26,21 @@ class HangoutsController < ApplicationController
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user
       if @hangout.save
-        redirect_to new_hangout_confirmation_path(@hangout)
+        if @hangout.force_location == true
+          #hangout owner confirmation directly saved
+          @confirmation = Confirmation.new(latitude: @hangout.latitude, longitude: @hangout.longitude, transportation: 'DRIVING')
+          @confirmation.user = current_user
+          @confirmation.hangout = @hangout
+          authorize @confirmation
+          @confirmation.save
+          #launch vote
+          initialize_places_api
+          @hangout.status = "vote_on_going"
+          @hangout.save
+          redirect_to share_hangout_path(@hangout)
+        else
+          redirect_to new_hangout_confirmation_path(@hangout)
+        end
       else
         render :new
       end
@@ -88,6 +102,7 @@ class HangoutsController < ApplicationController
 
   def update
     @hangout.update_attributes(hangout_params)
+    #launch_vote_hangout_path(@hangout)
     redirect_to hangout_path(@hangout)
     #Send notifications
   end
@@ -122,7 +137,7 @@ class HangoutsController < ApplicationController
 private
 
   def hangout_params
-    params.require(:hangout).permit(:title, :date, :category, :center_address, :status)
+    params.require(:hangout).permit(:title, :date, :category, :center_address, :status, :force_location, :center_address, :latitude, :longitude)
   end
 
   def set_hangout

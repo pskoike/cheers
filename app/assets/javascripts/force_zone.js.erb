@@ -1,0 +1,103 @@
+$(document).ready(function() {
+
+  if ($('#force_zone_page').length === 0) {
+   return;
+  };
+
+  var markers = [];
+  var circles = [];
+
+  $("#hangout_force_location").on("click", function(e){
+
+
+    if ($("input[type='checkbox']:checked").length ===1) {
+      geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
+
+      //Geolocator:
+      getcoord();
+
+      //Google auto-complete:
+      var leaving_address = $('#hangout_center_address').get(0);
+      if (leaving_address) {
+        var autocomplete = new google.maps.places.Autocomplete(leaving_address, { types: ['geocode'] });
+        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+        google.maps.event.addDomListener(leaving_address, 'keydown', function(e) {
+          if (e.keyCode == 13) {
+            e.preventDefault(); // Do not submit the form on Enter.
+          }
+        });
+      }
+
+
+      function getcoord() {
+        geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {
+          if (err) return console.log(err);
+          var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
+          map.panTo(coord);
+          console.log(location);
+
+          var marker = new google.maps.Marker({position: coord, map: map, icon: 'redpoint.png'});
+          markers.push(marker);
+          console.log(marker);
+          map.setZoom(14);
+
+          var center = (<%= raw @adj_center.to_json %>);
+          var circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 1,
+            fillColor: '#FF0000',
+            fillOpacity: 0.25,
+            map: map,
+            center: coord,
+            radius: 600
+          });
+          circles.push(circle);
+
+          $('#hangout_latitude').val(location.coords.latitude);
+          $('#hangout_longitude').val(location.coords.longitude);
+          $('#hangout_center_address').val(location.formattedAddress);
+        });
+      };
+
+      function onPlaceChanged() {
+        var place = this.getPlace();
+        var coord = {lat: place.geometry.location.lat(), lng:  place.geometry.location.lng()};
+
+        markers[0].setMap(null);
+        circles[0].setMap(null);
+        markers = [];
+        map.panTo(coord);
+        var marker = new google.maps.Marker({position: coord, map: map, icon: 'redpoint.png'});
+        markers.push(marker);
+        map.setZoom(14);
+
+        var circle = new google.maps.Circle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 1,
+          fillColor: '#FF0000',
+          fillOpacity: 0.25,
+          map: map,
+          center: coord,
+          radius: 600
+        });
+        circles.push(circle);
+        $('#hangout_latitude').val(place.geometry.location.lat());
+        $('#hangout_longitude').val(place.geometry.location.lng());
+        //$('#hangout_center_address').val(place.formated_address);
+      }
+    } else{
+      $('#hangout_latitude').val(null);
+      $('#hangout_longitude').val(null);
+      $('#hangout_center_address').val(null);
+      markers.forEach(function(marker) {
+        marker.setMap(null);
+      });
+      circles.forEach(function(circle) {
+        circle.setMap(null);
+      });
+    }
+  });
+});
+
