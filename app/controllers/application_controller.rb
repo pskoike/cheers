@@ -21,14 +21,17 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if session[:hangout].present?
       # save hangout
-     @hangout = Hangout.new(session[:hangout]["hangout"])
-     @hangout.user = current_user
-     @hangout.status = "confirmations_on_going"
-     @hangout.save
-     # clear session
-      session[:hangout] = nil
-      #redirect
-      new_hangout_confirmation_path(@hangout)
+      @hangout = Hangout.new(session[:hangout]["hangout"])
+      @hangout.user = current_user
+      @hangout.status = "confirmations_on_going"
+      if @hangout.save
+        # clear session
+        session[:hangout] = nil
+        #redirect
+        new_hangout_confirmation_path(@hangout)
+      else
+        new_hangout_path
+      end
     else
       super
     end

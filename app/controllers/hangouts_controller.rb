@@ -5,7 +5,7 @@ class HangoutsController < ApplicationController
 
 
   def new
-    @hangout = Hangout.new
+    @hangout = Hangout.new(session.fetch(:hangout, {}).fetch("hangout", nil))
     authorize @hangout
   end
 
@@ -20,12 +20,13 @@ class HangoutsController < ApplicationController
       authorize @hangout
       #  redirect_to new_user_session_path
       redirect_to user_facebook_omniauth_authorize_path
-     else
+    else
       @hangout = Hangout.new(hangout_params)
       authorize @hangout
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user
       if @hangout.save
+        session[:hangout] = nil
         if @hangout.force_location == true
           #hangout owner confirmation directly saved
           @confirmation = Confirmation.new(latitude: @hangout.latitude, longitude: @hangout.longitude, transportation: 'DRIVING')

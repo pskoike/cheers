@@ -28,6 +28,18 @@ $(document).ready(function() {
         });
       }
 
+      var icon_url = {
+    url: '<%= asset_path "ball.png" %>',
+    // This marker is 20 pixels wide by 32 pixels high.
+    //width: 20,
+    //heigth: 20,
+    //origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    //anchor: new google.maps.Point(-5, 5)
+  };
+
+
+      // var icon_url = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRGz_m3KrwteqeWeiuyt_bdjQqjbtDRZohhaJChdJF0bLUJhs-G';
 
       function getcoord() {
         geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {
@@ -36,17 +48,17 @@ $(document).ready(function() {
           map.panTo(coord);
           console.log(location);
 
-          var marker = new google.maps.Marker({position: coord, map: map, icon: 'redpoint.png'});
+          var marker = new google.maps.Marker({position: coord, map: map, icon: icon_url});
           markers.push(marker);
           console.log(marker);
           map.setZoom(14);
 
           var center = (<%= raw @adj_center.to_json %>);
           var circle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#5500FF',
             strokeOpacity: 0.8,
             strokeWeight: 1,
-            fillColor: '#FF0000',
+            fillColor: '#39BAFF',
             fillOpacity: 0.25,
             map: map,
             center: coord,
@@ -68,15 +80,15 @@ $(document).ready(function() {
         circles[0].setMap(null);
         markers = [];
         map.panTo(coord);
-        var marker = new google.maps.Marker({position: coord, map: map, icon: 'redpoint.png'});
+        var marker = new google.maps.Marker({position: coord, map: map, icon: icon_url});
         markers.push(marker);
         map.setZoom(14);
 
         var circle = new google.maps.Circle({
-          strokeColor: '#FF0000',
+          strokeColor: '#5500FF',
           strokeOpacity: 0.8,
           strokeWeight: 1,
-          fillColor: '#FF0000',
+          fillColor: '#39BAFF',
           fillOpacity: 0.25,
           map: map,
           center: coord,
