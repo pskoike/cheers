@@ -8,7 +8,7 @@ class PlacesApi
 
   def fetch_places
     # URl to explore by Section
-    url = "https://api.foursquare.com/v2/venues/explore?ll=#{@hg.latitude},#{@hg.longitude}&radius=2000&section=#{@hg.category}&client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}&v=20170101"
+    url = "https://api.foursquare.com/v2/venues/explore?ll=#{@hg.adj_latitude},#{@hg.adj_longitude}&radius=2000&section=#{@hg.category}&client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}&v=20170101"
     url.gsub!('"')
     venues_from_category = RestClient.get url
     # list of venues from each category
