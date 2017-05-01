@@ -18,8 +18,6 @@
 @import "pages/jssocials-theme-flat";
 @import "materialize/components/color";
 
-// Materialize CSS
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("orange", "base") !default;
-@import "materialize";
+
+
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
