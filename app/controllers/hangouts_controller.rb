@@ -96,7 +96,7 @@ class HangoutsController < ApplicationController
     initialize_places_api
     @hangout.status = "vote_on_going"
     @hangout.save
-    @hangout.confirmations do |confirmation|
+    @hangout.confirmations.each do |confirmation|
       if confirmation.user != @hangout.user
         HangoutMailer.vote_starting(confirmation).deliver_now ####   mail
       end
@@ -112,7 +112,7 @@ class HangoutsController < ApplicationController
     @hangout.update_attributes(hangout_params)
     #launch_vote_hangout_path(@hangout)
     HangoutMailer.update_confirmation(@hangout).deliver_now
-    @hangout.confirmations do |confirmation|
+    @hangout.confirmations.each do |confirmation|
       if confirmation.user != @hangout.user
         HangoutMailer.hangout_update(confirmation).deliver_now ####   mail
       end
@@ -124,7 +124,7 @@ class HangoutsController < ApplicationController
   def cancel_hg
     @hangout.status = "cancelled"
     @hangout.save
-    @hangout.confirmations do |confirmation|
+    @hangout.confirmations.each do |confirmation|
       if confirmation.user != @hangout.user
         HangoutMailer.cancelled(confirmation).deliver_now ####   mail
       end
@@ -163,7 +163,7 @@ class HangoutsController < ApplicationController
     @hangout.place = winner
     @hangout.status = "result"
     @hangout.save!
-    @hangout.confirmations do |confirmation|
+    @hangout.confirmations.each do |confirmation|
       if confirmation.user != @hangout.user
         HangoutMailer.result(confirmation).deliver_now ####   mail
       end
