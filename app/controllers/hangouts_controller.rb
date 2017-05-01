@@ -38,8 +38,10 @@ class HangoutsController < ApplicationController
           initialize_places_api
           @hangout.status = "vote_on_going"
           @hangout.save
+          HangoutMailer.creation_confirmation(@hangout).deliver_now
           redirect_to share_hangout_path(@hangout)
         else
+          HangoutMailer.creation_confirmation(@hangout).deliver_now
           redirect_to new_hangout_confirmation_path(@hangout)
         end
       else
@@ -94,6 +96,7 @@ class HangoutsController < ApplicationController
     initialize_places_api
     @hangout.status = "vote_on_going"
     @hangout.save
+
     redirect_to hangout_path(@hangout)
     #Send notifications
   end
@@ -125,7 +128,23 @@ class HangoutsController < ApplicationController
     votes.each do |place|
       counts[place] += 1
     end
-    winner = counts.max_by{|k,v| v}[0] # put logic if there is 2 places with same vote
+    higher_vote = counts.max_by{|k,v| v}[1] #higher vote number
+      if counts.select { |key, value| value == higher_vote }.size > 1 #check whether more than one places as the highest vote number
+        places = counts.select { |key, value| value == higher_vote }.keys # array with winners
+        places_rating = Hash.new 0
+          places.each do |place|
+          places_rating[place] = place.rating
+        end
+        higher_rating = places_rating.max_by{|k,v| v}[1]
+        if places_rating.select { |key, value| value == higher_rating }.size > 1 #higher vote number
+          choice = places_rating.select { |key, value| value == higher_rating }.keys
+          winner = choice.sample
+        else
+          winner = places_rating.max_by{|k,v| v}[0]
+        end
+      else
+        winner = counts.max_by{|k,v| v}[0]
+      end
     @hangout.place = winner
     @hangout.status = "result"
     @hangout.save!
