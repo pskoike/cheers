@@ -1,3 +1,16 @@
+.avatar-navbar-wrapper {
+  width: 100%;
+  padding-top: 50px;
+  color: $sidenav-font-color;
+
+  img {
+  border-radius: 50%;
+  width: 80px;
+  margin: 0 auto;
+  }
+}
+
+
 .side-nav {
   position: fixed;
   width: 300px;
@@ -33,7 +46,7 @@
 
   li {
     float: none;
-    line-height: $sidenav-line-height;
+    line-height: 1px; //cheers $sidenav-line-height;
 
     &.active { background-color: rgba(0,0,0,.05); }
   }
