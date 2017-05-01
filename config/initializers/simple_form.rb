@@ -5,6 +5,26 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
+
+
+  config.wrappers :materialize_form, class: 'input-field my-class', error_class: 'has_error' do |b|
+
+    b.use :html5
+
+    b.use :placeholder
+
+    b.use :input
+
+    b.use :label
+
+    b.use :error, wrap_with: { tag: 'p' , class: 'error-text'}
+
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+end
+
+
+
+
   config.wrappers :default, class: :input,
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
@@ -43,7 +63,7 @@ SimpleForm.setup do |config|
     # Calculates readonly automatically from readonly attributes
     b.optional :readonly
 
-    ## Inputs
+    ## Inputs standard
     b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
@@ -56,7 +76,7 @@ SimpleForm.setup do |config|
   end
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
+  config.default_wrapper = :materialize_form
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
@@ -91,7 +111,7 @@ SimpleForm.setup do |config|
   # config.collection_wrapper_tag = nil
 
   # You can define the class to use on all collection wrappers. Defaulting to none.
-  # config.collection_wrapper_class = nil
+  # config.collection_wrapper_class = 'input-field'
 
   # You can wrap each item in a collection of radio/check boxes with a tag,
   # defaulting to :span.
@@ -146,7 +166,7 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # When false, do not use translations for labels.
-  # config.translate_labels = true
+  config.translate_labels = true
 
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true
@@ -165,5 +185,5 @@ SimpleForm.setup do |config|
   # config.include_default_input_wrapper_class = true
 
   # Defines which i18n scope will be used in Simple Form.
-  # config.i18n_scope = 'simple_form'
+  config.i18n_scope = 'simple_form'
 end
