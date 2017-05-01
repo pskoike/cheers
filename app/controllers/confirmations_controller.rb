@@ -20,6 +20,11 @@ class ConfirmationsController < ApplicationController
 
     if @confirmation.save
       if @hangout.user == current_user
+        @hangout.latitude = @confirmation.latitude
+        @hangout.longitude = @confirmation.longitude
+        @hangout.adj_latitude = @confirmation.latitude
+        @hangout.adj_longitude = @confirmation.longitude
+        @hangout.save
         redirect_to share_hangout_path(@hangout)
       else
         #if not the user means that we need to calculate the search zone:
