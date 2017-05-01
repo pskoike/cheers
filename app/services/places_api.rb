@@ -31,7 +31,7 @@ class PlacesApi
         venue_hash = response_venue['response']['venue']
         if venue_hash['photos']['count'] != 0
           photo_path = "#{venue_hash['photos']['groups'][0]['items'][0]['prefix']}200x200#{venue_hash['photos']['groups'][0]['items'][0]['suffix']}"
-        elsif
+        elsif venue_hash['photos']['count'] == 0
           photo_path = "#{venue_hash['tips']['groups'][0]['items'][0]['photo']['prefix']}200x200#{venue_hash['tips']['groups'][0]['items'][0]['photo']['suffix']}"
         else
           photo_path = "" #add placeholder
