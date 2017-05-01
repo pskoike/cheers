@@ -1,6 +1,5 @@
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
+<div class="center-align vertical-align">
+
 <%= simple_form_for(@hangout)do |f| %>
   <%= f.error_notification %>
     <%= f.input :title, label: false, placeholder: t('.placeholder_title') %>
@@ -24,7 +23,6 @@
 </div>
 
 <!--     <input type="text" id="hangout_date"/> -->
-
 <div id="force_zone_page">
   <div id="map" style="width:100%;height:300px"></div>
 </div>
@@ -62,13 +60,11 @@
     var $hangout_date = $('#hangout_date').
         on('focus', datepicker.open).
         on('click', function(event) { event.stopPropagation(); datepicker.open() })
-
-
     });
     $(document).ready(function() {
     $('select').material_select();
   });
-
-
   </script>
 <% end %>
+
+</div>
