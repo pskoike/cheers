@@ -1,10 +1,29 @@
-<div class="text-center padded">
+<div class="header center-align vertical-align">
+  <%= image_tag @hangout.user.facebook_picture_url, class: 'circle'%>
+    <h4 class="white-text"> <%= t('.message', host_name: @hangout.user.first_name ) %></h4>
+</div>
+<div class="container">
+ <div class="row">
+   <div class="col s12">
+       <h2 class="center-align"><%= @hangout.title%></h2>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col s6 center-align">
+      <%= t('.day') %></br>
+      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%d %b, %Y') %></h4>
+   </div>
+   <div class="col s6 center-align">
+      <%= t('.hour') %>
+      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%I:%M%P') %></h4>
+   </div>
+ </div>
 
-<h2>Cheers!</h2>
 
-<%= image_tag @hangout.user.facebook_picture_url%>
-  <p> <%= t('.message', host_name: @hangout.user.first_name ) %></p>
-<h2><%= @hangout.title%></h2>
+</div>
+<h3>Cheers!</h3>
+
+
 
   <p><i class="fa fa-calendar" aria-hidden="true"></i>
 <%= t('.day', day: @hangout.date.strftime('%d %b, %Y') ) %></p>
