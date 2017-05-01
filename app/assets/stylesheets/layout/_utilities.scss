@@ -104,6 +104,29 @@
   visibility: hidden;
 }
 
+
+#wrap {
+    position: relative;
+}
+
+#hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#datetime {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid #999;
+    font-size: 1em;
+    width: 300px;
+
 .header {
   background-color: $primary-color;
   margin: 0 0;

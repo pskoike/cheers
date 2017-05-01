@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class='col-sm-6'>
-
 <%= simple_form_for(@hangout)do |f| %>
   <%= f.error_notification %>
     <%= f.input :title, label: false, placeholder: t('.placeholder_title') %>
@@ -15,19 +14,60 @@
     <%= f.input :longitude, label: false %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
+<div id="wrap">
+  <div id="hidden">
+    <input type="text" id="date"/>
+    <input type="text" id="time"/>
+  </div>
+  <div id="outlet"></div>
 </div>
+
+<!--     <input type="text" id="hangout_date"/> -->
+
 <div id="force_zone_page">
   <div id="map" style="width:100%;height:300px"></div>
 </div>
 
 <% content_for :after_js do %>
   <script>
-            $(function () {
-                var date = $('.datetimepicker').datetimepicker({
-                   format:'DD/MM/YYYY HH:mm',
-                });
-                $('select').material_select();
-            });
+  $(document).ready(function() {
+    var datepicker = $('#date').pickadate({
+            container: '#outlet',
+            onSet: function(item) {
+                if ( 'select' in item ) setTimeout( timepicker.open, 0 )
+            }
+        }).pickadate('picker')
+
+    var timepicker = $('#time').pickatime({
+            container: '#outlet',
+            onRender: function() {
+                $('<button>back to date</button>').
+                    on('click', function() {
+                        timepicker.close()
+                        datepicker.open()
+                    }).prependTo( this.$root.find('.picker__box') )
+            },
+            onSet: function(item) {
+                if ( 'select' in item ) setTimeout( function() {
+                    $hangout_date.
+                        off('focus').
+                        val( datepicker.get() + ' @ ' + timepicker.get() ).
+                        focus().
+                        on('focus', datepicker.open)
+                }, 0 )
+            }
+        }).pickatime('picker')
+
+    var $hangout_date = $('#hangout_date').
+        on('focus', datepicker.open).
+        on('click', function(event) { event.stopPropagation(); datepicker.open() })
+
+
+    });
+    $(document).ready(function() {
+    $('select').material_select();
+  });
 
 
   </script>
