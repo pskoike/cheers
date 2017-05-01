@@ -1,23 +1,38 @@
-<div class="text-center padded">
+<div class="header center-align vertical-align">
+  <%= image_tag @hangout.user.facebook_picture_url, class: 'circle'%>
+    <h4 class="white-text"> <%= t('.message', host_name: @hangout.user.first_name ) %></h4>
+</div>
+<div class="container">
+ <div class="row">
+   <div class="col s12">
+       <h1 class="center-align"><%= @hangout.title%></h1>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col s6 center-align">
+     <i class="material-icons">date_range</i></br>
+      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%d %b, %Y') %></h4>
+   </div>
+   <div class="col s6 center-align">
+     <i class="material-icons">access_time</i></br>
+      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%I:%M%P') %></h4>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col s12 center-align">
+     <h5><%= t('.where') %></h5>
+     <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
+   </div>
+ </div>
+ div class="row">
+   <div class="col s12 center-align">
+     <h5><%= t('.question') %></h5>
+     <div class="btn-card-position"><%= link_to t('.yes_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
 
-<h2>Cheers!</h2>
+     <div class="btn-card-position"><%= link_to t('.accepted_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
 
-<%= image_tag @hangout.user.facebook_picture_url%>
-  <p> <%= t('.message', host_name: @hangout.user.first_name ) %></p>
-<h2><%= @hangout.title%></h2>
+     <div class="btn-card-position"><%= link_to t('.no_btn'), root_path, class: 'btn btn-info' %></div>
 
-  <p><i class="fa fa-calendar" aria-hidden="true"></i>
-<%= t('.day', day: @hangout.date.strftime('%d %b, %Y') ) %></p>
-  <p><i class="fa fa-clock-o" aria-hidden="true"></i>
-<%= t('.hour', hour: @hangout.date.strftime('%I:%M%P') ) %></p>
-<h3><%= t('.where') %></h3>
-<p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
-
-<h3><%= t('.question') %></h3>
-<div class="btn-card-position"><%= link_to t('.yes_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
-<br>
-
-<div class="btn-card-position"><%= link_to t('.accepted_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
-<br>
-
-<div class="btn-card-position"><%= link_to t('.no_btn'), root_path, class: 'btn btn-info' %></div>
+   </div>
+ </div>
+</div>

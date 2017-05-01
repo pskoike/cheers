@@ -5,5 +5,5 @@ $(document).ready(function() {
     e.preventDefault();
     $("#center_address").toggleClass('visibility');
   });
+    $(".button-collapse").sideNav();
 });
-

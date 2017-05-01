@@ -103,3 +103,39 @@
 .visibility{
   visibility: hidden;
 }
+
+
+#wrap {
+    position: relative;
+}
+
+#hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#datetime {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid #999;
+    font-size: 1em;
+    width: 300px;
+}
+
+.header {
+  background-color: $primary-color;
+  margin: 0 0;
+  width: 100vw;
+  padding: 15px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 0px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+
+  img {
+    width: 80px;
+  }
+}

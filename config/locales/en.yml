@@ -107,9 +107,9 @@ en:
       alert_delete: Are you sure you want to delete the event?
       edit_title: Edit you Cheers event
     invitation:
-      message: "%{host_name} invited to hangout!"
-      day: " on %{day}"
-      hour: " starting at %{hour}"
+      message: "%{host_name} invites you!"
+      day: " Date:"
+      hour: " Time:"
       where: "Where 'll it be?"
       concept_explanation_html: "Our crazy scientists will calculate the best location %{link}"
       explanation_link_html: "learn more"
@@ -132,4 +132,3 @@ en:
       placeholder_date: 01/01/2017 20:00
       address: Impose a neighborhood to the others!
       placeholder_address: Neighborhood
-

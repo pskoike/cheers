@@ -33,8 +33,7 @@
 
   li {
     float: none;
-    line-height: $sidenav-line-height;
-
+    line-height: 1px; //cheers $sidenav-line-height;
     &.active { background-color: rgba(0,0,0,.05); }
   }
 

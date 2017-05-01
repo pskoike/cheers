@@ -30,6 +30,7 @@ gem 'rest-client'
 
 # date picker
 gem 'momentjs-rails', '>= 2.9.0'
+# gem 'rails-assets-pickadate', source: 'https://rails-assets.org'
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 # Social Share
