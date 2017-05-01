@@ -8,10 +8,16 @@
     <%= f.input :category, label: false, prompt: t('.placeholder_catergory'), collection: ["food", "drinks", "coffee"]%>
     <%= f.input :date, as: :string, label: false,  placeholder: t('.placeholder_date'), input_html: {
         class: 'datetimepicker', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
-    <button id="center_address_btn"><%=t('.address')%></button>
-    <%= f.input :center_address, label: false, placeholder: t('.placeholder_address'), wrapper_html: { id:"center_address", class: 'visibility' }  %>
+    <%=f.input :force_location, as: :boolean%>
+ <br>
+    <%= f.input :center_address, label: false %>
+    <%= f.input :latitude, label: false %>
+    <%= f.input :longitude, label: false %>
     <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+</div>
+<div id="force_zone_page">
+  <div id="map" style="width:100%;height:300px"></div>
 </div>
 
 <% content_for :after_js do %>
