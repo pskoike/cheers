@@ -21,6 +21,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'rails-assets-clipboard', source: 'https://rails-assets.org'
 
+# materialize CSS
+gem 'materialize-sass'
+
 # parsing json
 gem 'json'
 gem 'rest-client'
