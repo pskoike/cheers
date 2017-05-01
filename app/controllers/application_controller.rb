@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
       @hangout.user = current_user
       @hangout.status = "confirmations_on_going"
       if @hangout.save
-      # clear session
-      session[:hangout] = nil
-      #redirect
-      new_hangout_confirmation_path(@hangout)
+        # clear session
+        session[:hangout] = nil
+        #redirect
+        new_hangout_confirmation_path(@hangout)
       else
-        render :new
+        new_hangout_path
       end
     else
       super
