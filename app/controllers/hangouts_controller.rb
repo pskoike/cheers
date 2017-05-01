@@ -38,10 +38,10 @@ class HangoutsController < ApplicationController
           initialize_places_api
           @hangout.status = "vote_on_going"
           @hangout.save
-          HangoutMailer.creation_confirmation(@hangout).deliver_now
+          HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
           redirect_to share_hangout_path(@hangout)
         else
-          HangoutMailer.creation_confirmation(@hangout).deliver_now
+          HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
           redirect_to new_hangout_confirmation_path(@hangout)
         end
       else
@@ -96,7 +96,11 @@ class HangoutsController < ApplicationController
     initialize_places_api
     @hangout.status = "vote_on_going"
     @hangout.save
-
+    @hangout.confirmations do |confirmation|
+      if confirmation.user != @hangout.user
+        HangoutMailer.vote_starting(confirmation).deliver_now ####   mail
+      end
+    end
     redirect_to hangout_path(@hangout)
     #Send notifications
   end
@@ -107,6 +111,12 @@ class HangoutsController < ApplicationController
   def update
     @hangout.update_attributes(hangout_params)
     #launch_vote_hangout_path(@hangout)
+    HangoutMailer.update_confirmation(@hangout).deliver_now
+    @hangout.confirmations do |confirmation|
+      if confirmation.user != @hangout.user
+        HangoutMailer.hangout_update(confirmation).deliver_now ####   mail
+      end
+    end
     redirect_to hangout_path(@hangout)
     #Send notifications
   end
@@ -114,6 +124,11 @@ class HangoutsController < ApplicationController
   def cancel_hg
     @hangout.status = "cancelled"
     @hangout.save
+    @hangout.confirmations do |confirmation|
+      if confirmation.user != @hangout.user
+        HangoutMailer.cancelled(confirmation).deliver_now ####   mail
+      end
+    end
     redirect_to hangout_path(@hangout)
   end
 
@@ -148,6 +163,11 @@ class HangoutsController < ApplicationController
     @hangout.place = winner
     @hangout.status = "result"
     @hangout.save!
+    @hangout.confirmations do |confirmation|
+      if confirmation.user != @hangout.user
+        HangoutMailer.result(confirmation).deliver_now ####   mail
+      end
+    end
     redirect_to hangout_path(@hangout)
   end
 

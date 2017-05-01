@@ -1,0 +1,9 @@
+<p>Hi <%= @guest.first_name%>,</p>
+
+<p><%= @owner.first_name%> made a few changes, <%= @hangout.title%> will now be hold on:</p>
+
+<p>day: <%=@hangout.date.strftime('%d %b, %Y')%> at <%=@hangout.date.strftime('%I:%M%P')%></p>
+
+<p>Hope, it's still ok with you. but in case you cannot make it anymore please cancel your confirmation.</p>
+
+<p>The Cheers team!</p>
