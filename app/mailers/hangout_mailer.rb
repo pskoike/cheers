@@ -5,7 +5,7 @@ class HangoutMailer < ApplicationMailer
     @user = hangout.user
     mail(
       to:       @hangout.user.email,
-      subject:  "Hangout #{@hangout.title} created!"
+      subject: default_i18n_subject(hangout_title: @hangout.title)
     )
   end
 
@@ -14,7 +14,7 @@ class HangoutMailer < ApplicationMailer
     @user = hangout.user
     mail(
       to:       @hangout.user.email,
-      subject:  "Hangout #{@hangout.title} updated!"
+      subject: default_i18n_subject(hangout_title: @hangout.title)
     )
   end
 
@@ -25,7 +25,7 @@ class HangoutMailer < ApplicationMailer
     @owner = @hangout.user
       mail(
         to:       @guest.email,
-        subject:  "#{@hangout.title}: 1, 2 ,3 Vote!"
+        subject:  default_i18n_subject(hangout_title: @hangout.title)
       )
   end
 
@@ -37,7 +37,7 @@ class HangoutMailer < ApplicationMailer
 
       mail(
         to:       @guest.email,
-        subject:  "#{@owner} has updated #{@hangout.title}"
+        subject:  default_i18n_subject(host_name: @owner.first_name, hangout_title: @hangout.title)
       )
   end
 
@@ -49,7 +49,7 @@ class HangoutMailer < ApplicationMailer
 
       mail(
         to:       @guest.email,
-        subject:  "#{@hangout.title} is cancelled..."
+        subject:  default_i18n_subject(hangout_title: @hangout.title)
       )
   end
 
@@ -62,7 +62,7 @@ class HangoutMailer < ApplicationMailer
 
       mail(
         to:       @guest.email,
-        subject:  "#{@hangout.title}: And the winner is ???"
+        subject:  default_i18n_subject(hangout_title: @hangout.title)
       )
   end
 

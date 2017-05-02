@@ -13,7 +13,7 @@ class ConfirmationMailer < ApplicationMailer
 
       mail(
         to:       @owner.email,
-        subject:  "#{@hangout.title}: #{@guest} confirmed!"
+        subject:  default_i18n_subject(guest_name: @guest.first_name, hangout_title: @hangout.title)
       )
   end
 
@@ -30,7 +30,7 @@ class ConfirmationMailer < ApplicationMailer
 
       mail(
         to:       @owner.email,
-        subject:  "#{@hangout.title}: #{@guest} cancelled!"
+        subject:  default_i18n_subject(guest_name: @guest.first_name, hangout_title: @hangout.title)
       )
   end
 

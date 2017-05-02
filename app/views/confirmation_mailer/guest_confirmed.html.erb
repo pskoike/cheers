@@ -5,5 +5,5 @@
   <%= t('.content', guest_name: @guest.first_name, confirmation_nb: @hangout.confirmations.size - 1) %>
 </p>
 <p>
-  <%= t('.link') %>
+  <%= t('.link_html', link: link_to( t('.link') , hangout_url(@hangout))) %>
 </p>
