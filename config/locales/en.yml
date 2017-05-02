@@ -137,6 +137,7 @@ en:
 
   user_mailer:
     welcome:
+      subject: "Welcome to Cheers"
       greeting: "%{user_name}, welcome to Cheers!"
       content: Time to meet with your friends without the hassle of defining the place that suits all!
       bye_message: We hope you'll enjoy our App,
@@ -146,26 +147,21 @@ en:
       greeting: "Hi %{user_name},"
       content: "Bad news, %{host_name} had to cancel %{hangout_title}"
       2nd_content: "But don't be sad, You can easily create a new hangout!"
-
     creation_confirmation:
       greeting: "Hi %{host_name},"
       content: "Everything's ready! Time to share your event %{hangout_title} with your friends!"
-
     hangout_update:
       greeting: "Hi %{user_name},"
       content: "%{host_name} made a few changes, %{hangout_title} will now be hold on:"
       time: "day: %{day} at %{hour}"
       2nd_content: "Hope, it's still ok with you. but in case you cannot make it anymore please cancel your confirmation."
-
     result:
       greeting: "Hi %{user_name},"
       content: "Votation is closed, go to the Cheers app to know where %{hangout_title} is going to take place."
-
-    update_confirmation:
+   update_confirmation:
       greeting: "Hi %{host_name},"
       content: "Everything ready! Your event %{hangout_title} has been updated!"
       2nd_content: "Telling your guests? Don't worry, we already sent them an e-mail!"
-
     vote_starting:
       greeting: "Hi %{user_name},"
       content: "Our Mad Scientists found the best location for %{hangout_title} and came to a short list of 5 places."
@@ -175,7 +171,6 @@ en:
     guest_cancelled:
       greeting: "Hi %{user_name},"
       content: "Bad news, %{guest_name} won't be able to make it to %{hangout_title}."
-
     guest_confirmed:
       greeting: "Hi %{user_name},"
       content: "%{guest_name} will be there! So far %{confirmation_nb} people have confirmed."
