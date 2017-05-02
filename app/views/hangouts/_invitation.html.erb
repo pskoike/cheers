@@ -9,11 +9,11 @@
    </div>
  </div>
  <div class="row">
-   <div class="col s6 center-align">
+   <div class="col s6 l3 offset-l3 center-align">
      <i class="material-icons">date_range</i></br>
       <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%d %b, %Y') %></h4>
    </div>
-   <div class="col s6 center-align">
+   <div class="col s6 l3 center-align">
      <i class="material-icons">access_time</i></br>
       <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%I:%M%P') %></h4>
    </div>
@@ -23,15 +23,16 @@
      <h5><%= t('.where') %></h5>
      <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
    </div>
- </div>
- div class="row">
+
    <div class="col s12 center-align">
      <h5><%= t('.question') %></h5>
-     <div class="btn-card-position"><%= link_to t('.yes_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
+     <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn green btn-large' do  %>
+     <i class="material-icons">check</i>
+     <% end %>
+     <%= link_to root_path, class: 'btn red btn-large' do  %>
+     <i class="material-icons">close</i>
+     <% end %>
 
-     <div class="btn-card-position"><%= link_to t('.accepted_btn'), new_hangout_confirmation_path(@hangout), class: 'btn btn-success' %></div>
-
-     <div class="btn-card-position"><%= link_to t('.no_btn'), root_path, class: 'btn btn-info' %></div>
 
    </div>
  </div>
