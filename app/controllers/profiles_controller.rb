@@ -5,14 +5,14 @@ class ProfilesController < ApplicationController
     authorize @user
     @hangouts_as_host = @user.hangouts
 
-    @hangouts_as_guest = []
+    @confirmations_as_guest = []
     @user.confirmations.each do |conf|
       if conf.hangout.user != @user
-        @hangouts_as_guest << conf.hangout
+        @confirmations_as_guest << conf
       end
-    @hangouts_as_guest
+    @confirmations_as_guest
+    end
   end
-end
 
 
 end

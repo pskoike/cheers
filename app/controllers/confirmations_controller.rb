@@ -36,13 +36,10 @@ class ConfirmationsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
+    authorize @confirmation
+    @confirmation.destroy
+    redirect_to profiles_show_path
   end
 
 private
@@ -120,7 +117,6 @@ private
 
   def set_hangout
     @hangout = Hangout.find(params[:hangout_id])
-    authorize @hangout
   end
 
   def confirmation_params

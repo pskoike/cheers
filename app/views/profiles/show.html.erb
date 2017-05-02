@@ -11,18 +11,27 @@
 
   <ul>
     <%@hangouts_as_host.each do |hangout|%>
-      <li><%= t('.host_list_html', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P'), link: link_to(hangout.title, hangout_path(hangout)), confirmation_count: hangout.confirmations.count ) %></li>
-      <% end %>
-  </ul>
-
-   <h3><%= t('.guest_summary', count: @hangouts_as_guest.size) %></h3>
-
-  <ul>
-    <%@hangouts_as_guest.each do |hangout|%>
-      <li><%= t('.guest_list_html', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P'), link: link_to(hangout.title, hangout_path(hangout)), host: hangout.user.first_name ) %></li>
+      <li>
+        <%= t('.host_list_html', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P'), link: link_to(hangout.title, hangout_path(hangout)), confirmation_count: hangout.confirmations.count ) %>
+        <%= link_to edit_hangout_path(hangout), class: "btn btn-danger" do %>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <% end %>
+        <%= button_to cancel_hg_hangout_path(hangout),class:"btn btn-danger", method: :patch, data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %>
+      </li>
     <% end %>
   </ul>
 
+   <h3><%= t('.guest_summary', count: @confirmations_as_guest.size) %></h3>
+
+  <ul>
+    <%@confirmations_as_guest.each do |conf|%>
+      <li>
+      <%= t('.guest_list_html', day: conf.hangout.date.strftime('%d %b, %Y'), hour: conf.hangout.date.strftime('%I:%M%P'), link: link_to(conf.hangout.title, hangout_path(conf.hangout)), host: conf.hangout.user.first_name ) %>
+      <%= button_to hangout_confirmation_path(conf.hangout.id, conf.id), :method=> :delete, class:"btn", data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 
