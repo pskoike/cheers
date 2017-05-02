@@ -11,6 +11,7 @@ class Hangout < ApplicationRecord
 
 
   scope :cancelled, -> { where(status: "cancelled") }
+  scope :valid, -> { where.not(status: "cancelled") }
   scope :vote_now, -> { where(status: "vote_on_going") }
   scope :vote_finished, -> { where(status: "result") }
   scope :past_hangout, ->(time) { where("date < ?", time) }
