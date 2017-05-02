@@ -28,7 +28,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-<main>
+<main class="<%= yield :main_class %>">
     <%= yield %>
 </main>
 

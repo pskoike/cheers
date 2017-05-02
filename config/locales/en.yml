@@ -71,8 +71,9 @@ en:
 
   confirmations:
     new:
+      explanation: Cheers will propose the best places in a neighborhood that minimizes travel time for everyone
       placeholder: Leaving location
-      btn-text: Go
+      btn-text: Confirm your leaving location
 
   profiles:
     show:
