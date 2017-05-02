@@ -1,4 +1,3 @@
----
 en:
   devise:
     confirmations:
@@ -93,6 +92,8 @@ en:
   layouts:
     application:
       title: Cheers! - Real hangouts made easy!
+    mailer:
+      signature: The Cheers team!
 
   hangouts:
     share:
@@ -132,3 +133,65 @@ en:
       placeholder_date: 01/01/2017 20:00
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
+
+  user_mailer:
+    welcome:
+      subject: "Welcome to Cheers"
+      greeting: "%{user_name}, welcome to Cheers!"
+      content: Time to meet with your friends without the hassle of defining the place that suits all!
+      bye_message: We hope you'll enjoy our App,
+
+  hangout_mailer:
+    cancelled:
+      subject: "Hangout %{hangout_title} created!"
+      greeting: "Hi %{user_name},"
+      content: "Bad news, %{host_name} had to cancel %{hangout_title}"
+      2nd_content: "But don't be sad, You can easily create a new hangout!"
+      link_html: "<strong>%{link}</strong>"
+      link: "New Hangout!"
+    creation_confirmation:
+      subject: "Hangout %{hangout_title} created!"
+      greeting: "Hi %{host_name},"
+      content: "Everything's ready! Time to share your event %{hangout_title} with your friends!"
+      link_html: "<strong>%{link}</strong>"
+      link: "Share it!"
+    hangout_update:
+      subject: "%{host_name} has updated %{hangout_title}"
+      greeting: "Hi %{user_name},"
+      content: "%{host_name} made a few changes, %{hangout_title} will now be hold on:"
+      time: "day: %{day} at %{hour}"
+      2nd_content: "Hope, it's still ok with you, but in case you cannot make it anymore please cancel your confirmation."
+      #link_html: "<strong>%{link}</strong>"
+      #<p>
+      #<%= t('.link_html', link: link_to( "Cancel", hangout_url(@hangout))) %>
+      #</p>
+    result:
+      subject: "%{hangout_title}: And the winner is ???"
+      greeting: "Hi %{user_name},"
+      content: "Votation is closed, go to the Cheers app to know where %{hangout_title} is going to take place."
+      link_html: "<strong>%{link}</strong>"
+      link: "See the result!"
+    update_confirmation:
+      subject: "Hangout %{hangout_title} updated!"
+      greeting: "Hi %{host_name},"
+      content: "Everything ready! Your event %{hangout_title} has been updated!"
+      2nd_content: "Telling your guests? Don't worry, we already sent them an e-mail!"
+    vote_starting:
+      subject: "%{hangout_title}: 1, 2 ,3 Vote!"
+      greeting: "Hi %{user_name},"
+      content: "Our Mad Scientists found the best location for %{hangout_title} and came to a short list of 5 places."
+      2nd_content: "Time to raise your voice and tell us which one you prefer!"
+      link_html: "<strong>%{link}</strong>"
+      link: "Vote Now!"
+
+  confirmation_mailer:
+    guest_cancelled:
+      subject: "%{hangout_title}: %{guest_name} cancelled!"
+      greeting: "Hi %{user_name},"
+      content: "Bad news, %{guest_name} won't be able to make it to %{hangout_title}."
+    guest_confirmed:
+      subject: "%{hangout_title}: %{guest_name} confirmed!"
+      greeting: "Hi %{user_name},"
+      content: "%{guest_name} will be there! So far %{confirmation_nb} people have confirmed."
+      link_html: "When you have enough confirmations you can start the voting process: <strong>%{link}</strong>"
+      link: "Launch Vote!"
