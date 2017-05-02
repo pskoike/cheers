@@ -1,4 +1,4 @@
-class HangoutsController < ApplicationController
+  class HangoutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new, :show]
 
   before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?,:close_vote]
@@ -22,6 +22,7 @@ class HangoutsController < ApplicationController
       redirect_to user_facebook_omniauth_authorize_path
     else
       @hangout = Hangout.new(hangout_params)
+      # @hangout.date = Time.parse(@hangout.date)
       authorize @hangout
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user

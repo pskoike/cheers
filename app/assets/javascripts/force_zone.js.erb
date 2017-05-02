@@ -7,12 +7,13 @@ $(document).ready(function() {
   var markers = [];
   var circles = [];
 
-  $("#hangout_force_location").on("click", function(e){
-
+  $("#force_loc_listener").on("click", function(e){
+    $("#force_zone_page").toggleClass('location_unforced');
+    $("#hangout_center_address").toggleClass('location_unforced');
 
     if ($("input[type='checkbox']:checked").length ===1) {
       geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
-
+      google.maps.event.trigger(map, 'resize');
       //Geolocator:
       getcoord();
 
@@ -29,17 +30,11 @@ $(document).ready(function() {
       }
 
       var icon_url = {
-    url: '<%= asset_path "ball.png" %>',
-    // This marker is 20 pixels wide by 32 pixels high.
-    //width: 20,
-    //heigth: 20,
-    //origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    //anchor: new google.maps.Point(-5, 5)
-  };
-
-
-      // var icon_url = 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRGz_m3KrwteqeWeiuyt_bdjQqjbtDRZohhaJChdJF0bLUJhs-G';
+        url: '<%= asset_path "ball.png" %>',
+        //origin: new google.maps.Point(10, 10),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(5, 5)
+      };
 
       function getcoord() {
         geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {

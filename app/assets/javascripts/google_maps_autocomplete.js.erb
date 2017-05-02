@@ -78,26 +78,26 @@ function listen_transporation(){
 
   $("#driving").on("click", function(e){e.preventDefault();
     transportation = 'DRIVING';
-    $(".transport-btn").removeClass('active');
-    $("#driving").toggleClass('active');
+    $(".transport-btn").removeClass('active-transport-btn');
+    $("#driving").toggleClass('active-transport-btn');
     $('#confirmation_transportation').val(transportation);
   });
   $("#transit").on("click", function(e){e.preventDefault();
     transportation = 'TRANSIT';
-    $(".transport-btn").removeClass('active');
-    $("#transit").toggleClass('active');
+    $(".transport-btn").removeClass('active-transport-btn');
+    $("#transit").toggleClass('active-transport-btn');
     $('#confirmation_transportation').val(transportation);
   });
   $("#walking").on("click", function(e){e.preventDefault();
     transportation = 'WALKING';
-    $(".transport-btn").removeClass('active');
-    $("#walking").toggleClass('active');
+    $(".transport-btn").removeClass('active-transport-btn');
+    $("#walking").toggleClass('active-transport-btn');
     $('#confirmation_transportation').val(transportation);
   });
   $("#cycling").on("click", function(e){e.preventDefault();
     transportation = 'BICYCLING';
-    $(".transport-btn").removeClass('active');
-    $("#cycling").toggleClass('active');
+    $(".transport-btn").removeClass('active-transport-btn');
+    $("#cycling").toggleClass('active-transport-btn');
     $('#confirmation_transportation').val(transportation);
   });
 }
