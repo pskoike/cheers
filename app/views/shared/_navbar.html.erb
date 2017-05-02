@@ -9,9 +9,13 @@
   <% unless current_user.nil? %>
     <ul class="side-nav" id="mobile-demo">
       <div class="avatar-navbar-wrapper center-align vertical-align">
-        <%= image_tag current_user.facebook_picture_url, class: 'avatar-navbar' %>
+        <%= image_tag current_user.facebook_picture_url, class: 'circle' %>
         <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
       </div>
+      <li><%= link_to root_path do %>
+        <i class="material-icons">mood</i><%= t(".hangout-create", default: "New Hangout") %>
+      <% end %>
+      </li>
       <li><%= link_to profiles_show_path do %>
         <i class="material-icons">person</i><%= t(".profile", default: "Profile") %>
       <% end %>
