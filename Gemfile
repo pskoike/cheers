@@ -47,7 +47,6 @@ gem 'omniauth-facebook'
 gem 'pundit'
 
 # mailing
-
 gem "letter_opener", group: :development
 
 
