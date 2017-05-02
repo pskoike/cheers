@@ -6,4 +6,6 @@ $(document).ready(function() {
     $("#center_address").toggleClass('visibility');
   });
     $(".button-collapse").sideNav();
+    $('.collapsible').collapsible();
+
 });

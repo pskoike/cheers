@@ -1,10 +1,51 @@
-<div class="hangout-title">
-  <h1><%=@hangout.title%></h1>
-  <h1><%=@radius%></h1>
-  <%= image_tag @hangout.user.facebook_picture_url, class: "avatar"%>
+<div class="header center-align">
+  <%= image_tag @hangout.user.facebook_picture_url, class: 'circle z-depth-2'%>
+    <h4 class="white-text"><%=@hangout.title%></h4>
+    <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
+</div>
+<div class="status-wrapper">
+  <p class="white-text center-align"><%= t('.status') %></p>
 </div>
 
-<div id="map" style="width: 100%; height: 300px;"></div>
+<div id="map" style="width: 100%; height: 230px;"></div>
+
+<div class="row">
+  <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header active">  <%= image_tag current_user.facebook_picture_url, class: 'circle user z-depth-2' %><br><h5><%= "#{current_user.first_name} #{current_user.last_name}" %></h5></div>
+      <div class="collapsible-body">
+        <% unless @hangout.user == current_user %>
+          <%= button_to "Cancel participation", share_hangout_path(@hangout), method: :get, class: "btn-small" %>
+        <% else %>
+        <div class="valign-wrapper orange-text accent-4" style="justify-content: center;">
+            <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn-small" %>
+          <%= button_to share_hangout_path(@hangout), method: :get, class: "btn-small grey lighten-1" do %>
+          <i class="material-icons">share</i><% end %>
+          <%= button_to edit_hangout_path(@hangout), class: "btn-small grey lighten-1" do %>
+            <i class="material-icons">mode_edit</i>
+          <% end %>
+          <%= button_to cancel_hg_hangout_path(@hangout),class: "btn-small grey lighten-1", method: :patch, data: { confirm: t('.alert_delete') } do %><i class="material-icons">delete</i><% end %>
+        <% end %>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><h5><%= t('.guest-collapse') %></h5></div>
+      <div class="collapsible-body">
+        <ul>
+          <div class="row">
+            <div class="col s12">
+              <% @confirmations.each do |confirmation| %>
+              <div class="col s3 m1 l1"><li><%= image_tag confirmation.user.facebook_picture_url, class: "circle tooltipped", data: { position: "top", delay: "50", tooltip: "#{confirmation.user.first_name}"}%></li></div>
+              <%end%>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    </li>
+  </ul>
+</div>
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -60,32 +101,4 @@
 
     });
   <% end %>
-<% end %>
-
-<div class="row">
-  <div class="col-xs-4">
-    <div class="text-center calendar-wrapper">
-      <p><%=@hangout.category%></p>
-      <%= image_tag 'calendar.png', class: "calendar"%>
-      <p><%=@hangout.date.strftime('%d %b, %Y')%></p>
-      <p><%=@hangout.date.strftime('%I:%M%P')%></p>
-    </div>
-  </div>
-  <div class="col-xs-8">
-    <ul class="guest">
-      <% @confirmations.each do |confirmation| %>
-        <p> <%= image_tag confirmation.user.facebook_picture_url, class: "avatar"%>
-        <%= "#{confirmation.user.first_name} #{confirmation.user.last_name}"%></p>
-      <%end%>
-    </ul>
-  </div>
-</div>
-
-<% if @hangout.user == current_user %>
-  <%= button_to "share", share_hangout_path(@hangout), method: :get, class: "btn btn-success" %> <br>
-  <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn btn-success" %>
-  <%= link_to edit_hangout_path(@hangout), class: "btn btn-danger" do %>
-    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-  <% end %>
-  <%= button_to cancel_hg_hangout_path(@hangout),class:"btn btn-danger", method: :patch, data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i><% end %>
 <% end %>
