@@ -50,6 +50,7 @@
 
 .active-transport-btn{
   filter: invert(100%);
+}
 
 .btn-wrapper{
   //padding-right: 10%;
@@ -178,57 +179,50 @@
 
 .collapsible-li {
   @extend .collapsible;
-    border: 0;
-    margin: -3.2rem 0 1rem 0;
+  border: 0;
+  margin: -3.2rem 0 1rem 0;
 
-    img {
-      width: 100%;
-    }
+  img {
+    width: 100%;
+  }
 
-    .user {
-        width: 70px;
-        position: relative;
-        top:10px;
-    }
+  .user {
+      width: 70px;
+      position: relative;
+      top:10px;
+  }
 
-    // ul {
-    //   display: inline-flex;
-    //   li {
-    //     margin: 5px;
-    //   }
-    // }
-
+  // ul {
+  //   display: inline-flex;
+  //   li {
+  //     margin: 5px;
+  //   }
+  // }
 }
+
 .btn-small {
   @extend .btn;
   padding-left: 8px;
   padding-right: 8px;
   margin: 5px;
   // align-content: center;
-
-
-// home page
-.background-home{
-  // position: absolute;
-  // top: 58px;
-  // overflow: visible;
-  // z-index: 1;
-  // height: 120vh;
-  // width: 100%;
-  position: fixed;
-  width: 100%;
-  //height: 80vh;
-  top: 0;
-  bottom: 0;
-  //z-index: 1;
 }
 
-.tag-line-home{
+// home page
+.background-home {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.tag-line-home {
   font-size: 1rem;
   background-color: #FC6F04;
   margin: -7px;
   padding: 0.2rem;
-  p{margin: 0;
+  p{
+    margin: 0;
     font-size: 1rem;
   }
 }
