@@ -165,7 +165,7 @@
   transition: background 0.15s ease-out;
 }
 .picker--opened .picker__frame {
-  top: 0;
+  top: 10%; //x
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
   -moz-opacity: 1;

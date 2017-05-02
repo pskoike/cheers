@@ -64,8 +64,12 @@ select:disabled {
   color: rgba(0,0,0,.3);
 }
 
+// .select-wrapper input[value='Category']{color: #D0D0D0}
+
+
 .select-wrapper input.select-dropdown:disabled {
-  color: rgba(0,0,0,.3);
+  color: rgba(255,255,255,0.2980392156862745);
+  // background-color:white;
   cursor: default;
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
   -moz-user-select: none; /* mozilla browsers */
@@ -76,6 +80,18 @@ select:disabled {
 .select-wrapper i {
   color: $select-disabled-color;
 }
+
+// .select-wrapper li {
+//   background-color: white;
+//   opacity: 0;
+//   color: red;
+// }
+
+// .select-wrapper ul {
+//    background-color: white;
+//   opacity: 0;
+//   color: red;
+// }
 
 .select-dropdown li.disabled,
 .select-dropdown li.disabled > span,
