@@ -1,5 +1,6 @@
-<p>Hi <%= @user.first_name%></p>
-
-<p>Everything ready! Time to share your event <strong><%= @hangout.title%></strong> with your friends!</p>
-<br>
-<%= link_to hangout_url(@hangout) %>
+<p>
+  <%= t('.greeting', host_name: @user.first_name) %>
+</p>
+<p>
+  <%= t('.content', hangout_title: @hangout.title) %>
+</p>

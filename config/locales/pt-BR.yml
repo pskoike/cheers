@@ -91,6 +91,8 @@ pt-BR:
   layouts:
     application:
       title: Cheers! - Encontre com seus amigos de forma fácil!
+    mailer:
+      signature: O Time do Cheers!
 
   hangouts:
     share:

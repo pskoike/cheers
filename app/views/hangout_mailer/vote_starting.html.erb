@@ -1,7 +1,9 @@
-<p>Hi <%= @guest.first_name%>,</p>
-
-<p>Our Mad Scientists found the best location for <%= @hangout.title%> and came to a short list of 5 places.</p>
-
-<p>Time to raise your voice and tell us which one you prefer!</p>
-<br>
-<%= link_to "Vote Now!", hangout_url(@hangout) %>
+<p>
+  <%= t('.greeting', user_name: @guest.first_name) %>
+</p>
+<p>
+  <%= t('.content', hangout_title: @hangout.title) %>
+</p>
+<p>
+  <%= t('.2nd_content') %>
+</p>

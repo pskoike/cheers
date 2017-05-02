@@ -1,4 +1,7 @@
-<p>Hi <%= @owner.first_name%>,</p>
-<p>Bad news, <%= @guest.first_name%> won't be able to make it to <%= @hangout.title%>.</p>
-
+<p>
+  <%= t('.greeting', user_name: @owner.first_name) %>
+</p>
+<p>
+  <%= t('.content', guest_name: @guest.first_name, hangout_title: @hangout.title) %>
+</p>
 

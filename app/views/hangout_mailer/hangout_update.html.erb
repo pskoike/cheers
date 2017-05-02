@@ -1,9 +1,12 @@
-<p>Hi <%= @guest.first_name%>,</p>
-
-<p><%= @owner.first_name%> made a few changes, <%= @hangout.title%> will now be hold on:</p>
-
-<p>day: <%=@hangout.date.strftime('%d %b, %Y')%> at <%=@hangout.date.strftime('%I:%M%P')%></p>
-
-<p>Hope, it's still ok with you. but in case you cannot make it anymore please cancel your confirmation.</p>
-<br>
-<%= link_to hangout_url(@hangout) %>
+<p>
+  <%= t('.greeting', user_name: @guest.first_name) %>
+</p>
+<p>
+  <%= t('.content', host_name: @owner.first_name, hangout_title: @hangout.title) %>
+</p>
+<p>
+  <%= t('.time', day: @hangout.date.strftime('%d %b, %Y'), hour: @hangout.date.strftime('%I:%M%P')) %>
+</p>
+<p>
+  <%= t('.2nd_content') %>
+</p>

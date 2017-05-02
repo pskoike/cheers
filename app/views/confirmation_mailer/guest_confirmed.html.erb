@@ -1,3 +1,9 @@
-<p>Hi <%= @owner.first_name%>,</p>
-<p><%= @guest.first_name%> will be there! So far <%= @hangout.confirmations.size - 1%> people have confirmed.</p>
-<p>When you have enough confirmations you can start the voting process: </p>
+<p>
+  <%= t('.greeting', user_name: @owner.first_name) %>
+</p>
+<p>
+  <%= t('.content', guest_name: @guest.first_name, confirmation_nb: @hangout.confirmations.size - 1) %>
+</p>
+<p>
+  <%= t('.link') %>
+</p>

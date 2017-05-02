@@ -1,5 +1,10 @@
-<p>Welcome <%= @user.first_name%>,</p>
-<br>
-<p>Time to meet with your friend without the hassle of defining the place that suits all!</p>
-<br>
+<p>
+  <%= t('.greeting', user_name: @user.first_name) %>
+</p>
+<p>
+  <%= t('.content') %>
+</p>
+<p>
+  <%= t('.bye_message') %>
+</p>
 

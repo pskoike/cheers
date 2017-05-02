@@ -1,7 +1,9 @@
-<p>Hi <%= @guest.first_name%>,</p>
-
-<p>Bad news, <%= @owner.first_name%> had to cancel <%= @hangout.title%>.</p>
-
-<p>But don't be sad, You can easily create a new hangout!</p>
-<br>
-<%= link_to hangout_url(@hangout) %>
+<p>
+  <%= t('.greeting', user_name: @guest.first_name) %>
+</p>
+<p>
+  <%= t('.content', host_name: @owner.first_name, hangout_title: @hangout.title) %>
+</p>
+<p>
+  <%= t('.2nd_content') %>
+</p>
