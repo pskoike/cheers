@@ -12,7 +12,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-
   # mount_uploader :photo, PhotoUploader
 
   def self.find_for_facebook_oauth(auth)
