@@ -5,5 +5,5 @@
 <p>day: <%=@hangout.date.strftime('%d %b, %Y')%> at <%=@hangout.date.strftime('%I:%M%P')%></p>
 
 <p>Hope, it's still ok with you. but in case you cannot make it anymore please cancel your confirmation.</p>
-
-<p>The Cheers team!</p>
+<br>
+<%= link_to hangout_url(@hangout) %>

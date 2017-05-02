@@ -1,5 +1,5 @@
 <p>Hi <%= @guest.first_name%>,</p>
 
 <p>Votation is closed, go to the Cheers app to know where <%= @hangout.title%> is going to take place.</p>
-
-<p>The Cheers team!</p>
+<br>
+<%= link_to hangout_url(@hangout) %>

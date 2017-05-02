@@ -1,5 +1,5 @@
 <p>Hi <%= @user.first_name%></p>
 
 <p>Everything ready! Time to share your event <strong><%= @hangout.title%></strong> with your friends!</p>
-
-<p>The Cheers team</p>
+<br>
+<%= link_to hangout_url(@hangout) %>
