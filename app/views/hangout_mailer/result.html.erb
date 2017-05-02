@@ -1,0 +1,9 @@
+<p>
+  <%= t('.greeting', user_name: @guest.first_name) %>
+</p>
+<p>
+  <%= t('.content', hangout_title: @hangout.title) %>
+</p>
+<p>
+  <%= t('.link_html', link: link_to( t('.link') , hangout_url(@hangout))) %>
+</p>

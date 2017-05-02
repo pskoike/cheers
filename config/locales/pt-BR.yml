@@ -1,4 +1,3 @@
----
 pt-BR:
   devise:
     confirmations:
@@ -91,6 +90,8 @@ pt-BR:
   layouts:
     application:
       title: Cheers! - Encontre com seus amigos de forma fácil!
+    mailer:
+      signature: O Time do Cheers!
 
   hangouts:
     share:
@@ -116,3 +117,9 @@ pt-BR:
       wait: "Agora so aguardar a votação terminar"
       button_final_vote: "Encerrar votação"
 
+  user_mailer:
+    welcome:
+      subject: "Bemvindo no Cheers"
+      greeting: "%{user_name}, bemvindo no Cheers!"
+      content: Agora pode convidar o seus amigos sem ter que se preocupar qual seria o melhor lugar!
+      bye_message: Estamos seguro que vai curtir o App,

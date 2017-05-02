@@ -29,6 +29,7 @@ class ConfirmationsController < ApplicationController
       else
         #if not the user means that we need to calculate the search zone:
         search_zone
+        ConfirmationMailer.guest_confirmed(@confirmation).deliver_now    ####   mail
         redirect_to hangout_path(@hangout)
       end
     else
@@ -43,6 +44,7 @@ class ConfirmationsController < ApplicationController
   end
 
   def destroy
+    ConfirmationMailer.guest_cancelled(@confirmation).deliver_now    ####   mail
   end
 
 private

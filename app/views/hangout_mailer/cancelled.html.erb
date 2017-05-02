@@ -1,0 +1,12 @@
+<p>
+  <%= t('.greeting', user_name: @guest.first_name) %>
+</p>
+<p>
+  <%= t('.content', host_name: @owner.first_name, hangout_title: @hangout.title) %>
+</p>
+<p>
+  <%= t('.2nd_content') %>
+</p>
+<p>
+  <%= t('.link_html', link: link_to( t('.link') , root_url )) %>
+</p>
