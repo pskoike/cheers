@@ -37,8 +37,6 @@
 
 .active-transport-btn{
   filter: invert(100%);
-  // background-color: #FFF0A4;
-}
 
 .btn-wrapper{
   padding-right: 10%;
@@ -129,12 +127,67 @@
   background-color: $primary-color;
   margin: 0 0;
   width: 100vw;
-  padding: 15px;
+  padding: 5px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 0px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+
   img {
     width: 80px;
   }
 }
+
+.status-wrapper {
+  background-color: $secondary-color;
+  margin: 0 0;
+  width: 100vw;
+  padding: 1px;
+}
+
+
+.user-wrapper {
+  // height: 80px;
+  // box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 0px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+
+  img {
+    // position: relative;
+    // bottom: 37px;
+    // left: 7%;
+    width: 40px;
+  }
+
+  ul li {
+    display: inline-block ;
+  }
+}
+
+.collapsible-li {
+  @extend .collapsible;
+    border: 0;
+    margin: -3.2rem 0 1rem 0;
+
+    img {
+      width: 100%;
+    }
+
+    .user {
+        width: 70px;
+        position: relative;
+        top:10px;
+    }
+
+    // ul {
+    //   display: inline-flex;
+    //   li {
+    //     margin: 5px;
+    //   }
+    // }
+
+}
+.btn-small {
+  @extend .btn;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 5px;
+  // align-content: center;
 
 
 // home page

@@ -99,8 +99,10 @@ en:
     share:
       message: Hangout ready! Invite your friends!
     confirmationfollowup:
-      button_launch_vote: Enough confirmations, propose places
+      status: Waiting for the other guests to start voting
+      button_launch_vote: Start voting
       alert_delete: Are you sure you want to delete the event?
+      guest-collapse: Confirmed guests
     new:
       new_title1: Hangout with your friend
       new_title2: Create an event!
