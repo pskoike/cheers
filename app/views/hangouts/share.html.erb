@@ -1,24 +1,37 @@
-<div class="text-center padded">
-<p><%= t('.message') %></p>
-<p><%= hangout_url(@hangout) %> <button class="btn" data-clipboard-text='<%= hangout_url(@hangout).html_safe %>'>
-  <i class="fa fa-files-o" aria-hidden="true"></i>
-</button></p>
-  <div id="share"></div>
+<div class="header center-align">
+  <%= image_tag @hangout.user.facebook_picture_url, class: 'circle z-depth-2'%>
+    <h4 class="white-text"><%=@hangout.title%></h4>
+    <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
 </div>
-<br>
-<br>
-<br>
-<br>
-<%= button_to "View Hangout", hangout_path(@hangout), method: :get, class: "btn btn-success" %>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
+      <h2><%= t('.message') %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
+      <div id="share" class=""></div>
+      <button class="btn-small " onclick="Materialize.toast('Copied', 2000)" data-clipboard-text='<%= hangout_url(@hangout).html_safe %>'>
+        <i class="fa fa-files-o" aria-hidden="true"></i> Copy url
+      </button> <%= link_to "View Hangout", hangout_path(@hangout), class: "btn-small grey" %>
+    </div>
+      <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
+    </div>
+  </div>
+</div>
+
+
 
 <% content_for :after_js do %>
   <script>
     $(document).ready(function(){
       $("#share").jsSocials({
-        text: " <% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
-        title: "<% current_user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        url: "<%= hangout_url(@hangout) %>",
+        text: " <%= @hangout.user.first_name %> convida você para o hangout <%= @hangout.title%>",
+        title: "<%= @hangout.user.first_name %> convida você para o hangout <%= @hangout.title%>",
         shareIn : "blank",
-        showLabel: false,
+        showLabel: true,
         showCount: false,
         shares: ["email", "messenger","whatsapp"]
       });
