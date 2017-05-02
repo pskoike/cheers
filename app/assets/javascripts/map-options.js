@@ -18,7 +18,7 @@ window.MAP_OPTIONS = {
   zoomControl: true,
   mapTypeControl: false,
   zoomControl: false,
-  fullscreenControl: true,
+  fullscreenControl: false,
   streetViewControl: false,
   scrollwheel: false,
   draggable: true,

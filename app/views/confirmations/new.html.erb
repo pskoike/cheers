@@ -1,28 +1,42 @@
-<div class="container" id="confirmation_page">
+<div class="header header-setlocation center-align vertical-align on-top-of-map">
+  <p class="white-text"><%= t('.explanation')%></p>
+</div>
+<div id="confirmation_page">
+
+  <div id="map" class="map-confirmation"></div>
+
   <div class="row">
-    <div class="col-xs 12">
-        <%= simple_form_for([@hangout, @confirmation]) do |f| %>
-          <div class="form-inline">
-            <%= f.input :leaving_address, placeholder: t('.placeholder'), label: false %>
-            <%= f.input :transportation, label: false %>
-            <%= f.input :latitude, label: false %>
-            <%= f.input :longitude, label: false %>
-            <%= f.submit class: 'btn btn-default', value: t(".btn-text") %>
-          </div>
-        <% end %>
-    </div>
+  <div class="setlocation-form-wrapper col s12 l6 offset-l3">
+    <%= simple_form_for([@hangout, @confirmation]) do |f| %>
+      <div class="location-input z-depth-3 on-top-of-map">
+      <%= f.input :leaving_address, placeholder: t('.placeholder'), label: false,input_html: {class: "truncate"} %>
+      </div>
+      <div class="form-not-displayed">
+        <%= f.input :transportation, label: false %>
+        <%= f.input :latitude, label: false  %>
+        <%= f.input :longitude, label: false  %>
+      </div>
+      <%= f.submit class: 'btn btn-default btn-confirm-location z-depth-3 on-top-of-map', value: t(".btn-text") %>
+
+    <% end %>
   </div>
-
-
-  <div class="row">
-    <div class="col-xs 12">
-      <div id="map" style="width:100%;height:300px"></div>
-      <ul class="list-inline btn-wrapper">
-      <li><a href='#'><%= image_tag "driving.png", id: "driving", class: "active-transport-btn transport-btn"%></a></li>
-      <li><a href='#'><%= image_tag "transit.png", id: "transit", class: "transport-btn"%></a></li>
-      <li><a href='#'><%= image_tag "walking.png", id: "walking", class: "transport-btn"%></a></li>
-      <li><a href='#'><%= image_tag "cycling.png", id: "cycling", class: "transport-btn"%></a></li>
-      </ul>
-    </div>
   </div>
 </div>
+
+<div class="row btn-wrapper on-top-of-map">
+  <div class="col s3 l1 offset-l4 center-align">
+    <a href='#'><%= image_tag "driving.png", id: "driving", class: "active-transport-btn transport-btn"%></a>
+  </div>
+  <div class="col s3 l1 center-align">
+    <a href='#'><%= image_tag "transit.png", id: "transit", class: "transport-btn z-depth-3"%></a>
+  </div>
+  <div class="col s3 l1 center-align">
+    <a href='#'><%= image_tag "walking.png", id: "walking", class: "transport-btn z-depth-3"%></a>
+  </div>
+  <div class="col s3 l1 center-align">
+    <a href='#'><%= image_tag "cycling.png", id: "cycling", class: "transport-btn z-depth-3"%></a>
+  </div>
+</div>
+
+
+<%content_for :main_class, "page-confirmation-column" %>
