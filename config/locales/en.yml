@@ -77,18 +77,19 @@ en:
 
   profiles:
     show:
-      title: "Your events:"
+      title: "What's comming next?"
       host_summary:
         zero:  "No hangout as a host?! Time to get this party started"
         one:   "Be prepared to host One hangout comming:"
         other: "Busy times you'll host %{count} Hangouts"
-      host_list_html: "Day %{day} at %{hour}, <strong>%{link}</strong> %{confirmation_count} confirmed guest"
-
+      host_list_html: "<strong>%{link}</strong> - %{day}"
+      host-collapse: "Event you host"
       guest_summary:
         zero:  "Nobody invited you?! Tell your friends to use Cheers"
         one:   "Be prepared to get crazy you have One hangout comming:"
         other: "What an agenda! You've been invited to %{count} Hangouts"
-      guest_list_html: "Day %{day} at %{hour}, <strong>%{link}</strong> organized by %{host}"
+      guest_list_html: "<strong>%{link}</strong> - %{day}"
+      guest-collapse: "Event you've been invited"
 
   layouts:
     application:
