@@ -209,7 +209,7 @@ private
     elsif @hangout.status == "result"
       @render = 'result'
       #confirmation
-      #@confirmation = @hangout.confirmations.select {|confirmation| confirmation.user == current_user}
+      @confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
       @transport = confirmation.transportation
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
       @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
