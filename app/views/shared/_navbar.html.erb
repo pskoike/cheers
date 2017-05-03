@@ -1,7 +1,7 @@
 <nav class="on-top-of-map">
   <div class="nav-wrapper">
     <%= link_to root_path do %>
-      <a href="#" class="brand-logo center">cheers</a>
+      <a href="#" class="brand-logo center">Kippis</a>
     <% end %>
     <a href="root_path" data-activates="mobile-demo" class="button-collapse show-on-large">
       <i class="material-icons">menu</i>
@@ -27,7 +27,7 @@
       </ul>
     <% else %>
     <ul class="side-nav" id="mobile-demo">
-      
+
       <li><%= link_to user_facebook_omniauth_authorize_path, class:'btn z-depth-2', id: 'facebook-btn-sidenav' do %>
         <i class="fa fa-facebook-official fa-2x" id="face-icon" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Log in With Facebook
       <% end %></li>

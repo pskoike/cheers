@@ -241,7 +241,8 @@
   display: block;
   background-color: white;
   opacity: 0.97;
-  margin-top: 3rem;
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
   padding: 0.5em 0.5em 1.2em 0.5em;
 }
 
@@ -500,4 +501,20 @@
   color: white;
   padding: 0;
   margin: -2px;
+}
+
+// error form css
+.has_error {
+  input {
+      border-color: red;
+  }
+  .select-wrapper input {
+    border-color: red;
+  }
+}
+
+
+// home text Power by facebook connect
+#home-face-text {
+  font-size: 0.8rem;
 }
