@@ -7,34 +7,57 @@
   <p class="white-text center-align">Hangout confirmed <br> Checkout the place and way to get there</p>
 </div>
 
-<div class="row place-wrapper z-depth-3">
-  <div class="col s8 l4 offset-l3">
-
-     <h3><%= link_to @hangout.place.name, @hangout.place.fsq_url%></h3>
-
-      <h5><%= @hangout.place.address %></h5>
-    <ul class="list-inline rating_wrapper">
-      <li class="box-rating white-text"><%= @hangout.place.rating %>/10</li>
-      <li class="rating-by">Rating by <%= link_to @hangout.place.fsq_url, class: "btn-fsq grey lighten-1" do %>
-        <i class="fa fa-foursquare" aria-hidden="true"></i><% end %></li>
-    </ul>
-  </div>
-  <div class="col s4 l2 ">
+<!-- Place card -->
+<div class="z-depth-1">
+<div class="container">
+  <div class="row place-wrapper">
+    <div class="content">
+      <h4><%= link_to @hangout.place.name, @hangout.place.fsq_url, target: 'blank'%></h4>
+      <h6><%= @hangout.place.address %></h6>
+      <div class="rating_wrapper">
+        <div class="box-rating white-text"><%= @hangout.place.rating %>/10</div>
+        <%= image_tag('poweredbyfoursquare300.png', id: 'fsq-logo-small')%>
+      </div>
+    </div>
+    <div class="">
       <%= image_tag @hangout.place.photo_url %>
+
     </div>
   </div>
 </div>
+</div>
 
-<div id="direction_map" style="width: 100%; height: 300px;"></div>
+<!-- map -->
 
-<%=@transport%>
-<%="Lat: #{@direction[:lat]} + Long: #{@direction[:lng]}"%>
-<%="Lat: #{@departure[:lat]} + Long: #{@departure[:lng]}"%>
+<div id="direction_map"></div>
+<div class="direction-header z-depth-3">
+  <div class="center-align vertical-align direction-header-item">
+    <%= image_tag @confirmation.user.facebook_picture_url, class: 'avatar z-depth-2'%>
+  </div>
+  <div class="direction-header-item">
+    <p >Your way to get there </p>
+    <p class="way-info">Time: <%=@confirmation.time_to_place / 60%> min | Distance: <%=@confirmation.distance_to_place / 1000%> km</p>
+  </div>
+</div>
 
-<div class="row">
+<div class="row btn-map-wrapper">
+  <div class="col s3 l2 offset-l2 vertical-align"></div>
+  <div class="col s3 l2 vertical-align">
+    <a href="<%=@google_url%>", target='_blank', class="btn-direction"><i class="medium material-icons">directions</i></a>
+  </div>
+  <div class="col s3 l2 vertical-align">
+    <a href="<%=@taxi_url%>", target='_blank', class="btn-direction"><%= image_tag '99.png', class: ''%></a>
+  </div>
+  <div class="col s3 l2 vertical-align">
+    <a href="<%=@uber_url%>", target='_blank', class="btn-direction"><%= image_tag 'uber.png', class: ''%></a>
+  </div>
+</div>
+
+
+<div class="row guest-drop-down">
   <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header"><h5><%= "balblabla" %></h5></div>
+      <div class="collapsible-header"><h5><%= t('.guest-collapse') %></h5></div>
       <div class="collapsible-body">
         <ul>
           <div class="row">
@@ -68,7 +91,7 @@
       initMap();
 
       function initMap() {
-        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers : true});
+        var directionsDisplay = new google.maps.DirectionsRenderer; //({suppressMarkers : true});
         var directionsService = new google.maps.DirectionsService;
       console.log(directionsService)
         var map = new google.maps.Map(document.getElementById('direction_map'), window.MAP_OPTIONS);
