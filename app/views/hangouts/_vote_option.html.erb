@@ -8,7 +8,7 @@
 <% if has_voted? %>
 <!-- status bar -->
 <div class="status-wrapper green">
-  <p class="white-text center-align"><%= t('.status-voted', default: 'Thanks for your vote! Whait for the votation to finish') %></p>
+  <p class="white-text center-align"><%= t('.status-voted', default: 'Thanks for your vote! Wait for the votation to finish') %></p>
 </div>
 <!-- Only for hangout owner -->
 <div class="container center-align">
@@ -46,16 +46,6 @@
 <div class="status-wrapper orange-accent-2">
   <p class="white-text center-align"><%= t('.status', default: 'Voting on! Choose your favorite!') %></p>
 </div>
-<!-- Only for hangout owner -->
-<div class="container center-align">
-<% if @hangout.user == current_user %>
-  <p><%=t('.nb_conf') + ": #{@nb_conf}"%></p>
-  <p><%=t('.nb_vote') + ": #{@nb_vote}"%></p>
-
-  <div class="final-vote">
-    <%= button_to t('.button_final_vote'), close_vote_hangout_path(@hangout), method: :patch, class: "btn grey lighten-1 z-depth-0" %>
-  </div>
-  </div>
 <% end %>
 <!-- List of places -->
 <div class="container">
@@ -83,6 +73,6 @@
         <%= image_tag option.place.photo_url %>
       </div>
     </div>
-    <% end %>
-  </div>
+    
 <% end %>
+  </div>
