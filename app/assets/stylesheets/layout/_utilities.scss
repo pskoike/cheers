@@ -36,7 +36,6 @@
 // header and footer
 .on-top-of-map{
   position: relative;
-  // z-index: 800;
 }
 
 
@@ -326,22 +325,15 @@
     flex-direction: column;
 }
 
+// Place card CSS
 .place-wrapper{
-  position: relative;
+  // position: relative;
   background-color: white;
-  z-index:3;
-  h3{
-    color: #FC6F04;
-    font-size: 1.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    a{
-      color: #FC6F04;
-    }
-  }
-  h5{
-    font-size: 1rem;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0.8rem;
+
   .rating-wrapper{
     position: absolute;
     top: 0.2rem;
@@ -350,6 +342,12 @@
   img{
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+    width: auto;
+    max-height: 130px;
+    padding: 0 5px;
+  }
+
+  .content {
     width: 100%;
   }
 }
@@ -364,11 +362,11 @@
 }
 
 .box-rating{
-  background-color: #FC6F04;
+
+  background-color: $primary-color;
   padding: 0.4rem;
-  border-radius: 6px;
+  border-radius: 3px;
   font-size: 0.9rem;
-  font-weight: bolder;
 }
 
 .list-inline li{
@@ -380,5 +378,21 @@
 #list_profile{
   font-size: 1.5rem;
   font-weight: bolder;
+
+.fsq-logo {
+  width: 70%;
+}
+
+.btn-vote-card {
+  background-color: $secondary-color;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  border: 0;
+  position: relative;
+  left: 55px;
+  bottom: 20px;
+
 
 }

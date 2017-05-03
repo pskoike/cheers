@@ -26,6 +26,7 @@ class ConfirmationsController < ApplicationController
         @hangout.adj_longitude = @confirmation.longitude
         @hangout.save
         redirect_to share_hangout_path(@hangout)
+        flash[:notice] = "Hangout criado com sucesso!"
       else
         #if not the user means that we need to calculate the search zone:
         search_zone
@@ -42,6 +43,7 @@ class ConfirmationsController < ApplicationController
     @confirmation.destroy
     redirect_to profiles_show_path
     ConfirmationMailer.guest_cancelled(@confirmation).deliver_now    ####   mail
+    flash[:notice] = "Cancelamento feito!"
   end
 
 private

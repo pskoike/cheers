@@ -135,7 +135,7 @@ en:
       message: "%{title} is coming soon!"
       list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
       vote: "Vote for your Favorite!"
-      has_voted: "Your champion:"
+      has_voted: "Nice Choice! You will be notify white the result soon."
       wait: "Wait for the votation to finish"
       nb_conf: Number of votes
       nb_vote: Number of confirmations
