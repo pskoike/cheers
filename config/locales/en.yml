@@ -1,4 +1,23 @@
 en:
+  confirmation_mailer:
+    guest_cancelled:
+      content: Bad news, %{guest_name} won't be able to make it to %{hangout_title}.
+      greeting: Hi %{user_name},
+      subject: "%{hangout_title}: %{guest_name} cancelled!"
+    guest_confirmed:
+      content: "%{guest_name} will be there! So far %{confirmation_nb} people have
+        confirmed."
+      greeting: Hi %{user_name},
+      link: Launch Vote!
+      link_html: 'When you have enough confirmations you can start the voting process:
+        <strong>%{link}</strong>'
+      subject: "%{hangout_title}: %{guest_name} confirmed!"
+  confirmations:
+    new:
+      btn-text: Confirm your leaving location
+      explanation: Cheers will propose the best places in a neighborhood that minimizes
+        travel time for everyone
+      placeholder: Leaving location
   devise:
     confirmations:
       new:
@@ -62,161 +81,151 @@ en:
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
-  hello: Hello world
-  shared:
-    navbar:
-      profile: Profile
-      sign_in: Sign in
-      sign_out: Sign out
-      top_call_to_action: Top call to action
-
-  confirmations:
+  hangout_mailer:
+    cancelled:
+      2nd_content: But don't be sad, You can easily create a new hangout!
+      content: Bad news, %{host_name} had to cancel %{hangout_title}
+      greeting: Hi %{user_name},
+      link: New Hangout!
+      link_html: "<strong>%{link}</strong>"
+      subject: Hangout %{hangout_title} created!
+    creation_confirmation:
+      content: Everything's ready! Time to share your event %{hangout_title} with
+        your friends!
+      greeting: Hi %{host_name},
+      link: Share it!
+      link_html: "<strong>%{link}</strong>"
+      subject: Hangout %{hangout_title} created!
+    hangout_update:
+      2nd_content: Hope, it's still ok with you, but in case you cannot make it anymore
+        please cancel your confirmation.
+      content: "%{host_name} made a few changes, %{hangout_title} will now be hold
+        on:"
+      greeting: Hi %{user_name},
+      subject: "%{host_name} has updated %{hangout_title}"
+      time: 'day: %{day} at %{hour}'
+    result:
+      content: Votation is closed, go to the Cheers app to know where %{hangout_title}
+        is going to take place.
+      greeting: Hi %{user_name},
+      link: See the result!
+      link_html: "<strong>%{link}</strong>"
+      subject: "%{hangout_title}: And the winner is ???"
+    update_confirmation:
+      2nd_content: Telling your guests? Don't worry, we already sent them an e-mail!
+      content: Everything ready! Your event %{hangout_title} has been updated!
+      greeting: Hi %{host_name},
+      subject: Hangout %{hangout_title} updated!
+    vote_starting:
+      2nd_content: Time to raise your voice and tell us which one you prefer!
+      content: Our Mad Scientists found the best location for %{hangout_title} and
+        came to a short list of 5 places.
+      greeting: Hi %{user_name},
+      link: Vote Now!
+      link_html: "<strong>%{link}</strong>"
+      subject: "%{hangout_title}: 1, 2 ,3 Vote!"
+  hangouts:
+    cancelled:
+      content: Bad news %{user_name}, %{host_name} had to cancel %{hangout_title}
+      content-new: Create your on Hangout!
+      status: Hangout cancelled
+    confirmationfollowup:
+      alert_delete: Are you sure you want to delete the event?
+      button_launch_vote: Start voting
+      guest-collapse: Confirmed guests
+      status: Waiting for the other guests to start voting
+    edit:
+      alert_delete: Are you sure you want to delete the event?
+      edit_title: Edit you Cheers event
+    form:
+      address: Impose your favorite neighborhood
+      placeholder_address: Neighborhood
+      placeholder_catergory: Category
+      placeholder_date: 01/01/2017 20:00
+      placeholder_title: Title of your event
+    invitation:
+      accepted_btn: 'I''ve already confirmed my presence: sign-in'
+      concept_explanation_html: The place will be determ by the guests with Cheers
+        help. Once confirmation is done, you get to vote for a place in the best neighborhood
+        for every body. %{link}
+      day: " Date:"
+      explanation_link_html: Find out how!
+      hour: " Time:"
+      message: "%{host_name} invites you!"
+      no_btn: Can't make it...
+      question: Are you in?
+      where: where?
+      yes_btn: Of course, I'm In!
     new:
-      explanation: Cheers will propose the best places in a neighborhood that minimizes travel time for everyone
-      placeholder: Leaving location
-      btn-text: Confirm your leaving location
-
-  profiles:
-    show:
-      title: "What's comming next?"
-      host_summary:
-        zero:  "No hangout as a host?! Time to get this party started"
-        one:   "Be prepared to host One hangout comming:"
-        other: "Busy times you'll host %{count} Hangouts"
-      host_zero_event: "No hangout as a host?! Time to get this party started"
-      host_list_html: "<strong>%{link}</strong>"
-      date: "%{day} - %{hour}"
-      host-collapse: "Event you host"
-      button_launch_vote: "Start voting"
-      button_final_vote: "Close votation"
-      guest_summary:
-        zero:  "Nobody invited you?! Tell your friends to use Cheers"
-        one:   "Be prepared to get crazy you have One hangout comming:"
-        other: "What an agenda! You've been invited to %{count} Hangouts"
-      guest_zero_event: "Nobody invited you?! Tell your friends to use Cheers"
-      guest-collapse: "Event you've been invited"
-      guest_list_html: "<strong>%{link}</strong>"
-      date: "%{day} - %{hour}"
-      vote_started: "Vote Now!"
-      vote_closed: "See Result"
-      waiting: "Wait for next step"
-
+      new_title1: Hangout with your friend
+      new_title2: Create an event!
+    past:
+      content: 'Hangout is over, it tookplace:'
+      content-new: Create a Hangout
+      status: Past event
+    result:
+      guest-collapse: Confirmed guests
+    share:
+      message: Hangout ready! Invite your friends!
+    vote_option:
+      button_final_vote: Close votation
+      has_voted: Nice Choice! You will be notify white the result soon.
+      list: We selected 5 of the best %{category}s, in a location that suits all the
+        guests.
+      message: "%{title} is coming soon!"
+      nb_conf: Number of confirmations
+      nb_vote: Number of votes
+      status: Status
+      status-voted: Status-voted
+      vote: Vote for your Favorite!
+      wait: Wait for the votation to finish
+  hello: Hello world
   layouts:
     application:
       title: Cheers! - Real hangouts made easy!
     mailer:
       signature: The Cheers team!
-
-  hangouts:
-    share:
-      message: Hangout ready! Invite your friends!
-    confirmationfollowup:
-      status: Waiting for the other guests to start voting
+  profiles:
+    show:
+      alert_delete: Alert delete
+      button_final_vote: Close votation
       button_launch_vote: Start voting
-      alert_delete: Are you sure you want to delete the event?
-      guest-collapse: Confirmed guests
-    new:
-      new_title1: Hangout with your friend
-      new_title2: Create an event!
-    edit:
-      alert_delete: Are you sure you want to delete the event?
-      edit_title: Edit you Cheers event
-    invitation:
-      message: "%{host_name} invites you!"
-      day: " Date:"
-      hour: " Time:"
-      where: "where?"
-      concept_explanation_html: "The place will be determ by the guests with Cheers help. Once confirmation is done, you get to vote for a place in the best neighborhood for every body. %{link}"
-      explanation_link_html: "Find out how!"
-      question: "Are you in?"
-      yes_btn: "Of course, I'm In!"
-      no_btn: "Can't make it..."
-      accepted_btn: "I've already confirmed my presence: sign-in"
-    past:
-      status: Past event
-      content: "Hangout is over, it tookplace:"
-      content-new: "Create a Hangout"
-    vote_option:
-      message: "%{title} is coming soon!"
-      list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
-      vote: "Vote for your Favorite!"
-      has_voted: "Nice Choice! You will be notify white the result soon."
-      wait: "Wait for the votation to finish"
-      nb_conf: Number of confirmations 
-      nb_vote: Number of votes
-      button_final_vote: "Close votation"
-    form:
-      placeholder_title: Title of your event
-      placeholder_catergory: Category
-      placeholder_date: 01/01/2017 20:00
-      address: Impose your favorite neighborhood
-      placeholder_address: Neighborhood
-    result:
-      guest-collapse: Confirmed guests
-    cancelled:
-      status: Hangout cancelled
-      content: "Bad news %{user_name}, %{host_name} had to cancel %{hangout_title}"
-      content-new: "Create your on Hangout!"
-
-
+      date: "%{day} - %{hour}"
+      guest-collapse: Event you've been invited
+      guest_list_html: "<strong>%{link}</strong>"
+      guest_summary:
+        one: 'Be prepared to get crazy you have One hangout comming:'
+        other: What an agenda! You've been invited to %{count} Hangouts
+        zero: Nobody invited you?! Tell your friends to use Cheers
+      guest_zero_event: Nobody invited you?! Tell your friends to use Cheers
+      host-collapse: Event you host
+      host_list_html: "<strong>%{link}</strong>"
+      host_summary:
+        one: 'Be prepared to host One hangout comming:'
+        other: Busy times you'll host %{count} Hangouts
+        zero: No hangout as a host?! Time to get this party started
+      host_zero_event: No hangout as a host?! Time to get this party started
+      title: What's comming next?
+      vote_closed: See Result
+      vote_started: Vote Now!
+      waiting: Wait for next step
+  shared:
+    navbar:
+      hangout-create: Hangout-create
+      profile: Profile
+      sign_in: Sign in
+      sign_out: Sign out
+      top_call_to_action: Top call to action
+    navbarold:
+      home: Home
+      profile: Profile
+      sign_in: Sign in
+      sign_out: Sign out
+      top_call_to_action: Top call to action
   user_mailer:
     welcome:
-      subject: "Welcome to Cheers"
-      greeting: "%{user_name}, welcome to Cheers!"
-      content: Time to meet with your friends without the hassle of defining the place that suits all!
       bye_message: We hope you'll enjoy our App,
-
-  hangout_mailer:
-    cancelled:
-      subject: "Hangout %{hangout_title} created!"
-      greeting: "Hi %{user_name},"
-      content: "Bad news, %{host_name} had to cancel %{hangout_title}"
-      2nd_content: "But don't be sad, You can easily create a new hangout!"
-      link_html: "<strong>%{link}</strong>"
-      link: "New Hangout!"
-    creation_confirmation:
-      subject: "Hangout %{hangout_title} created!"
-      greeting: "Hi %{host_name},"
-      content: "Everything's ready! Time to share your event %{hangout_title} with your friends!"
-      link_html: "<strong>%{link}</strong>"
-      link: "Share it!"
-    hangout_update:
-      subject: "%{host_name} has updated %{hangout_title}"
-      greeting: "Hi %{user_name},"
-      content: "%{host_name} made a few changes, %{hangout_title} will now be hold on:"
-      time: "day: %{day} at %{hour}"
-      2nd_content: "Hope, it's still ok with you, but in case you cannot make it anymore please cancel your confirmation."
-      #link_html: "<strong>%{link}</strong>"
-      #<p>
-      #<%= t('.link_html', link: link_to( "Cancel", hangout_url(@hangout))) %>
-      #</p>
-    result:
-      subject: "%{hangout_title}: And the winner is ???"
-      greeting: "Hi %{user_name},"
-      content: "Votation is closed, go to the Cheers app to know where %{hangout_title} is going to take place."
-      link_html: "<strong>%{link}</strong>"
-      link: "See the result!"
-    update_confirmation:
-      subject: "Hangout %{hangout_title} updated!"
-      greeting: "Hi %{host_name},"
-      content: "Everything ready! Your event %{hangout_title} has been updated!"
-      2nd_content: "Telling your guests? Don't worry, we already sent them an e-mail!"
-    vote_starting:
-      subject: "%{hangout_title}: 1, 2 ,3 Vote!"
-      greeting: "Hi %{user_name},"
-      content: "Our Mad Scientists found the best location for %{hangout_title} and came to a short list of 5 places."
-      2nd_content: "Time to raise your voice and tell us which one you prefer!"
-      link_html: "<strong>%{link}</strong>"
-      link: "Vote Now!"
-
-  confirmation_mailer:
-    guest_cancelled:
-      subject: "%{hangout_title}: %{guest_name} cancelled!"
-      greeting: "Hi %{user_name},"
-      content: "Bad news, %{guest_name} won't be able to make it to %{hangout_title}."
-    guest_confirmed:
-      subject: "%{hangout_title}: %{guest_name} confirmed!"
-      greeting: "Hi %{user_name},"
-      content: "%{guest_name} will be there! So far %{confirmation_nb} people have confirmed."
-      link_html: "When you have enough confirmations you can start the voting process: <strong>%{link}</strong>"
-      link: "Launch Vote!"
+      content: Time to meet with your friends without the hassle of defining the place
+        that suits all!
+      greeting: "%{user_name}, welcome to Cheers!"
+      subject: Welcome to Cheers
