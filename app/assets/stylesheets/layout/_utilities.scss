@@ -10,8 +10,17 @@
   padding-bottom: 5em;
 }
 
+.padded-small {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .padded-top {
   padding-top: 2em;
+}
+
+.padded-top-1 {
+  padding-top: 1em;
 }
 
 // Backgrounds
@@ -385,6 +394,11 @@
 
 #shadow-tailored{
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 0 5px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+#list_profile{
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
 .fsq-logo {
