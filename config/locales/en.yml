@@ -87,8 +87,10 @@ en:
       host_list_html: "<strong>%{link}</strong>"
       date: "%{day} - %{hour}"
       host-collapse: "Event you host"
+      set_location: "Set Leaving location"
       button_launch_vote: "Start voting"
       button_final_vote: "Close votation"
+      vote_closed: "See Result"
       guest_summary:
         zero:  "Nobody invited you?! Tell your friends to use Cheers"
         one:   "Be prepared to get crazy you have One hangout comming:"
@@ -142,7 +144,7 @@ en:
       vote: "Vote for your Favorite!"
       has_voted: "Nice Choice! You will be notify white the result soon."
       wait: "Wait for the votation to finish"
-      nb_conf: Number of confirmations 
+      nb_conf: Number of confirmations
       nb_vote: Number of votes
       button_final_vote: "Close votation"
     form:
