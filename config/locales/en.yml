@@ -136,6 +136,10 @@ en:
       placeholder_date: 01/01/2017 20:00
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
+    cancelled:
+      status: Hangout cnacelled
+      content: "Bad news %{user_name}, %{host_name} had to cancel %{hangout_title}"
+      content-new: "Create your on Hangout!"
 
   user_mailer:
     welcome:
