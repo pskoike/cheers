@@ -40,9 +40,11 @@
           @hangout.save
           HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
           redirect_to share_hangout_path(@hangout)
+          flash[:notice] = "Hangout criado com sucesso!"
         else
           HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
           redirect_to new_hangout_confirmation_path(@hangout)
+
         end
       else
         render :new
@@ -74,6 +76,7 @@
     authorize @hangout
     @confirmation.save
     redirect_to hangout_path(@hangout)
+    flash[:notice] = "Voto realizado com sucesso!"
   end
 
   def has_voted?
@@ -118,6 +121,7 @@
       end
     end
     redirect_to hangout_path(@hangout)
+    flash[:notice] = "Hangout editado!"
     #Send notifications
   end
 
@@ -130,6 +134,7 @@
       end
     end
     redirect_to hangout_path(@hangout)
+    flash[:notice] = "Hangout cancelado!"
   end
 
   def close_vote
