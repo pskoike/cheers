@@ -1,8 +1,8 @@
 pt-BR:
   confirmation_mailer:
     guest_cancelled:
-      content: Bad news, %{guest_name} won't be able to make it to %{hangout_title}.
-      greeting: Hi %{user_name},
+      content: Má notícia, o %{guest_name} não vai conseguir vir no seu evento "%{hangout_title}".
+      greeting: Ola %{user_name},
       subject: "%{hangout_title}: %{guest_name} cancelled!"
     guest_confirmed:
       content: "%{guest_name} will be there! So far %{confirmation_nb} people have
@@ -15,7 +15,7 @@ pt-BR:
   confirmations:
     new:
       btn-text: Confirm your leaving location
-      explanation: Cheers will propose the best places in a neighborhood that minimizes
+      explanation: Kippis will propose the best places in a neighborhood that minimizes
         travel time for everyone
       placeholder: Leaving location
   devise:
@@ -105,7 +105,7 @@ pt-BR:
       subject: "%{host_name} has updated %{hangout_title}"
       time: 'day: %{day} at %{hour}'
     result:
-      content: Votation is closed, go to the Cheers app to know where %{hangout_title}
+      content: Votation is closed, go to the Kippis app to know where %{hangout_title}
         is going to take place.
       greeting: Hi %{user_name},
       link: See the result!
@@ -136,7 +136,7 @@ pt-BR:
       status: Waiting for the other guests to start voting
     edit:
       alert_delete: Are you sure you want to delete the event?
-      edit_title: Edit you Cheers event
+      edit_title: Edit you Kippis event
     form:
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
@@ -181,9 +181,9 @@ pt-BR:
   hello: Hello world
   layouts:
     application:
-      title: Cheers! - Encontre com seus amigos de forma fácil!
+      title: Kippis! - Encontre com seus amigos de forma fácil!
     mailer:
-      signature: O Time do Cheers!
+      signature: O Time do Kippis!
   profiles:
     show:
       alert_delete: Alert delete
@@ -196,8 +196,8 @@ pt-BR:
       guest_summary:
         one: 'Voce tem um hangout chegando:'
         other: Que agenda! Voce foi convidado para %{count} Hangouts
-        zero: Ninguem convidou?! Fala para seus amigos usar o Cheers
-      guest_zero_event: Nobody invited you?! Tell your friends to use Cheers
+        zero: Ninguem convidou?! Fala para seus amigos usar o Kippis
+      guest_zero_event: Nobody invited you?! Tell your friends to use Kippis
       host-collapse: Event you host
       host_list_html: Dia %{day} as %{hour}, <strong>%{link}</strong> com %{confirmation_count}
         confirmados
@@ -228,5 +228,5 @@ pt-BR:
       bye_message: Estamos seguro que vai curtir o App,
       content: Agora pode convidar o seus amigos sem ter que se preocupar qual seria
         o melhor lugar!
-      greeting: "%{user_name}, bemvindo no Cheers!"
-      subject: Bemvindo no Cheers
+      greeting: "%{user_name}, bemvindo no Kippis!"
+      subject: Bemvindo no Kippis

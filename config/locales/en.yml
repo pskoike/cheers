@@ -1,7 +1,7 @@
 en:
   confirmation_mailer:
     guest_cancelled:
-      content: Bad news, %{guest_name} won't be able to make it to %{hangout_title}.
+      content: Bad news, %{guest_name} won't be able to make it to "%{hangout_title}".
       greeting: Hi %{user_name},
       subject: "%{hangout_title}: %{guest_name} cancelled!"
     guest_confirmed:
@@ -15,7 +15,7 @@ en:
   confirmations:
     new:
       btn-text: Confirm your leaving location
-      explanation: Cheers will propose the best places in a neighborhood that minimizes
+      explanation: Kippis will propose the best places in a neighborhood that minimizes
         travel time for everyone
       placeholder: Leaving location
   devise:
@@ -105,7 +105,7 @@ en:
       subject: "%{host_name} has updated %{hangout_title}"
       time: 'day: %{day} at %{hour}'
     result:
-      content: Votation is closed, go to the Cheers app to know where %{hangout_title}
+      content: Votation is closed, go to the Kippis app to know where %{hangout_title}
         is going to take place.
       greeting: Hi %{user_name},
       link: See the result!
@@ -136,7 +136,7 @@ en:
       status: Waiting for the other guests to start voting
     edit:
       alert_delete: Are you sure you want to delete the event?
-      edit_title: Edit you Cheers event
+      edit_title: Edit you Kippis event
     form:
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
@@ -145,7 +145,7 @@ en:
       placeholder_title: Title of your event
     invitation:
       accepted_btn: 'I''ve already confirmed my presence: sign-in'
-      concept_explanation_html: The place will be determ by the guests with Cheers
+      concept_explanation_html: The place will be determ by the guests with Kippis
         help. Once confirmation is done, you get to vote for a place in the best neighborhood
         for every body. %{link}
       day: " Date:"
@@ -182,9 +182,9 @@ en:
   hello: Hello world
   layouts:
     application:
-      title: Cheers! - Real hangouts made easy!
+      title: Kippis! - Real hangouts made easy!
     mailer:
-      signature: The Cheers team!
+      signature: The Kippis team!
   profiles:
     show:
       alert_delete: Alert delete
@@ -196,8 +196,8 @@ en:
       guest_summary:
         one: 'Be prepared to get crazy you have One hangout comming:'
         other: What an agenda! You've been invited to %{count} Hangouts
-        zero: Nobody invited you?! Tell your friends to use Cheers
-      guest_zero_event: Nobody invited you?! Tell your friends to use Cheers
+        zero: Nobody invited you?! Tell your friends to use Kippis
+      guest_zero_event: Nobody invited you?! Tell your friends to use Kippis
       host-collapse: Event you host
       host_list_html: "<strong>%{link}</strong>"
       host_summary:
@@ -227,5 +227,5 @@ en:
       bye_message: We hope you'll enjoy our App,
       content: Time to meet with your friends without the hassle of defining the place
         that suits all!
-      greeting: "%{user_name}, welcome to Cheers!"
-      subject: Welcome to Cheers
+      greeting: "%{user_name}, welcome to Kippis!"
+      subject: Welcome to Kippis
