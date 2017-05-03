@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :hangouts, dependent: :destroy
   has_many :confirmations, dependent: :destroy
+  has_many :confirmed_hangouts, through: :confirmations, source: :hangout
 
   after_create :send_welcome_email
   before_save :set_avatar_placeholder
@@ -10,7 +11,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-
 
   # mount_uploader :photo, PhotoUploader
 
@@ -33,6 +33,9 @@ class User < ApplicationRecord
     return user
   end
 
+  def hangouts_as_guest
+    confirmed_hangouts.where.not(id: hangouts)
+  end
 
 
 private

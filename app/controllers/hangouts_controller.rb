@@ -3,7 +3,6 @@
 
   before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?,:close_vote]
 
-
   def new
     @hangout = Hangout.new(session.fetch(:hangout, {}).fetch("hangout", nil))
     authorize @hangout
