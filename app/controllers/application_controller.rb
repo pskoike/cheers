@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
         session[:hangout] = nil
         #redirect
         new_hangout_confirmation_path(@hangout)
+        flash[:notice] = "Hangout criado com sucesso!"
       else
         new_hangout_path
       end
