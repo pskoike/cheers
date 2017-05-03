@@ -27,12 +27,9 @@
     <%@user.hangouts_as_guest.future_hangout(Time.zone.now).valid.each do |hangout|%>
       <li>
       <%= t('.guest_list_html', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P'), link: link_to(hangout.title, hangout_path(hangout)), host: hangout.user.first_name ) %>
-      <%= button_to hangout_confirmation_path( hangout.id, conf.id), :method=> :delete, class:"btn", data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i>
+      <%= button_to hangout_confirmation_path( hangout, Confirmation.where( hangout: hangout, user: @user)), :method=> :delete, class:"btn", data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i>
       <% end %>
       </li>
     <% end %>
   </ul>
 </div>
-
-
-Confirmation.find(params[:id]
