@@ -21,7 +21,7 @@
             <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn-small" %>
           <%= button_to share_hangout_path(@hangout), method: :get, class: "btn-small grey lighten-1" do %>
           <i class="material-icons">share</i><% end %>
-          <%= button_to edit_hangout_path(@hangout), class: "btn-small grey lighten-1" do %>
+          <%= button_to edit_hangout_path(@hangout),method: :get, class: "btn-small grey lighten-1" do %>
             <i class="material-icons">mode_edit</i>
           <% end %>
           <%= button_to cancel_hg_hangout_path(@hangout),class: "btn-small grey lighten-1", method: :patch, data: { confirm: t('.alert_delete') } do %><i class="material-icons">delete</i><% end %>
@@ -45,6 +45,7 @@
     </li>
   </ul>
 </div>
+
 
 
 <% content_for(:after_js) do %>

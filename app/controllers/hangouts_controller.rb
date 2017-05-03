@@ -217,6 +217,10 @@ private
       @transport = confirmation.transportation
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
       @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
+      @hangout.place.address =
+      @google_url = "//www.google.com/maps/dir/#{@departure[:lat]},#{@departure[:lng]}/#{@direction[:lat]},#{@direction[:lng]}"
+      @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}', target: 'blank'%>"
+      @taxi_url = "taxis99://call?"
     elsif @hangout.status == "cancelled"
       @render = 'cancelled'
     end

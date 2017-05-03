@@ -78,18 +78,28 @@ en:
 
   profiles:
     show:
-      title: "Your events:"
+      title: "What's comming next?"
       host_summary:
         zero:  "No hangout as a host?! Time to get this party started"
         one:   "Be prepared to host One hangout comming:"
         other: "Busy times you'll host %{count} Hangouts"
-      host_list_html: "Day %{day} at %{hour}, <strong>%{link}</strong> %{confirmation_count} confirmed guest"
-
+      host_zero_event: "No hangout as a host?! Time to get this party started"
+      host_list_html: "<strong>%{link}</strong>"
+      date: "%{day} - %{hour}"
+      host-collapse: "Event you host"
+      button_launch_vote: "Start voting"
+      button_final_vote: "Close votation"
       guest_summary:
         zero:  "Nobody invited you?! Tell your friends to use Cheers"
         one:   "Be prepared to get crazy you have One hangout comming:"
         other: "What an agenda! You've been invited to %{count} Hangouts"
-      guest_list_html: "Day %{day} at %{hour}, <strong>%{link}</strong> organized by %{host}"
+      guest_zero_event: "Nobody invited you?! Tell your friends to use Cheers"
+      guest-collapse: "Event you've been invited"
+      guest_list_html: "<strong>%{link}</strong>"
+      date: "%{day} - %{hour}"
+      vote_started: "Vote Now!"
+      vote_closed: "See Result"
+      waiting: "Wait for next step"
 
   layouts:
     application:
@@ -122,14 +132,18 @@ en:
       yes_btn: "Of course, I'm In!"
       no_btn: "Can't make it..."
       accepted_btn: "I've already confirmed my presence: sign-in"
+    past:
+      status: Past event
+      content: "Hangout is over, it tookplace:"
+      content-new: "Create a Hangout"
     vote_option:
       message: "%{title} is coming soon!"
       list: "We selected 5 of the best %{category}s, in a location that suits all the guests."
       vote: "Vote for your Favorite!"
       has_voted: "Nice Choice! You will be notify white the result soon."
       wait: "Wait for the votation to finish"
-      nb_conf: Number of votes
-      nb_vote: Number of confirmations
+      nb_conf: Number of confirmations 
+      nb_vote: Number of votes
       button_final_vote: "Close votation"
     form:
       placeholder_title: Title of your event
@@ -137,6 +151,13 @@ en:
       placeholder_date: 01/01/2017 20:00
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
+    result:
+      guest-collapse: Confirmed guests
+    cancelled:
+      status: Hangout cancelled
+      content: "Bad news %{user_name}, %{host_name} had to cancel %{hangout_title}"
+      content-new: "Create your on Hangout!"
+
 
   user_mailer:
     welcome:
