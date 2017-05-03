@@ -1,12 +1,57 @@
-<h1>Result</h1>
+<div class="header center-align">
+  <%= image_tag @hangout.user.facebook_picture_url, class: 'circle z-depth-2'%>
+    <h4 class="white-text"><%=@hangout.title%></h4>
+    <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
+</div>
+<div class="status-wrapper">
+  <p class="white-text center-align">Hangout confirmed <br> Checkout the place and way to get there</p>
+</div>
 
+<div class="row place-wrapper z-depth-3">
+  <div class="col s8 l4 offset-l3">
 
-<h1><%= @hangout.place.name %></h1>
+     <h3><%= link_to @hangout.place.name, @hangout.place.fsq_url%></h3>
+
+      <h5><%= @hangout.place.address %></h5>
+    <ul class="list-inline rating_wrapper">
+      <li class="box-rating white-text"><%= @hangout.place.rating %>/10</li>
+      <li class="rating-by">Rating by <%= link_to @hangout.place.fsq_url, class: "btn-fsq grey lighten-1" do %>
+        <i class="fa fa-foursquare" aria-hidden="true"></i><% end %></li>
+    </ul>
+  </div>
+  <div class="col s4 l2 ">
+      <%= image_tag @hangout.place.photo_url %>
+    </div>
+  </div>
+</div>
+
 <div id="direction_map" style="width: 100%; height: 300px;"></div>
 
 <%=@transport%>
 <%="Lat: #{@direction[:lat]} + Long: #{@direction[:lng]}"%>
 <%="Lat: #{@departure[:lat]} + Long: #{@departure[:lng]}"%>
+
+<div class="row">
+  <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><h5><%= "balblabla" %></h5></div>
+      <div class="collapsible-body">
+        <ul>
+          <div class="row">
+            <div class="col s12">
+              <% @confirmations.each do |confirmation| %>
+              <div class="col s3 m1 l1"><li><%= image_tag confirmation.user.facebook_picture_url, class: "circle tooltipped", data: { position: "top", delay: "50", tooltip: "#{confirmation.user.first_name}"}%></li></div>
+              <%end%>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    </li>
+  </ul>
+</div>
+
+
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
