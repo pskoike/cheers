@@ -31,8 +31,8 @@
 // header and footer
 .on-top-of-map{
   position: relative;
-  // z-index: 2;
 }
+
 
 .fixed-pos{
   position: fixed;
@@ -320,7 +320,6 @@
     flex-direction: column;
 }
 
-
 // Place card CSS
 .place-wrapper{
   // position: relative;
@@ -337,10 +336,10 @@
   }
   img{
     margin-top: 0.75rem;
-      margin-bottom: 0.75rem;
-      width: auto;
-      max-height: 130px;
-      padding: 0 5px;
+    margin-bottom: 0.75rem;
+    width: auto;
+    max-height: 130px;
+    padding: 0 5px;
   }
 
   .content {
@@ -358,6 +357,7 @@
 }
 
 .box-rating{
+
   background-color: $primary-color;
   padding: 0.4rem;
   border-radius: 3px;
@@ -368,6 +368,7 @@
   display: inline;
   list-style-type: none;
 }
+
 
 .fsq-logo {
   width: 70%;

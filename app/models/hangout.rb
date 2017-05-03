@@ -10,6 +10,13 @@ class Hangout < ApplicationRecord
   validates :status, presence: true
 
 
+  scope :cancelled, -> { where(status: "cancelled") }
+  scope :valid, -> { where.not(status: "cancelled") }
+  scope :vote_now, -> { where(status: "vote_on_going") }
+  scope :vote_finished, -> { where(status: "result") }
+  scope :past_hangout, ->(time) { where("date < ?", time) }
+  scope :future_hangout, ->(time) { where("date > ?", time) }
+
 
   geocoded_by :center_address
   after_validation :geocode, if: :center_address?

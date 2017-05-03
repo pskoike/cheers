@@ -3,7 +3,6 @@
 
   before_action :set_hangout, only: [:show, :share, :edit, :update, :cancel_hg, :launch_vote, :submit_vote, :has_voted?,:close_vote]
 
-
   def new
     @hangout = Hangout.new(session.fetch(:hangout, {}).fetch("hangout", nil))
     authorize @hangout
@@ -209,7 +208,7 @@ private
     elsif @hangout.status == "result"
       @render = 'result'
       #confirmation
-      #@confirmation = @hangout.confirmations.select {|confirmation| confirmation.user == current_user}
+      @confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
       @transport = confirmation.transportation
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
       @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
