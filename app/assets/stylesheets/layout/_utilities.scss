@@ -10,6 +10,11 @@
   padding-bottom: 5em;
 }
 
+.padded-small {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .padded-top {
   padding-top: 2em;
 }
@@ -369,4 +374,11 @@
 .list-inline li{
   display: inline;
   list-style-type: none;
+}
+
+
+#list_profile{
+  font-size: 1.5rem;
+  font-weight: bolder;
+
 }

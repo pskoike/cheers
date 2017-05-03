@@ -82,14 +82,23 @@ en:
         zero:  "No hangout as a host?! Time to get this party started"
         one:   "Be prepared to host One hangout comming:"
         other: "Busy times you'll host %{count} Hangouts"
-      host_list_html: "<strong>%{link}</strong> - %{day}"
+      host_zero_event: "No hangout as a host?! Time to get this party started"
+      host_list_html: "<strong>%{link}</strong>"
+      date: "%{day} - %{hour}"
       host-collapse: "Event you host"
+      button_launch_vote: "Start voting"
+      button_final_vote: "Close votation"
       guest_summary:
         zero:  "Nobody invited you?! Tell your friends to use Cheers"
         one:   "Be prepared to get crazy you have One hangout comming:"
         other: "What an agenda! You've been invited to %{count} Hangouts"
-      guest_list_html: "<strong>%{link}</strong> - %{day}"
+      guest_zero_event: "Nobody invited you?! Tell your friends to use Cheers"
       guest-collapse: "Event you've been invited"
+      guest_list_html: "<strong>%{link}</strong>"
+      date: "%{day} - %{hour}"
+      vote_started: "Vote Now!"
+      vote_closed: "See Result"
+      waiting: "Wait for next step"
 
   layouts:
     application:
