@@ -386,3 +386,28 @@
   bottom: 20px;
 
 }
+
+.facebook-btn {
+  background-color: #4267b2;
+  padding:1.2rem;
+  border-radius: 2px;
+  color: white;
+  i{
+    position: relative;
+    top: 0.2rem;
+  }
+}
+
+#facebook-btn-sidenav {
+  @extend .btn;
+  background-color: #4267b2;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 0.1rem 11px;
+}
+
+#face-icon {
+  color: white;
+  padding: 0;
+  margin: -2px;
+}

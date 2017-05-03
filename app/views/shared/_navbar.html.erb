@@ -27,7 +27,10 @@
       </ul>
     <% else %>
     <ul class="side-nav" id="mobile-demo">
-      <li><%= link_to 'Sign in', user_facebook_omniauth_authorize_path, class: 'waves-effect waves-light btn'%></li>
+      
+      <li><%= link_to user_facebook_omniauth_authorize_path, class:'btn z-depth-2', id: 'facebook-btn-sidenav' do %>
+        <i class="fa fa-facebook-official fa-2x" id="face-icon" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Log in With Facebook
+      <% end %></li>
     </ul>
     <% end %>
   </div>

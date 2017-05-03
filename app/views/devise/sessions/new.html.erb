@@ -1,5 +1,5 @@
-<h2><%= t(".sign_in") %></h2>
 
+<!--
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email, required: false, autofocus: true %>
@@ -10,6 +10,20 @@
   <div class="form-actions">
     <%= f.button :submit, t(".sign_in") %>
   </div>
-<% end %>
+<% end %> -->
 
-<%= render "devise/shared/links" %>
+<!-- # <%= render "devise/shared/links" %> -->
+<div class="header center-align vertical-align">
+  <i class="large material-icons circle  blue-grey-text text-lighten-4">face</i>
+    <h4 class="white-text"><%= t(".sign_in") %></h4>
+</div>
+<div class="container center-align">
+ <div class="row padded-top">
+   <div class="col s12 l6 offset-l3">
+       <h1><%= t(".welcome") %></h1>
+   </div>
+ </div>
+
+<%= link_to user_facebook_omniauth_authorize_path, class:'facebook-btn z-depth-2' do %>
+  <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Log in With Facebook
+<% end %>

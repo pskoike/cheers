@@ -49,6 +49,7 @@ en:
     sessions:
       new:
         sign_in: Sign in
+        welcome: Welcome to Kippis!
     shared:
       links:
         back: Back
