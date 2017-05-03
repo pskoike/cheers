@@ -10,7 +10,7 @@
 <div class="row place-wrapper z-depth-3">
   <div class="col s8 l4 offset-l3">
 
-     <h3><%= link_to @hangout.place.name, @hangout.place.fsq_url%></h3>
+     <h3><%= link_to @hangout.place.name, @hangout.place.fsq_url, target: 'blank'%></h3>
 
       <h5><%= @hangout.place.address %></h5>
     <ul class="list-inline rating_wrapper">
