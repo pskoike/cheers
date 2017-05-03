@@ -137,7 +137,7 @@ en:
       address: Impose your favorite neighborhood
       placeholder_address: Neighborhood
     cancelled:
-      status: Hangout cnacelled
+      status: Hangout cancelled
       content: "Bad news %{user_name}, %{host_name} had to cancel %{hangout_title}"
       content-new: "Create your on Hangout!"
 
