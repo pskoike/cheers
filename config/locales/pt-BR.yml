@@ -202,7 +202,7 @@ pt-BR:
     application:
       title: Kippis! - Encontre com seus amigos de forma fácil!
     mailer:
-      signature: O Time do Kippis!
+      signature: The Kippis team!
   profiles:
     show:
       alert_delete: Alerta excluir
