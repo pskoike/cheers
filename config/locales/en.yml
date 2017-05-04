@@ -183,6 +183,10 @@ en:
       content-new: Create a Hangout
       status: Past event
     result:
+      banner: Hangout confirmed!
+      waiting_banner: Checkout the place and way to get there
+      indication: "Your way to get there"
+      info_itinerary: "Time: %{time} min | Distance: %{distance} km"
       guest-collapse: Confirmed guests
     share:
       message: Hangout ready! Invite your friends!
