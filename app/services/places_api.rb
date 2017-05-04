@@ -56,7 +56,6 @@ class PlacesApi
 
     r = results.take(15)
     a = r.sample(5) #Take the first 15 and sample.
-    binding.pry
     a.each do |result|
       po = PlaceOption.new
       po.hangout = @hg
