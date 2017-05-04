@@ -5,8 +5,7 @@ en:
       greeting: Hi %{user_name},
       subject: "%{hangout_title}: %{guest_name} cancelled!"
     guest_confirmed:
-      content: "%{guest_name} will be there! So far %{confirmation_nb} people have
-        confirmed."
+      content: "%{guest_name} will be there! So far %{confirmation_nb} people have confirmed."
       greeting: Hi %{user_name},
       link: Launch Vote!
       link_html: 'When you have enough confirmations you can start the voting process:
@@ -15,8 +14,7 @@ en:
   confirmations:
     new:
       btn-text: Confirm your leaving location
-      explanation: Kippis will propose the best places in a neighborhood that minimizes
-        travel time for everyone
+      explanation: Kippis will propose the best places in a neighborhood that minimizes travel time for everyone
       placeholder: Leaving location
   devise:
     confirmations:
@@ -131,6 +129,7 @@ en:
       status: Hangout cancelled
     confirmationfollowup:
       alert_delete: Are you sure you want to delete the event?
+      button_cancel: "Cancel participation"
       button_launch_vote: Start voting
       guest-collapse: Confirmed guests
       status: Waiting for the other guests to start voting
@@ -139,13 +138,14 @@ en:
       edit_title: Edit you Kippis event
     form:
       address: Impose your favorite neighborhood
+      title: Invite your friends and let Cheers find the best spot to hang out!
       placeholder_address: Neighborhood
-      placeholder_catergory: Category
+      placeholder_category: Category
       placeholder_date: 01/01/2017 20:00
       placeholder_title: Title of your event
     invitation:
-      accepted_btn: 'I''ve already confirmed my presence: sign-in'
-      concept_explanation_html: The place will be determ by the guests with Kippis
+      accepted_btn: 'I ve already confirmed my presence: sign-in'
+      concept_explanation_html: The place will be selected by the guests with Kippis
         help. Once confirmation is done, you get to vote for a place in the best neighborhood
         for every body. %{link}
       day: " Date:"
@@ -160,7 +160,7 @@ en:
       new_title1: Hangout with your friend
       new_title2: Create an event!
     past:
-      content: 'Hangout is over, it tookplace:'
+      content: 'Hangout is over, it took place:'
       content-new: Create a Hangout
       status: Past event
     result:
@@ -169,7 +169,7 @@ en:
       message: Hangout ready! Invite your friends!
     vote_option:
       button_final_vote: Close votation
-      has_voted: Nice Choice! You will be notify white the result soon.
+      has_voted: Nice Choice! You will be notified when vote end.
       list: We selected 5 of the best %{category}s, in a location that suits all the
         guests.
       message: "%{title} is coming soon!"
@@ -194,31 +194,31 @@ en:
       guest-collapse: Event you've been invited
       guest_list_html: "<strong>%{link}</strong>"
       guest_summary:
-        one: 'Be prepared to get crazy you have One hangout comming:'
+        one: 'Be prepared to get crazy you have One hangout coming:'
         other: What an agenda! You've been invited to %{count} Hangouts
-        zero: Nobody invited you?! Tell your friends to use Kippis
-      guest_zero_event: Nobody invited you?! Tell your friends to use Kippis
+        zero: Nobody invited you yet?! Tell your friends about Kippis
+      guest_zero_event: Nobody invited you yet?! Tell your friends about Kippis
       host-collapse: Event you host
       host_list_html: "<strong>%{link}</strong>"
       host_summary:
-        one: 'Be prepared to host One hangout comming:'
+        one: 'Be prepared to host One hangout coming:'
         other: Busy times you'll host %{count} Hangouts
         zero: No hangout as a host?! Time to get this party started
       host_zero_event: No hangout as a host?! Time to get this party started
-      title: What's comming next?
+      title: What's coming next?
       vote_closed: See Result
       vote_started: Vote Now!
       waiting: Wait for next step
   shared:
     navbar:
       hangout-create: Hangout-create
-      profile: Profile
+      profile: My Hangout
       sign_in: Sign in
       sign_out: Sign out
       top_call_to_action: Top call to action
     navbarold:
       home: Home
-      profile: Profile
+      profile: My Hangouts
       sign_in: Sign in
       sign_out: Sign out
       top_call_to_action: Top call to action

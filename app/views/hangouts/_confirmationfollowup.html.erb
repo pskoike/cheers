@@ -15,7 +15,7 @@
       <div class="collapsible-header active">  <%= image_tag current_user.facebook_picture_url, class: 'circle user z-depth-2' %><br><h5><%= "#{current_user.first_name} #{current_user.last_name}" %></h5></div>
       <div class="collapsible-body">
         <% unless @hangout.user == current_user %>
-          <%= button_to "Cancel participation", share_hangout_path(@hangout), method: :get, class: "btn-small" %>
+          <%= button_to t('.button_cancel'), share_hangout_path(@hangout), method: :get, class: "btn-small" %>
         <% else %>
         <div class="valign-wrapper orange-text accent-4" style="justify-content: center;">
             <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn-small" %>
