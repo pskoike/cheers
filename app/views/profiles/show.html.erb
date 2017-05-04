@@ -6,10 +6,10 @@
 
   <ul class="collapsible center-align " data-collapsible="accordion">
     <li>
-      <div class="collapsible-header padded-small">
+      <div class="collapsible-header padded-small"  id="open_delay">
         <h5><%= t('.host-collapse') %> </h5>
       </div>
-          <div class="collapsible-body padded-small" >
+          <div class="collapsible-body padded-small">
           <% if @user.hangouts.future_hangout(Time.zone.now).valid.size == 0 %>
             <p ><%= t('.host_zero_event') %> </p>
           <% else %>
@@ -64,3 +64,12 @@
       <% end %>
     </li>
   </ul>
+  <% content_for :after_js do %>
+    <script>
+    $(document).ready(function(){
+          setTimeout(function(){
+             $("#open_delay").trigger( "click" );
+         }, 1500);
+    });
+  </script>
+<% end %>
