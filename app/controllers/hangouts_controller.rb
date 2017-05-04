@@ -15,29 +15,32 @@
   def create
     if current_user.nil?
       session[:hangout] = params
-      @hangout = Hangout.new
+      @hangout = Hangout.new(hangout_params)
       authorize @hangout
-      #  redirect_to new_user_session_path
-      redirect_to user_facebook_omniauth_authorize_path
+      if check_params?
+        render :new and return
+      else
+        #  redirect_to new_user_session_path
+        redirect_to user_facebook_omniauth_authorize_path
+      end
+
     else
       @hangout = Hangout.new(hangout_params)
       # @hangout.date = Time.parse(@hangout.date)
       authorize @hangout
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user
+        # session[:hangout] = nil
+      if @hangout.force_location == true
+        @hangout.adj_latitude = @hangout.latitude
+        @hangout.adj_longitude = @hangout.longitude
+        @hangout.radius = 600
+      end
       if @hangout.save
-        session[:hangout] = nil
-        if @hangout.force_location == true
-          @hangout.adj_latitude = @hangout.latitude
-          @hangout.adj_longitude = @hangout.longitude
-          @hangout.radius = 600
-          @hangout.save
-        end
-        HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
-        redirect_to new_hangout_confirmation_path(@hangout)
-        flash[:notice] = "Hangout criado com sucesso!"
+      HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
+      redirect_to new_hangout_confirmation_path(@hangout)
+      flash[:notice] = "Hangout criado com sucesso!"
       else
-        @hangout.valid?
         render :new
       end
     end
@@ -124,7 +127,7 @@
         HangoutMailer.cancelled(confirmation).deliver_now ####   mail
       end
     end
-    redirect_to hangout_path(@hangout)
+    redirect_to profiles_show_path
     flash[:notice] = "Hangout cancelado!"
   end
 
@@ -222,4 +225,7 @@ private
     fetch.find_places(venues)
   end
 
+  def check_params?
+    params[:hangout][:title] == "" || params[:hangout][:date] == "" || params[:hangout][:category] == ""
+  end
 end

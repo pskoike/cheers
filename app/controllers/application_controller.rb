@@ -24,14 +24,16 @@ class ApplicationController < ActionController::Base
       @hangout = Hangout.new(session[:hangout]["hangout"])
       @hangout.user = current_user
       @hangout.status = "confirmations_on_going"
-      if @hangout.save
+      
+      @hangout.save
         # clear session
-        session[:hangout] = nil
+      session[:hangout] = nil
         #redirect
-        new_hangout_confirmation_path(@hangout)
-      else
-        new_hangout_path
-      end
+      new_hangout_confirmation_path(@hangout)
+
+        # puts "***************************************************************"
+        # new_hangout_path(@hangout)
+      # end
     else
       super
     end
