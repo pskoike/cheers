@@ -52,7 +52,7 @@
         <div class=" valign-wrapper center-align" style="justify-content: center;">
           <% if hangout.status == "vote_on_going" %>
                 <%= button_to t('.vote_started'), hangout_path(hangout), method: :get, class: "btn-small" %>
-              <% elsif hangout.status == "vote_on_going" %>
+              <% elsif hangout.status == "result" %>
                 <%= button_to t('.vote_closed'), hangout_path(hangout), method: :get, class: "btn-small" %>
               <% else %>
                 <%= button_to t('.waiting'), hangout_path(hangout), method: :get, class: "btn-small grey lighten-1" %>
