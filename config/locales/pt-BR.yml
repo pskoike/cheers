@@ -2,6 +2,15 @@ pt-BR:
   helpers:
     submit:
       create: "Criar Encontro"
+  time:
+    am: am
+    pm: pm
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+      day: "%d %b, %Y"
+      hour: "%I:%M%P"
   confirmation_mailer:
     guest_cancelled:
       content: Má notícia, o %{guest_name} não vai conseguir vir no seu encontro "%{hangout_title}".

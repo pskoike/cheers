@@ -8,6 +8,7 @@
     <li>
       <div class="collapsible-header padded-small">
         <h5><%= t('.host-collapse') %> </h5>
+        <h5><%= l(Time.now, :format => :short) %> </h5>
       </div>
           <div class="collapsible-body padded-small" >
           <% if @user.hangouts.future_hangout(Time.zone.now).valid.size == 0 %>
