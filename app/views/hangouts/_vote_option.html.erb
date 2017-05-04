@@ -51,7 +51,9 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m6 offset-m3 center-align">
-      <p><%= t('.list', category: @hangout.category )%></p>
+      <p>
+        <%= t('.list', category: t('simple_form.options.hangout.category.'+ @hangout.category ))%>
+      </p>
       <%= image_tag('poweredbyfoursquare300.png', class: 'fsq-logo')%>
     </div>
   </div>
@@ -73,6 +75,6 @@
         <%= image_tag option.place.photo_url %>
       </div>
     </div>
-    
+
 <% end %>
   </div>

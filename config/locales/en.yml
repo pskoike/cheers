@@ -2,6 +2,13 @@ en:
   helpers:
     submit:
       create: "Create Hangout"
+  simple_form:
+    options:
+      hangout:
+        category:
+          Food: 'Restaurant'
+          Drinks: 'Bar'
+          Coffee: 'Coffee'
   time:
     am: am
     pm: pm

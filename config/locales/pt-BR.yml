@@ -2,6 +2,13 @@ pt-BR:
   helpers:
     submit:
       create: "Criar Encontro"
+  simple_form:
+    options:
+      hangout:
+        category:
+          Food: 'Restaurante'
+          Drinks: 'Bar'
+          Coffee: 'Cafe'
   time:
     am: am
     pm: pm
