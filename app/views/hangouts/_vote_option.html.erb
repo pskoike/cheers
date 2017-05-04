@@ -1,7 +1,7 @@
 <div class="header center-align">
   <%= image_tag @hangout.user.facebook_picture_url, class: 'circle z-depth-2'%>
     <h4 class="white-text"><%=@hangout.title%></h4>
-    <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
+    <p class="white-text"><%= l @hangout.date, format: :short %></p>
 </div>
 
 

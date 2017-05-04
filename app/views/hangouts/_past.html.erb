@@ -1,7 +1,7 @@
 <div class="header center-align">
    <%= image_tag @hangout.user.facebook_picture_url, class: 'circle z-depth-2'%>
      <h4 class="white-text"><%=@hangout.title%></h4>
-     <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
+     <p class="white-text"><%= l @hangout.date, format: :short %></p>
  </div>
  <div class="status-wrapper red">
    <p class="white-text center-align"><%= t('.status') %></p>
@@ -11,8 +11,7 @@
      <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
        <h1><i class="large material-icons">event_busy</i></h1>
        <h5><%= t('.content', host_name:@hangout.user.first_name, hangout_title: @hangout.title) %></h5>
-         <p><%=@hangout.date.strftime('%d %b, %Y')%></p>
-         <p><%=@hangout.date.strftime('%I:%M%P')%></p>
+         <p><%= l @hangout.date, format: :short %></p>
      </div>
    </div>
      <div class="row padded-top-1">

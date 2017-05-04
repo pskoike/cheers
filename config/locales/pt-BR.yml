@@ -9,15 +9,6 @@ pt-BR:
           Food: 'Restaurante'
           Drinks: 'Bar'
           Coffee: 'Cafe'
-  time:
-    am: am
-    pm: pm
-    formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%B %d, %Y %H:%M"
-      short: "%d %b %H:%M"
-      day: "%d %b, %Y"
-      hour: "%I:%M%P"
   confirmation_mailer:
     guest_cancelled:
       content: Má notícia, o %{guest_name} não vai conseguir vir no seu encontro "%{hangout_title}".
@@ -142,7 +133,7 @@ pt-BR:
     confirmationfollowup:
       alert_delete: Voce esta certo que quer excluir esse encontro?
       button_cancel: "Cancelar participação"
-      button_launch_vote: Chega de enrolção, cade?
+      button_launch_vote: Iniciar votação
       guest-collapse: Convidados confirmados
       status: Aguardando mais confirmações antes de iniciar a votação
       toast: Calculando zona para otimizar o tempo de viagem de cada convidado
