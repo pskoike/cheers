@@ -21,7 +21,10 @@
       <%=f.input :force_location, as: :boolean, boolean_style: :inline, label:t('.address') %>
 
       <div id="force_zone_page" class="location_unforced">
-        <div id="map" style="width:100%;height:300px"></div>
+        <div style="width:100%;height:300px">
+
+          <div id="map" style="width:100%;height:300px; position: relative"></div>
+        </div>
       </div>
       <%= f.input :center_address, label: false, input_html: {class: 'location_unforced truncate'}%>
       <%= f.input :latitude, label: false, input_html: {class: 'location_unforced'} %>

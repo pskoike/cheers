@@ -14,6 +14,7 @@ $(document).ready(function() {
     if ($("input[type='checkbox']:checked").length ===1) {
       geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
       google.maps.event.trigger(map, 'resize');
+      $('<div/>').addClass('center-ball').appendTo(map.getDiv())
       //Geolocator:
       getcoord();
 
@@ -37,6 +38,7 @@ $(document).ready(function() {
       };
 
       function getcoord() {
+        //https://github.com/onury/geolocator
         geolocator.locate(GEOLOCATOR_OPTIONS, function (err, location) {
           if (err) return console.log(err);
           var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
@@ -94,6 +96,41 @@ $(document).ready(function() {
         $('#hangout_longitude').val(place.geometry.location.lng());
         //$('#hangout_center_address').val(place.formated_address);
       }
+
+      google.maps.event.addListener(map,'dragend', function() {
+        var coords = {
+          latitude: map.getCenter().lat(),
+          longitude: map.getCenter().lng()
+        };
+
+        markers[0].setMap(null);
+        circles[0].setMap(null);
+        markers = [];
+        circles = [];
+        var marker = new google.maps.Marker({position:{lat: coords.latitude,lng: coords.longitude}, map: map, icon: icon_url});
+        markers.push(marker);
+        markers[0].setMap(null);
+        map.setZoom(14);
+
+        var circle = new google.maps.Circle({
+          strokeColor: '#5500FF',
+          strokeOpacity: 0.8,
+          strokeWeight: 1,
+          fillColor: '#39BAFF',
+          fillOpacity: 0.25,
+          map: map,
+          center: {lat: coords.latitude,lng: coords.longitude},
+          radius: 600
+        });
+        circles.push(circle);
+
+        geolocator.reverseGeocode(coords, function (err, location) {
+          console.log(err || location);
+          $('#hangout_latitude').val(location.coords.latitude);
+          $('#hangout_longitude').val(location.coords.longitude);
+          $('#hangout_center_address').val(location.formattedAddress);
+        });
+      });
     } else{
       $('#hangout_latitude').val(null);
       $('#hangout_longitude').val(null);
