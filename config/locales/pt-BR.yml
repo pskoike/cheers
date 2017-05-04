@@ -174,13 +174,13 @@ pt-BR:
     vote_option:
       button_final_vote: Encerrar votação
       has_voted: 'A sua escolha foi:'
-      list: Escolhimos a dedo 5 dos melhores %{category}s, no bairro mais adequada para
+      list: Escolhimos a dedo 5 dos melhores de %{category}, no bairro mais adequada para
         todos.
       message: "%{title} esta chegando!"
       nb_conf: Número de confirmações
       nb_vote: Número de votos
-      status: Status
-      status-voted: Status-voted
+      status: E a hora de votar
+      status-voted: Aguardando a votação terminar
       vote: Selecione o seu favorito!
       wait: Agora so aguardar a votação terminar
   hello: Olá mundo

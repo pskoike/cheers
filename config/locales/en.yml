@@ -182,12 +182,12 @@ en:
     vote_option:
       button_final_vote: Close votation
       has_voted: Nice Choice! You will be notified when vote end.
-      list: We selected 5 of the best %{category}s, in a location that suits all the guests.
+      list: We selected 5 of the best %{category} places, in a location that suits all the guests.
       message: "%{title} is coming soon!"
       nb_conf: Number of confirmations
       nb_vote: Number of votes
-      status: Status
-      status-voted: Status-voted
+      status: Time to vote!
+      status-voted: Waiting for the votation to finish
       vote: Vote for your Favorite!
       wait: Wait for the votation to finish
   hello: Hello world
@@ -222,8 +222,8 @@ en:
       waiting: Wait for next step
   shared:
     navbar:
-      hangout-create: Hangout-create
-      profile: My Hangout
+      hangout-create: Create Hangout
+      profile: My Hangouts
       sign_in: Sign in
       sign_out: Sign out
       top_call_to_action: Top call to action
