@@ -34,7 +34,7 @@
 // ==========================================================================
 
 
-$primary-color: color("blue-grey", "lighten-1") !default;
+$primary-color: color("blue-grey", "lighten-2") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
@@ -287,7 +287,7 @@ $h1-fontsize: 2.2rem !default; // 4.2
 $h2-fontsize: 1.8rem !default; // 3.56
 $h3-fontsize: 1.6rem !default; // 2.92
 $h4-fontsize: 1.4rem !default; // 2.28
-$h5-fontsize: 1.2rem !default; // 1.64
+$h5-fontsize: 1.1rem !default; // 1.64
 $h6-fontsize: 1rem !default; // 1
 
 
