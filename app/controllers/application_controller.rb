@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
 
       if @hangout.force_location == true
         @hangout.adj_latitude = @hangout.latitude
+        puts "************************application_controller adj_lat#{@hangout.adj_latitude} vs. lat: #{@hangout.latitude}**************************************************************"
         @hangout.adj_longitude = @hangout.longitude
         @hangout.radius = 600
       end

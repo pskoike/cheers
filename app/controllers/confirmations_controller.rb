@@ -29,6 +29,8 @@ class ConfirmationsController < ApplicationController
           @hangout.adj_longitude = @confirmation.longitude
           @hangout.latitude = @confirmation.latitude
           @hangout.longitude = @confirmation.longitude
+          puts "************************confirmation_controller adj_lat#{@hangout.adj_latitude} vs. lat: #{@hangout.latitude}**************************************************************"
+
           @hangout.radius = 600
         end
         @hangout.save
