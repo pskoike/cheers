@@ -133,6 +133,7 @@ en:
       button_launch_vote: Start voting
       guest-collapse: Confirmed guests
       status: Waiting for the other guests to start voting
+      toast: Area calculated to optimize travel time for participants
     edit:
       alert_delete: Are you sure you want to delete the event?
       edit_title: Edit you Kippis event
@@ -226,3 +227,11 @@ en:
         that suits all!
       greeting: "%{user_name}, welcome to Kippis!"
       subject: Welcome to Kippis
+activerecord:
+    errors:
+      models:
+        hangout:
+          attributes:
+            date:
+              blank: Please enter a date
+              inclusion: Please enter a date / time in the future
