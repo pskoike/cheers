@@ -1,6 +1,6 @@
 <div class="container center-align vertical-align form_wrapper z-depth-4">
 <div class="tag-line-home white-text">
-<h5>Invite your friends and let Cheers find the best spot to hang out!</h5>
+<h5><%=t('.title')%></h5>
 </div>
 <div class="row form_wrapper_bottom_margin">
   <div class="col s12">
@@ -10,7 +10,7 @@
       <%= f.input :title, label: false, placeholder: t('.placeholder_title'), error: false %>
       <div class="row">
         <div class="col s4 center-align vertical-align">
-        <div class="face-dropdown"><p><%=t('.placeholder_catergory')%></p></div>
+        <div class="face-dropdown"><p><%=t('.placeholder_category')%></p></div>
         </div>
         <div class="col s8">
         <%= f.input :category, label: false, collection: ["Food", "Drinks", "Coffee"], autofocus: false, error: false %>
