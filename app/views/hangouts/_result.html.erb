@@ -4,7 +4,7 @@
     <p class="white-text"><%=@hangout.date.strftime('%d %b, %Y')%> - <%=@hangout.date.strftime('%I:%M%P')%></p>
 </div>
 <div class="status-wrapper">
-  <p class="white-text center-align">Hangout confirmed <br> Checkout the place and way to get there</p>
+  <p class="white-text center-align"> <%=t('.banner')%> <br> <%=t('.waiting_banner')%></p>
 </div>
 
 <!-- Place card -->
@@ -33,8 +33,9 @@
     <%= image_tag @confirmation.user.facebook_picture_url, class: 'avatar z-depth-2'%>
   </div>
   <div class="direction-header-item">
-    <p >Your way to get there </p>
-    <p class="way-info">Time: <%= @confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60%> min | Distance: <%=@confirmation.distance_to_place.nil? ? 0 : @confirmation.distance_to_place / 1000%> km</p>
+    <p ><%=t('.indication')%></p>
+    <p class="way-info"><%=t('.info_itinerary', time: (@confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60), distance: (@confirmation.distance_to_place.nil? ? 0 : @confirmation.distance_to_place / 1000))%>
+    </p>
   </div>
 </div>
 

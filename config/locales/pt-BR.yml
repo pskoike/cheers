@@ -2,6 +2,13 @@ pt-BR:
   helpers:
     submit:
       create: "Criar Encontro"
+  simple_form:
+    options:
+      hangout:
+        category:
+          Food: 'Restaurante'
+          Drinks: 'Bar'
+          Coffee: 'Cafe'
   time:
     am: am
     pm: pm
@@ -168,6 +175,10 @@ pt-BR:
       content-new: Criar um encontro
       status: Encontro aconteceu
     result:
+      banner: Encontro confirmado!
+      waiting_banner: Confira o lugar escolhido e como chegar ate la
+      indication: Itinerario
+      info_itinerary: "Tempo: %{time} min | Distancia: %{distance} km"
       guest-collapse: Convidados confirmados
     share:
       message: Encontro pronto! Convide seus amigos!

@@ -13,7 +13,7 @@
         <div class="face-dropdown"><p><%=t('.placeholder_category')%></p></div>
         </div>
         <div class="col s8">
-        <%= f.input :category, label: false, collection: ["Food", "Drinks", "Coffee"], autofocus: false, error: false %>
+        <%= f.input :category, label: false, collection: [:Food, :Drinks, :Coffee], autofocus: false, error: false %>
         </div>
       </div>
       <%= f.input :date, as: :string, label: false,  placeholder: t('.placeholder_date'), input_html: {
@@ -32,7 +32,7 @@
 
 
       <%= f.button :submit, class: "btn btn-primary" %>
-      <p class="center-align blue-grey-text text-lighten-2" id="home-face-text">Power by Facebook Connect</p>
+      <p class="center-align blue-grey-text text-lighten-2" id="home-face-text">Powered by Facebook Connect</p>
     <% end %>
     </div>
 
