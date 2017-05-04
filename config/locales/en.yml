@@ -126,7 +126,7 @@ en:
       day: " Date:"
       hour: " Time:"
       where: "where?"
-      concept_explanation_html: "The place will be determ by the guests with Cheers help. Once confirmation is done, you get to vote for a place in the best neighborhood for every body. %{link}"
+      concept_explanation_html: "Once guests have confirmed, Kippis will calculate the best neighborhood based on everyone locations and submit for votation a selection of places in that area. %{link}"
       explanation_link_html: "Find out how!"
       question: "Are you in?"
       yes_btn: "Of course, I'm In!"
@@ -142,7 +142,7 @@ en:
       vote: "Vote for your Favorite!"
       has_voted: "Nice Choice! You will be notify white the result soon."
       wait: "Wait for the votation to finish"
-      nb_conf: Number of confirmations 
+      nb_conf: Number of confirmations
       nb_vote: Number of votes
       button_final_vote: "Close votation"
     form:

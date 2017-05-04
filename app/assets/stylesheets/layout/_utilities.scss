@@ -255,6 +255,10 @@
   color: black;
 }
 
+#force_zone_page{
+  margin-top: 20px;
+}
+
 .location_unforced{
   display: none;
 }
@@ -458,24 +462,28 @@
 }
 
 .btn-direction{
-  //position: absolute;
   z-index: 2;
   color: #4285F4;
-  // &-1{
-  //   bottom: -2rem;
-  //   left: 14rem;
-  // }
-  // &-2{
-  //   bottom: -1.8rem;
-  //   left: 19rem;
-  // }
-  img{
-    width: 56px;
-  }
+}
+
+#uber_pic{
+  width: 56px;
+}
+
+#taxi_pic{
+  width: 50px;
 }
 
 .btn-map-wrapper{
+  width: 320px;
   margin-top: 10px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  &-item{
+  flex: 1 0 auto;
+  margin: 0 auto;
+  }
 }
 
 .facebook-btn {
@@ -486,6 +494,10 @@
   i{
     position: relative;
     top: 0.2rem;
+  }
+  &-convite{
+    padding: 1rem;
+    font-size: 11px;
   }
 }
 

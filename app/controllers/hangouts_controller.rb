@@ -28,24 +28,13 @@
       if @hangout.save
         session[:hangout] = nil
         if @hangout.force_location == true
-          #hangout owner confirmation directly saved
-          @confirmation = Confirmation.new(latitude: @hangout.latitude, longitude: @hangout.longitude, transportation: 'DRIVING')
-          @confirmation.user = current_user
-          @confirmation.hangout = @hangout
-          authorize @confirmation
-          @confirmation.save
-          #launch vote
-          initialize_places_api
-          @hangout.status = "vote_on_going"
+          @hangout.adj_latitude = @hangout.latitude
+          @hangout.adj_longitude = @hangout.longitude
           @hangout.save
-          HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
-          redirect_to share_hangout_path(@hangout)
-          flash[:notice] = "Hangout criado com sucesso!"
-        else
-          HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
-          redirect_to new_hangout_confirmation_path(@hangout)
-
         end
+        HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
+        redirect_to new_hangout_confirmation_path(@hangout)
+        flash[:notice] = "Hangout criado com sucesso!"
       else
         render :new
       end
@@ -217,7 +206,6 @@ private
       @transport = confirmation.transportation
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
       @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
-      @hangout.place.address =
       @google_url = "//www.google.com/maps/dir/#{@departure[:lat]},#{@departure[:lng]}/#{@direction[:lat]},#{@direction[:lng]}"
       @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}', target: 'blank'%>"
       @taxi_url = "taxis99://call?"

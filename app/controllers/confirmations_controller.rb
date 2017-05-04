@@ -7,6 +7,7 @@ class ConfirmationsController < ApplicationController
       @confirmation = Confirmation.new
       authorize @confirmation
     else
+      authorize @hangout
       redirect_to hangout_path(@hangout)
     end
   end
@@ -15,21 +16,20 @@ class ConfirmationsController < ApplicationController
     @confirmation= Confirmation.new(confirmation_params)
     @confirmation.user = current_user
     @confirmation.hangout = @hangout
-
     authorize @confirmation
 
     if @confirmation.save
       if @hangout.user == current_user
-        @hangout.latitude = @confirmation.latitude
-        @hangout.longitude = @confirmation.longitude
-        @hangout.adj_latitude = @confirmation.latitude
-        @hangout.adj_longitude = @confirmation.longitude
-        @hangout.save
-        redirect_to share_hangout_path(@hangout)
-        flash[:notice] = "Hangout criado com sucesso!"
+        if @hangout.force_location == true
+          initialize_places_api
+          @hangout.status = "vote_on_going"
+          @hangout.save
+        end
+          redirect_to share_hangout_path(@hangout)
       else
-        #if not the user means that we need to calculate the search zone:
-        search_zone
+        if @hangout.force_location == false
+          search_zone
+        end
         ConfirmationMailer.guest_confirmed(@confirmation).deliver_now    ####   mail
         redirect_to hangout_path(@hangout)
       end
@@ -127,5 +127,11 @@ private
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
     params.require(:confirmation).permit(:leaving_address, :transportation, :latitude, :longitude)
+  end
+
+  def initialize_places_api
+    fetch = PlacesApi.new(@hangout)
+    venues = fetch.fetch_places
+    fetch.find_places(venues)
   end
 end
