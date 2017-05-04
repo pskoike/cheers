@@ -41,11 +41,9 @@ $(document).ready(function() {
           if (err) return console.log(err);
           var coord = {lat: location.coords.latitude, lng: location.coords.longitude};
           map.panTo(coord);
-          console.log(location);
 
           var marker = new google.maps.Marker({position: coord, map: map, icon: icon_url});
           markers.push(marker);
-          console.log(marker);
           map.setZoom(14);
 
           var center = (<%= raw @adj_center.to_json %>);
@@ -74,6 +72,8 @@ $(document).ready(function() {
         markers[0].setMap(null);
         circles[0].setMap(null);
         markers = [];
+        circles = [];
+
         map.panTo(coord);
         var marker = new google.maps.Marker({position: coord, map: map, icon: icon_url});
         markers.push(marker);

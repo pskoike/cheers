@@ -31,15 +31,15 @@
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user
         # session[:hangout] = nil
-        if @hangout.force_location == true
-          @hangout.adj_latitude = @hangout.latitude
-          @hangout.adj_longitude = @hangout.longitude
-
-        end
-        if @hangout.save
-        HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
-        redirect_to new_hangout_confirmation_path(@hangout)
-        flash[:notice] = "Hangout criado com sucesso!"
+      if @hangout.force_location == true
+        @hangout.adj_latitude = @hangout.latitude
+        @hangout.adj_longitude = @hangout.longitude
+        @hangout.radius = 600
+      end
+      if @hangout.save
+      HangoutMailer.creation_confirmation(@hangout).deliver_now    ####   mail
+      redirect_to new_hangout_confirmation_path(@hangout)
+      flash[:notice] = "Hangout criado com sucesso!"
       else
         render :new
       end

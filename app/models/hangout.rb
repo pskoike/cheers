@@ -4,8 +4,8 @@ class Hangout < ApplicationRecord
   has_many :confirmations
   has_many :place_options
 
-  validates :title, presence: true
-  validates :date, presence: true
+  validates :title, presence: true, length: { maximum: 100, message: "Maximum 100 characters" }
+  validates :date, presence: true, inclusion: { in: (Date.today..Date.today+10.years), message: "Can not be in the past" }
   validates :category, presence: true
   validates :status, presence: true
 
@@ -20,4 +20,5 @@ class Hangout < ApplicationRecord
 
   geocoded_by :center_address
   after_validation :geocode, if: :center_address?
+
 end
