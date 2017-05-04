@@ -25,9 +25,8 @@ class ApplicationController < ActionController::Base
       @hangout.user = current_user
       @hangout.status = "confirmations_on_going"
 
-      if @hangout.force_location == true
+      if @hangout.optimize_location == false
         @hangout.adj_latitude = @hangout.latitude
-        puts "************************application_controller adj_lat#{@hangout.adj_latitude} vs. lat: #{@hangout.latitude}**************************************************************"
         @hangout.adj_longitude = @hangout.longitude
         @hangout.radius = 600
       end

@@ -59,7 +59,7 @@
   </div>
 </div>
   <div class="container">
-    <% place_list.each do |option|%>
+    <% place_list.first(5).each do |option|%>
     <div class="row place-wrapper z-depth-1">
       <div class="content">
         <h4><%= link_to option.place.name, option.place.fsq_url, target: 'blank'%></h4>
