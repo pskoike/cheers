@@ -34,20 +34,19 @@
   </div>
   <div class="direction-header-item">
     <p >Your way to get there </p>
-    <p class="way-info">Time: <%=@confirmation.time_to_place / 60%> min | Distance: <%=@confirmation.distance_to_place / 1000%> km</p>
+    <p class="way-info">Time: <%= @confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60%> min | Distance: <%=@confirmation.distance_to_place.nil? ? 0 : @confirmation.distance_to_place / 1000%> km</p>
   </div>
 </div>
 
 <div class="row btn-map-wrapper">
-  <div class="col s3 l2 offset-l2 vertical-align"></div>
-  <div class="col s3 l2 vertical-align">
+  <div class="btn-map-wrapper-item center-align vertical-align">
     <a href="<%=@google_url%>", target='_blank', class="btn-direction"><i class="medium material-icons">directions</i></a>
   </div>
-  <div class="col s3 l2 vertical-align">
-    <a href="<%=@taxi_url%>", target='_blank', class="btn-direction"><%= image_tag '99.png', class: ''%></a>
+  <div class="btn-map-wrapper-item center-align vertical-align">
+    <a href="<%=@taxi_url%>", target='_blank', class="btn-direction"><%= image_tag '99.png', id:"taxi_pic" %></a>
   </div>
-  <div class="col s3 l2 vertical-align">
-    <a href="<%=@uber_url%>", target='_blank', class="btn-direction"><%= image_tag 'uber.png', class: ''%></a>
+  <div class="btn-map-wrapper-item center-align vertical-align">
+    <a href="<%=@uber_url%>", target='_blank', class="btn-direction"><%= image_tag 'uber.png', id: "uber_pic"%></a>
   </div>
 </div>
 
@@ -55,7 +54,7 @@
 <div class="row guest-drop-down">
   <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header"><h5><%= t('.guest-collapse') %></h5></div>
+      <div class="collapsible-header vertical-align"><h5><%= t('.guest-collapse') %></h5></div>
       <div class="collapsible-body">
         <ul>
           <div class="row">

@@ -145,13 +145,11 @@ en:
       placeholder_title: Title of your event
     invitation:
       accepted_btn: 'I ve already confirmed my presence: sign-in'
-      concept_explanation_html: The place will be selected by the guests with Kippis
-        help. Once confirmation is done, you get to vote for a place in the best neighborhood
-        for every body. %{link}
+      concept_explanation_html: "Once guests have confirmed, Kippis will calculate the best neighborhood based on everyone locations and submit for votation a selection of places in that area. %{link}"
       day: " Date:"
       explanation_link_html: Find out how!
       hour: " Time:"
-      message: "%{host_name} invites you!"
+      message: "%{host_name} invited you!"
       no_btn: Can't make it...
       question: Are you in?
       where: where?
@@ -170,8 +168,7 @@ en:
     vote_option:
       button_final_vote: Close votation
       has_voted: Nice Choice! You will be notified when vote end.
-      list: We selected 5 of the best %{category}s, in a location that suits all the
-        guests.
+      list: We selected 5 of the best %{category}s, in a location that suits all the guests.
       message: "%{title} is coming soon!"
       nb_conf: Number of confirmations
       nb_vote: Number of votes

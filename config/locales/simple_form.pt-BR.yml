@@ -9,7 +9,7 @@ pt-BR:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Ops, favor verificar os erros abaixo:"
+      default_message: "Ops, favor verificar as informações."
     # Examples
     # labels:
     #   defaults:
