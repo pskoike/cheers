@@ -12,24 +12,24 @@ Confirmation.destroy_all
 Hangout.destroy_all
 User.destroy_all
 Place.destroy_all
-#
-# a = User.new( first_name: "Abilio",
-#   last_name: "Diniz",
-#   facebook_picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAALuAAAAJDllYmNhNDQwLTUxMWQtNGM5MS05MTVmLTg5NTg5NmM0MjNkMg.jpg",
-#   email: "ad@gmail.com",
-#   password: "123456",
-#   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
-# )
-# a.save
-#
-# b = User.new( first_name: "Gordon",
-#   last_name: "Ramsey",
-#   facebook_picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/049/35e/1f9e208.jpg",
-#   email: "gr@gmail.com",
-#   password: "123456",
-#   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
-# )
-# b.save
+
+ a = User.new( first_name: "Abilio",
+   last_name: "Diniz",
+   facebook_picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAALuAAAAJDllYmNhNDQwLTUxMWQtNGM5MS05MTVmLTg5NTg5NmM0MjNkMg.jpg",
+   email: "ad@gmail.com",
+   password: "123456",
+   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
+ )
+ a.save
+
+ b = User.new( first_name: "Gordon",
+   last_name: "Ramsey",
+   facebook_picture_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/049/35e/1f9e208.jpg",
+   email: "gr@gmail.com",
+   password: "123456",
+   encrypted_password: "$2a$11$b1UALeSIShywjDrI2ortU.Nn7sFrTVrciNLsn7JEfthMv9fX5nsWy"
+ )
+ b.save
 #
 # c = User.new( first_name: "Logan",
 #   last_name: "Green",
