@@ -15,11 +15,11 @@
  <div class="row">
    <div class="col s6 l3 offset-l3 center-align">
      <i class="material-icons">date_range</i></br>
-      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%d %b, %Y') %></h4>
+      <h5 class="orange-text orange-accent-4"><%= l @hangout.date, format: :day %></h4>
    </div>
    <div class="col s6 l3 center-align">
      <i class="material-icons">access_time</i></br>
-      <h5 class="orange-text orange-accent-4"><%= @hangout.date.strftime('%I:%M%P') %></h4>
+      <h5 class="orange-text orange-accent-4"><%= l @hangout.date, format: :hour %></h4>
    </div>
  </div>
  <div class="row">

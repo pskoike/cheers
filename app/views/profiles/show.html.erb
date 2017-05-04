@@ -15,7 +15,7 @@
           <% else %>
             <%@user.hangouts.order(date: :asc).future_hangout(Time.zone.now).valid.each do |hangout|%>
             <p id="list_profile"><%= t('.host_list_html', link: link_to(hangout.title, hangout_path(hangout))) %></p>
-            <p><%= t('.date', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P')) %></p>
+            <p><%= l hangout.date, format: :short %></p>
             <div class=" valign-wrapper center-align" style="justify-content: center;">
               <% if Confirmation.where( hangout: hangout, user: @user)[0].nil? %>
                 <%= button_to t('.button_set_location'), hangout_path(hangout), method: :get, class: "btn-small" %>
@@ -48,7 +48,7 @@
           <% else %>
           <%@user.hangouts_as_guest.order(date: :asc).future_hangout(Time.zone.now).valid.each do |hangout|%>
         <p id="list_profile"><%= t('.guest_list_html', link: link_to(hangout.title, hangout_path(hangout)), host: hangout.user.first_name ) %></p>
-        <p><%= t('.date', day: hangout.date.strftime('%d %b, %Y'), hour: hangout.date.strftime('%I:%M%P')) %></p>
+        <p><%= l hangout.date, format: :short %></p>
         <div class=" valign-wrapper center-align" style="justify-content: center;">
           <% if hangout.status == "vote_on_going" %>
                 <%= button_to t('.vote_started'), hangout_path(hangout), method: :get, class: "btn-small" %>
@@ -61,8 +61,8 @@
         <%= button_to hangout_confirmation_path( hangout, Confirmation.where( hangout: hangout, user: current_user)[0].id) , :method=> :delete, class:"btn-small grey lighten-1", data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
           </div>
-        </div>
         <% end %>
+        </div>
       <% end %>
     </li>
   </ul>
