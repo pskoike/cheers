@@ -21,11 +21,11 @@ class ConfirmationsController < ApplicationController
     if @confirmation.save
       if @hangout.user == current_user
         if @hangout.force_location == true
-          hc = HangoutsController.new
-          hc.launch_vote
-        else
-          redirect_to share_hangout_path(@hangout)
+          initialize_places_api
+          @hangout.status = "vote_on_going"
+          @hangout.save
         end
+          redirect_to share_hangout_path(@hangout)
       else
         if @hangout.force_location == false
           search_zone
@@ -127,5 +127,11 @@ private
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
     params.require(:confirmation).permit(:leaving_address, :transportation, :latitude, :longitude)
+  end
+
+  def initialize_places_api
+    fetch = PlacesApi.new(@hangout)
+    venues = fetch.fetch_places
+    fetch.find_places(venues)
   end
 end
