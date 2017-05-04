@@ -19,21 +19,28 @@
    </div>
  </div>
  <div class="row">
-   <div class="col s12 center-align">
-     <h5><%= t('.where') %></h5>
-     <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
+  <div class="col s12 center-align">
+    <h5><%= t('.where') %></h5>
+    <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
+  </div>
+
+  <div class="col s12 center-align">
+    <h5><%= t('.question') %></h5>
+      <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn green btn-large' do  %>
+      <i class="material-icons">check</i>
+    <% end %>
+    <%= link_to root_path, class: 'btn red btn-large' do  %>
+      <i class="material-icons">close</i>
+    <% end %>
    </div>
 
-   <div class="col s12 center-align">
-     <h5><%= t('.question') %></h5>
-     <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn green btn-large' do  %>
-     <i class="material-icons">check</i>
-     <% end %>
-     <%= link_to root_path, class: 'btn red btn-large' do  %>
-     <i class="material-icons">close</i>
-     <% end %>
-
-
-   </div>
+  <div class="col s12 center-align">
+  <br>
+  <br>
+    <%= link_to new_hangout_confirmation_path(@hangout), class:'facebook-btn facebook-btn-convite z-depth-2' do %>
+      <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Log in With Facebook
+    <% end %>
+    <br><br>
+  </div>
  </div>
 </div>

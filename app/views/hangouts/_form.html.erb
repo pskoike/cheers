@@ -13,16 +13,13 @@
         <div class="face-dropdown"><p><%=t('.placeholder_catergory')%></p></div>
         </div>
         <div class="col s8">
-        <%= f.input :category, label: false, collection: ["Food", "Drinks", "Coffee"]%>
+          <%= f.input :category, label: false, collection: ["Food", "Drinks", "Coffee"]%>
         </div>
       </div>
-
       <%= f.input :date, as: :string, label: false,  placeholder: t('.placeholder_date'), input_html: {
           class: '', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
-      <div>
-        <p><input type="checkbox" id="force_loc_listener" /><label for="force_loc_listener"><%=t('.address')%></label></p>
-      </div>
-      <%=f.input :force_location, as: :boolean, label: false%>
+      <%=f.input :force_location, as: :boolean, boolean_style: :inline, label:t('.address') %>
+
       <div id="force_zone_page" class="location_unforced">
         <div id="map" style="width:100%;height:300px"></div>
       </div>
@@ -34,13 +31,6 @@
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
     </div>
-
-
-
-
-
-
-
 
     <div id="wrap">
       <div class="location_unforced">
