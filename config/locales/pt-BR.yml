@@ -166,7 +166,7 @@ pt-BR:
       message: "%{host_name} te convido para um encontro!"
       no_btn: "... nao posso"
       host_question: "%{host_name}, precisamos saber da onde voce vai sair:"
-      set_location: Define o seu ponto de partida
+      set_location: Informar endereço
       question: Voce vai ficar fora dessa?
       where: Onde vai ser?
       yes_btn: Nem pensar to dentro!
@@ -206,6 +206,7 @@ pt-BR:
   profiles:
     show:
       alert_delete: Alerta excluir
+      button_set_location: Informar endereço
       button_final_vote: Encerrar votação
       button_launch_vote: Iniciar votação
       date: "%{day} - %{hour}"

@@ -215,6 +215,7 @@ en:
       alert_delete: Alert delete
       button_final_vote: Close votation
       button_launch_vote: Start voting
+      button_set_location: Set location
       date: "%{day} - %{hour}"
       guest-collapse: Event you've been invited
       guest_list_html: "<strong>%{link}</strong>"
