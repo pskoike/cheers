@@ -22,6 +22,7 @@
               <% elsif hangout.status == "vote_on_going" %>
                 <%= button_to t('.button_final_vote'), close_vote_hangout_path(hangout), method: :patch, class: "btn-small" %>
               <% else %>
+                <%= button_to t('.waiting'), hangout_path(hangout), method: :get, class: "btn-small grey lighten-1" %>
               <% end %>
 
             <%= link_to edit_hangout_path(hangout), class: "btn-small grey lighten-1" do %>
@@ -31,8 +32,8 @@
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </li>
     <li>
