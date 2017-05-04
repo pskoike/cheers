@@ -21,7 +21,7 @@ class ConfirmationsController < ApplicationController
     if @confirmation.save
       if @hangout.confirmations.count == 1
         # if 1st confirmation, initiate hangout geo data
-        if @hangout.force_location == true
+        if @hangout.optimize_location == false
           initialize_places_api
           @hangout.status = "vote_on_going"
         else
@@ -29,8 +29,6 @@ class ConfirmationsController < ApplicationController
           @hangout.adj_longitude = @confirmation.longitude
           @hangout.latitude = @confirmation.latitude
           @hangout.longitude = @confirmation.longitude
-          puts "************************confirmation_controller adj_lat#{@hangout.adj_latitude} vs. lat: #{@hangout.latitude}**************************************************************"
-
           @hangout.radius = 600
         end
         @hangout.save
@@ -41,7 +39,7 @@ class ConfirmationsController < ApplicationController
           redirect_to hangout_path(@hangout)
         end
       else
-        unless @hangout.force_location == true
+        unless @hangout.optimize_location == false
           search_zone
         end
         ConfirmationMailer.guest_confirmed(@confirmation).deliver_now    ####   mail

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501004046) do
+ActiveRecord::Schema.define(version: 20170504224820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20170501004046) do
     t.datetime "date"
     t.string   "category"
     t.string   "center_address"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
     t.integer  "place_id"
     t.float    "latitude"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170501004046) do
     t.integer  "radius"
     t.float    "adj_latitude"
     t.float    "adj_longitude"
-    t.boolean  "force_location", default: false
+    t.boolean  "optimize_location", default: true
     t.index ["place_id"], name: "index_hangouts_on_place_id", using: :btree
     t.index ["user_id"], name: "index_hangouts_on_user_id", using: :btree
   end
