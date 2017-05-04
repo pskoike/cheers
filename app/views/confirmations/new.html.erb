@@ -40,3 +40,12 @@
 
 
 <%content_for :main_class, "page-confirmation-column" %>
+
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function() {
+      // select all on click
+      $(document).on('click','input[type=text]',function(){ this.select(); });
+    });
+  </script>
+<% end %>

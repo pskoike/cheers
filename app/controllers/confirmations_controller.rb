@@ -19,15 +19,27 @@ class ConfirmationsController < ApplicationController
     authorize @confirmation
 
     if @confirmation.save
-      if @hangout.user == current_user
+      if @hangout.confirmations.count == 1
+        # if 1st confirmation, initiate hangout geo data
         if @hangout.force_location == true
           initialize_places_api
           @hangout.status = "vote_on_going"
-          @hangout.save
+        else
+          @hangout.adj_latitude = @confirmation.latitude
+          @hangout.adj_longitude = @confirmation.longitude
+          @hangout.latitude = @confirmation.latitude
+          @hangout.longitude = @confirmation.longitude
+          @hangout.radius = 600
         end
+        @hangout.save
+        if @hangout.user == current_user
           redirect_to share_hangout_path(@hangout)
+        else
+          ConfirmationMailer.guest_confirmed(@confirmation).deliver_now    ####   mail
+          redirect_to hangout_path(@hangout)
+        end
       else
-        if @hangout.force_location == false
+        unless @hangout.force_location == true
           search_zone
         end
         ConfirmationMailer.guest_confirmed(@confirmation).deliver_now    ####   mail
