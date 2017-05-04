@@ -31,11 +31,10 @@
       authorize @hangout
       @hangout.status = "confirmations_on_going"
       @hangout.user = current_user
+
         # session[:hangout] = nil
-      if @hangout.force_location == true
+      if @hangout.optimize_location == false
         @hangout.adj_latitude = @hangout.latitude
-        puts "************************hangout_controller adj_lat#{@hangout.adj_latitude} vs. lat: #{@hangout.latitude}**************************************************************"
-        binding.pry
         @hangout.adj_longitude = @hangout.longitude
         @hangout.radius = 600
       end
@@ -179,7 +178,7 @@
 private
 
   def hangout_params
-    params.require(:hangout).permit(:title, :date, :category, :center_address, :status, :force_location, :center_address, :latitude, :longitude)
+    params.require(:hangout).permit(:title, :date, :category, :center_address, :status, :optimize_location, :center_address, :latitude, :longitude)
   end
 
   def set_hangout
