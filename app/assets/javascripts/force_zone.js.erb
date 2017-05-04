@@ -8,13 +8,10 @@ $(document).ready(function() {
   var circles = [];
 
   $('#hangout_force_location').on("click", function(e){
-    $('#hangout_force_location').val(false);
     $("#force_zone_page").toggleClass('location_unforced');
     $("#hangout_center_address").toggleClass('location_unforced');
 
     if ($("input[type='checkbox']:checked").length ===1) {
-      $('#hangout_force_location').val(true);
-      console.log($('#hangout_force_location').val());
       geolocator.config({language: "en", google: {version: "3", key: "<%=ENV['GOOGLE_API_SERVER_KEY']%>"}});
       google.maps.event.trigger(map, 'resize');
       //Geolocator:

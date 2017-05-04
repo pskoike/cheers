@@ -45,6 +45,10 @@
   <% content_for :after_js do %>
     <script>
     $(document).ready(function() {
+
+    // select all on click
+    $(document).on('click','input[type=text]',function(){ this.select(); });
+
       var datepicker = $('#date').pickadate({
               container: '#outlet',
               onSet: function(item) {
