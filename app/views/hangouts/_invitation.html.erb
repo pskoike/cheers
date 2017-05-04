@@ -1,6 +1,10 @@
 <div class="header center-align vertical-align">
   <%= image_tag @hangout.user.facebook_picture_url, class: 'circle'%>
-    <h4 class="white-text"> <%= t('.message', host_name: @hangout.user.first_name ) %></h4>
+    <% if current_user == @hangout.user %>
+      <h4 class="white-text"> <%= t('.host_message', host_name: @hangout.user.first_name) %></h4>
+    <% else %>
+      <h4 class="white-text"> <%= t('.message', host_name: @hangout.user.first_name ) %></h4>
+    <% end %>
 </div>
 <div class="container">
  <div class="row">
@@ -19,18 +23,25 @@
    </div>
  </div>
  <div class="row">
-  <div class="col s12 center-align">
-    <h5><%= t('.where') %></h5>
-    <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
-  </div>
 
   <div class="col s12 center-align">
-    <h5><%= t('.question') %></h5>
-      <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn green btn-large' do  %>
-      <i class="material-icons">check</i>
-    <% end %>
-    <%= link_to root_path, class: 'btn red btn-large' do  %>
-      <i class="material-icons">close</i>
+    <% if current_user == @hangout.user %>
+      <h5><%= t('.host_question', host_name: @hangout.user.first_name) %></h5>
+        <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn grey lighten-1 btn-large' do  %>
+        <%= t('.set_location') %>
+      <% end %>
+    <% else %>
+      <div class="col s12 center-align">
+        <h5><%= t('.where') %></h5>
+        <p><%= t('.concept_explanation_html', link: link_to( t('.explanation_link_html'), root_path)) %></p>
+      </div>
+      <h5><%= t('.question') %></h5>
+        <%= link_to new_hangout_confirmation_path(@hangout), class: 'btn green btn-large' do  %>
+        <i class="material-icons">check</i>
+      <% end %>
+      <%= link_to root_path, class: 'btn red btn-large' do  %>
+        <i class="material-icons">close</i>
+      <% end %>
     <% end %>
    </div>
 

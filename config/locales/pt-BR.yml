@@ -162,8 +162,11 @@ pt-BR:
       day: " no dia %{day}"
       explanation_link_html: como?
       hour: " as %{hour}"
+      host_message: '%{host_name}'
       message: "%{host_name} te convido para um encontro!"
       no_btn: "... nao posso"
+      host_question: "%{host_name}, precisamos saber da onde voce vai sair:"
+      set_location: Define o seu ponto de partida
       question: Voce vai ficar fora dessa?
       where: Onde vai ser?
       yes_btn: Nem pensar to dentro!
