@@ -8,7 +8,6 @@
     <li>
       <div class="collapsible-header padded-small">
         <h5><%= t('.host-collapse') %> </h5>
-        <h5><%= l(Time.now, :format => :short) %> </h5>
       </div>
           <div class="collapsible-body padded-small" >
           <% if @user.hangouts.future_hangout(Time.zone.now).valid.size == 0 %>
@@ -23,6 +22,7 @@
               <% elsif hangout.status == "vote_on_going" %>
                 <%= button_to t('.button_final_vote'), close_vote_hangout_path(hangout), method: :patch, class: "btn-small" %>
               <% else %>
+                <%= button_to t('.waiting'), hangout_path(hangout), method: :get, class: "btn-small grey lighten-1" %>
               <% end %>
 
             <%= link_to edit_hangout_path(hangout), class: "btn-small grey lighten-1" do %>
