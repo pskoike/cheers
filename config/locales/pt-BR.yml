@@ -156,6 +156,9 @@ pt-BR:
       placeholder_category: Categoria
       placeholder_date: 01/01/2017 20:00
       placeholder_title: Titulo do encontro
+      placeholder_boolean: Kippis busca a melhor localização
+      tooltip: Kippis acha o bairro mais central para todos os convidados levando em conta o meios de transportos
+      explanation: Não calcula para min, eu quero encontrar meus amigos num bairro especifico
     invitation:
       accepted_btn: 'Ja confirmei: entrar'
       concept_explanation_html: Nosso time de cientistas vão calcular o melhor lugar, %{link}

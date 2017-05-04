@@ -541,12 +541,13 @@
   font-size: 0.8rem;
 }
 
-.checkbox-force{
-  position: relative;
+.checkbox-force {
+ display: flex;
+ align-items: center;
 }
 
+
 #info-check{
-  position: absolute;
-  right: 4%;
-  top: 53%;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
 }
