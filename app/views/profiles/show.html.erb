@@ -59,8 +59,8 @@
         <%= button_to hangout_confirmation_path( hangout, Confirmation.where( hangout: hangout, user: current_user)[0].id) , :method=> :delete, class:"btn-small grey lighten-1", data: { confirm: t('.alert_delete') } do %><i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
           </div>
-        </div>
         <% end %>
+        </div>
       <% end %>
     </li>
   </ul>
