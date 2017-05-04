@@ -53,8 +53,11 @@ class PlacesApi
       end
     end
     results.sort! {|x,y| y.rating <=> x.rating }
-    r = results.take(15).sample(5) #Take the first 15 and sample.
-    r.each do |result|
+
+    r = results.take(15)
+    a = r.sample(5) #Take the first 15 and sample.
+    binding.pry
+    a.each do |result|
       po = PlaceOption.new
       po.hangout = @hg
       po.place =  result
