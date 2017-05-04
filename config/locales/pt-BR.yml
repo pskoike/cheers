@@ -138,6 +138,7 @@ pt-BR:
       button_launch_vote: Chega de enrolção, cade?
       guest-collapse: Convidados confirmados
       status: Aguardando mais confirmações antes de iniciar a votação
+      toast: Calculando zona para otimizar o tempo de viagem de cada convidado
     edit:
       alert_delete: Voce esta certo que quer excluir esse encontro?
       edit_title: Edita o seu encontro Kippis
@@ -232,3 +233,12 @@ pt-BR:
         o melhor lugar!
       greeting: "%{user_name}, bemvindo no Kippis!"
       subject: Bemvindo no Kippis
+
+  activerecord:
+    errors:
+      models:
+        hangout:
+          attributes:
+            date:
+              blank: Precisa a data do evento
+              inclusion: Precisa uma data / hora no futuro

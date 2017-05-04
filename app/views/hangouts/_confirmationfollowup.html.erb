@@ -49,7 +49,12 @@
 
 
 <% content_for(:after_js) do %>
+  <script type="text/javascript">
+    Materialize.toast(<%= t('.toast') %>, 3000)
+  </script>
+
   <%= javascript_tag do %>
+
     $(document).ready(function initMap() {
       console.log('HELLO')
       var markers = (<%= raw @confirmation_markers.to_json %>);
@@ -67,24 +72,24 @@
 
       if ( <%= @confirmation_markers.count%> > 1) {
         map.fitBounds(bounds);
-        var center = (<%= raw @center.to_json %>);
-        var cityCircle = new google.maps.Circle({
-          strokeColor: '#FF0000',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF0000',
-          fillOpacity: 0.35,
-          map: map,
-          center: {lat: center.lat, lng: center.lng},
-          radius: <%=@radius%>
-        });
+      //  var center = (<%= raw @center.to_json %>);
+      //  var cityCircle = new google.maps.Circle({
+      //    strokeColor: '#FF0000',
+      //    strokeOpacity: 0.8,
+      //    strokeWeight: 2,
+      //    fillColor: '#FF0000',
+      //    fillOpacity: 0.35,
+      //    map: map,
+      //    center: {lat: center.lat, lng: center.lng},
+      //    radius: <%=@radius%>
+      //  });
 
         var center = (<%= raw @adj_center.to_json %>);
         var cityCircle = new google.maps.Circle({
-          strokeColor: '#000000',
+          strokeColor: '#FC6F04',
           strokeOpacity: 0.8,
           strokeWeight: 2,
-          fillColor: '#B3FFA2',
+          fillColor: '#FFC836',
           fillOpacity: 0.35,
           map: map,
           center: {lat: center.lat, lng: center.lng},

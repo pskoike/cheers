@@ -17,11 +17,13 @@
       session[:hangout] = params
       @hangout = Hangout.new(hangout_params)
       authorize @hangout
-      if check_params?
-        render :new and return
-      else
+
+      if valid_param?(@hangout)
+
         #  redirect_to new_user_session_path
         redirect_to user_facebook_omniauth_authorize_path
+      else
+        render :new and return
       end
 
     else
@@ -225,7 +227,22 @@ private
     fetch.find_places(venues)
   end
 
-  def check_params?
-    params[:hangout][:title] == "" || params[:hangout][:date] == "" || params[:hangout][:category] == ""
+  def valid_param?(hangout)
+    unless hangout.title.nil?
+      if (hangout.title.length < 61) && (hangout.title.length> 0)
+        a = true
+      end
+    end
+    unless hangout.date.nil?
+      if hangout.date > Time.now
+        b = true
+      end
+    end
+    unless hangout.category.nil?
+      if hangout.category.length > 0
+        c = true
+      end
+    end
+    return a && b && c
   end
 end
