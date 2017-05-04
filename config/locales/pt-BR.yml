@@ -1,4 +1,7 @@
 pt-BR:
+  helpers:
+    submit:
+      create: "Criar Encontro"
   confirmation_mailer:
     guest_cancelled:
       content: Má notícia, o %{guest_name} não vai conseguir vir no seu encontro "%{hangout_title}".
