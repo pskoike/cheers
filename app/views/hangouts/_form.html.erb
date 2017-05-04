@@ -20,7 +20,7 @@
           class: '', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
       <div class="checkbox-force">
         <div class="checkbox-force-item"><%=f.input :optimize_location, as: :boolean, boolean_style: :inline, label:t('.placeholder_boolean'), input_html: {checked: "checked"} %></div>
-        <div id="info-check" class="tooltipped checkbox-force-item" data-position="bottom" data-delay="50" data-tooltip="<%=t('.tooltip')%>""><i class="grey-text tiny material-icons">help</i>
+        <div id="info-check" class="tooltipped checkbox-force-item" data-position="bottom" data-delay="50" data-tooltip="<%=t('.tooltip')%>"><i class="grey-text tiny material-icons">help</i>
         </div>
       </div>
 
