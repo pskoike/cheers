@@ -19,7 +19,6 @@
       authorize @hangout
 
       if valid_param?(@hangout)
-
         #  redirect_to new_user_session_path
         redirect_to user_facebook_omniauth_authorize_path
       else

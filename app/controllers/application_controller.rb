@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
       @hangout.user = current_user
       @hangout.status = "confirmations_on_going"
 
+      if @hangout.force_location == true
+        @hangout.adj_latitude = @hangout.latitude
+        @hangout.adj_longitude = @hangout.longitude
+        @hangout.radius = 600
+      end
+
       if @hangout.save
         # clear session
       session[:hangout] = nil
