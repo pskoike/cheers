@@ -170,8 +170,11 @@ en:
       day: " Date:"
       explanation_link_html: Find out how!
       hour: " Time:"
+      host_message: '%{host_name}'
       message: "%{host_name} invited you!"
       no_btn: Can't make it...
+      host_question: "%{host_name}, tell us where you'll leave from:"
+      set_location: Set your location
       question: Are you in?
       where: where?
       yes_btn: Of course, I'm In!
