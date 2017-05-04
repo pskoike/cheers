@@ -151,7 +151,7 @@ en:
       button_cancel: "Cancel participation"
       button_launch_vote: Start voting
       guest-collapse: Confirmed guests
-      status: Waiting for the other guests to start voting
+      status: Waiting for the other guests to confirm
       toast: Area calculated to optimize travel time for participants
     edit:
       alert_delete: Are you sure you want to delete the event?

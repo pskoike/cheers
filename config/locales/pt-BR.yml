@@ -144,7 +144,7 @@ pt-BR:
       button_cancel: "Cancelar participação"
       button_launch_vote: Chega de enrolção, cade?
       guest-collapse: Convidados confirmados
-      status: Aguardando mais confirmações antes de iniciar a votação
+      status: Aguardando mais confirmações
       toast: Calculando zona para otimizar o tempo de viagem de cada convidado
     edit:
       alert_delete: Voce esta certo que quer excluir esse encontro?
@@ -188,7 +188,7 @@ pt-BR:
     vote_option:
       button_final_vote: Encerrar votação
       has_voted: 'A sua escolha foi:'
-      list: Escolhimos a dedo 5 dos melhores de %{category}, no bairro mais adequada para
+      list: Escolhimos a dedo 5 dos melhores %{category}s, no bairro mais adequada para
         todos.
       message: "%{title} esta chegando!"
       nb_conf: Número de confirmações
