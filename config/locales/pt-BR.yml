@@ -175,6 +175,7 @@ pt-BR:
       waiting_banner: Veja o local do evento e confira como chegar.
       indication: Itinerário
       info_itinerary: "Tempo: %{time} min | Distância: %{distance} km"
+      leaving_time: "Horário de saída"
       guest-collapse: Convidados confirmados
     share:
       message: Evento criado. Convide seus amigos!
