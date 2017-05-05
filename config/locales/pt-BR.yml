@@ -1,7 +1,7 @@
 pt-BR:
   helpers:
     submit:
-      create: "Criar Encontro"
+      create: "Criar encontro"
   simple_form:
     options:
       hangout:
@@ -15,7 +15,7 @@ pt-BR:
       greeting: Oi %{user_name},
       subject: "%{hangout_title}: %{guest_name} cancelou!"
     guest_confirmed:
-      content: "%{guest_name} confirmou a sua particiação! Confirmados até agora: %{confirmation_nb}"
+      content: "%{guest_name} confirmou sua participação! Confirmados até agora: %{confirmation_nb}"
       greeting: Oi %{user_name},
       link: Iniciar Votação!
       link_html: 'Já tem um número suficiente de confirmações? Inicie a votação no link abaixo:
@@ -23,13 +23,13 @@ pt-BR:
       subject: "%{hangout_title}: %{guest_name} confirmou!"
   confirmations:
     new:
-      btn-text: Confirmar local de partida
+      btn-text: Confirmar meu local de saída"
       explanation: Kippis irá utilizar a localização dos convidados para propor uma lista com os melhores lugares no melhor bairro para todos.
       placeholder: "Buscando localização..."
   devise:
     confirmations:
       new:
-        resend_confirmation_instructions: Re-enviar instruções para confirmação
+        resend_confirmation_instructions: Reenviar instruções para confirmação
     mailer:
       confirmation_instructions:
         action: Ação
@@ -63,7 +63,7 @@ pt-BR:
         are_you_sure: Tem certeza?
         cancel_my_account: Excluir minha conta
         currently_waiting_confirmation_for_email: Aguardando email de confirmação
-        leave_blank_if_you_don_t_want_to_change_it: Deixar vazio se nao quiser modificar
+        leave_blank_if_you_don_t_want_to_change_it: Deixar vazio se não quiser modificar
         title: Titulo
         unhappy: Infeliz?
         update: Atualizado
@@ -88,12 +88,12 @@ pt-BR:
         resend_unlock_instructions: Reenviar instruções de desbloqueio
   hangout_mailer:
     cancelled:
-      2nd_content: Mas não fique triste, voce pode criar facilmente um novo encontro com Kippis!
+      2nd_content: Mas não fique triste, você pode criar facilmente um novo encontro com Kippis!
       content: Má notícia, %{host_name} teve que cancelar %{hangout_title}
       greeting: Oi %{user_name},
       link: Novo encontro!
       link_html: "<strong>%{link}</strong>"
-      subject: '[kippis] %{hangout_title} cancelado!'
+      subject: '[Kippis] %{hangout_title} cancelado!'
     creation_confirmation:
       content: Tudo pronto! Convide seus amigos para %{hangout_title}!
       greeting: Oi %{host_name},
@@ -111,9 +111,9 @@ pt-BR:
       greeting: Oi %{user_name},
       link: Ver resultado!
       link_html: "<strong>%{link}</strong>"
-      subject: "[kippis]%{hangout_title}: Veja o resultado da votação!"
+      subject: "[Kippis]%{hangout_title}: Veja o resultado da votação!"
     update_confirmation:
-      2nd_content: Não se preocupe, o kippis já notificou os convidados.
+      2nd_content: Não se preocupe, o Kippis já notificou os convidados.
       content: Pronto! O seu encontro %{hangout_title} foi atualizado!
       greeting: Oi %{host_name},
       subject: Encontro %{hangout_title} atualizado!
@@ -121,7 +121,7 @@ pt-BR:
       2nd_content: Hora de votar! Faça sua escolha!
       content: Nosso time de cientistas calcularam o melhor lugar para %{hangout_title} e escolheram a dedo uma lista de 5 lugares.
       greeting: Olá %{user_name},
-      link: Vota agora!
+      link: Votar agora!
       link_html: "<strong>%{link}</strong>"
       subject: "%{hangout_title}: 1, 2 ,3 Vota!"
   hangouts:
@@ -130,66 +130,65 @@ pt-BR:
       content-new: Criar o seu encontro!
       status: Encontro cancelado
     confirmationfollowup:
-      alert_delete: Voce esta certo que quer excluir esse encontro?
+      alert_delete: Você esta certo que quer excluir esse encontro?
       button_cancel: "Cancelar participação"
       button_launch_vote: Iniciar votação
       guest-collapse: Convidados confirmados
-      status: Aguardando mais confirmações
+      status: Evento aberto para confirmações
       toast: Calculando zona para otimizar o tempo de viagem de cada convidado
     edit:
       alert_delete: Tem certeza que deseja excluir esse encontro?
       edit_title: Editar encontro
     form:
-      address: Definir bairro.
-      title: Convida seus amigos e deixa o Kippis te ajudar para escolher o melhor lugar!
+      address: Defina uma região da cidade
+      titleh5: "Convide seus amigos e deixe o Kippis te ajudar na escolha do melhor lugar!"
       placeholder_address: Bairro
       placeholder_category: Categoria
       placeholder_date: 01/01/2017 20:00
       placeholder_title: Titulo do encontro
-      placeholder_boolean: Kippis busca a melhor localização
-      tooltip: Kippis acha o bairro mais central para todos os convidados levando em conta o meios de transportos
-      explanation: Não calcula para min, eu quero encontrar meus amigos num bairro especifico
+      placeholder_boolean: Quero que o Kippis me ajude na escolha do local
+      tooltip: Kippis utiliza a sua localização e de seus convidados para propor os 5 melhores locais na melhor região para todos. Nosso sistema considera o meio de transporte e o transito no horário do evento.
+      explanation: "Thanks Kippis, mas quero encontrar meus amigos na região abaixo:"
     invitation:
       accepted_btn: 'Ja confirmei: entrar'
-      concept_explanation_html: Nosso time de cientistas vão calcular o melhor lugar, %{link}
+      concept_explanation_html: O Kippis irá gerar uma lista com os 5 melhores lugares, com base na localização de todos os convidados, onde você poderá votar na opção que considera a melhor.
       day: " no dia %{day}"
       explanation_link_html: como?
       hour: " as %{hour}"
       host_message: '%{host_name}'
-      message: "%{host_name} te convido para um encontro!"
+      message: "%{host_name} te convida para o evento"
       no_btn: "... nao posso"
-      host_question: "%{host_name}, precisamos saber da onde voce vai sair:"
+      host_question: "%{host_name}, informe o seu local de saída:"
       set_location: Informar endereço
-      question: Voce vai ficar fora dessa?
-      where: Onde vai ser?
-      yes_btn: Nem pensar to dentro!
+      question: Confirme sua presença
+      where: Local do evento?
+      yes_btn: Tô dentro!
     new:
-      new_title1: Se reune com seus amigos
-      new_title2: Criar um encontro!
+      new_title1: Encontre a galera.
+      new_title2: Crie um evento!
     past:
-      content: 'O encontro ja passou:'
-      content-new: Criar um encontro
-      status: Encontro aconteceu
+      content: 'Este evento já passou...'
+      content-new: Crie também um evento
+      status: O Evento já aconteceu
     result:
       banner: Encontro confirmado!
-      waiting_banner: Confira o lugar escolhido e como chegar ate la
-      indication: Itinerario
-      info_itinerary: "Tempo: %{time} min | Distancia: %{distance} km"
+      waiting_banner: Veja o local do evento e confira como chegar.
+      indication: Itinerário
+      info_itinerary: "Tempo: %{time} min | Distância: %{distance} km"
       guest-collapse: Convidados confirmados
     share:
-      message: Encontro pronto! Convide seus amigos!
+      message: Evento criado. Convide seus amigos!
     vote_option:
       button_final_vote: Encerrar votação
       has_voted: 'A sua escolha foi:'
-      list: Escolhimos a dedo 5 dos melhores %{category}s, no bairro mais adequada para
-        todos.
+      list: "Filtramos 5 dos melhores %{category}s, na melhor região para todos. Vote em uma das opções abaixo:"
       message: "%{title} esta chegando!"
       nb_conf: Número de confirmações
       nb_vote: Número de votos
-      status: E a hora de votar
-      status-voted: Aguardando a votação terminar
+      status: Evento aberto para votação
+      status-voted: Aguarde a votação terminar
       vote: Selecione o seu favorito!
-      wait: Agora so aguardar a votação terminar
+      wait: Agora é só aguardar a votação terminar
   hello: Olá mundo
   layouts:
     application:
@@ -203,19 +202,19 @@ pt-BR:
       button_final_vote: Encerrar votação
       button_launch_vote: Iniciar votação
       date: "%{day} - %{hour}"
-      guest-collapse: Encontros onde voce foi convidado
+      guest-collapse: Encontros onde você foi convidado
       guest_list_html: <strong>%{link}</strong>
       guest_summary:
-        one: 'Voce tem um hangout chegando:'
-        other: Que agenda! Voce foi convidado para %{count} encontros
-        zero: Ninguem convidou?! Fala para seus amigos usar o Kippis
-      guest_zero_event: Ninguem convidou?! Fala para seus amigos usar o Kippis
-      host-collapse: Encontros que voce criou
+        one: 'você tem um evento chegando:'
+        other: Que agenda! Você foi convidado para %{count} encontros
+        zero: Sem convite? Fale para seus amigos usarem o Kippis!
+      guest_zero_event: Ninguém convidou?! Fala para seus amigos usar o Kippis
+      host-collapse: Encontros que você criou
       host_list_html: <strong>%{link}</strong>
       host_summary:
-        one: 'Se prepara, o seu Hangout ta chegando:'
-        other: Muitas coisas, voce organizou %{count} encontros
-        zero: Não tem encontros?! Bora agitar e criar um evento
+        one: 'Se prepara, o seu evento está chegando:'
+        other: Muitas coisas, você organizou %{count} encontros
+        zero: Não tem eventos?! Bora agitar e criar um evento
       host_zero_event: Nenhum encontro criado?! Bora agitar a sua turma.
       title: 'A sua agenda:'
       vote_closed: Ver o resultado
@@ -223,7 +222,7 @@ pt-BR:
       waiting: Aguarde o próximo passo
   shared:
     navbar:
-      hangout-create: Criar Encontro
+      hangout-create: Criar evento
       profile: Minha Agenda
       sign_in: Entrar
       sign_out: Sair
@@ -236,11 +235,10 @@ pt-BR:
       top_call_to_action: Top call to action
   user_mailer:
     welcome:
-      bye_message: Estamos seguro que voce vai curtir o App,
-      content: Agora pode convidar o seus amigos sem ter que se preocupar qual seria
-        o melhor lugar!
-      greeting: "%{user_name}, bemvindo no Kippis!"
-      subject: Bemvindo no Kippis
+      bye_message: Esperamos que curta o Kippis,
+      content: Agora você pode marcar eventos com seus amigos de forma simples, fácil e rápida! Chega de grupos e conversas longas.
+      greeting: "%{user_name}, bem-vindo ao Kippis!"
+      subject: Bem-vindo ao Kippis!
 
   activerecord:
     errors:
@@ -248,5 +246,5 @@ pt-BR:
         hangout:
           attributes:
             date:
-              blank: Precisa a data do evento
-              inclusion: Precisa uma data / hora no futuro
+              blank: Data obrigatória
+              inclusion: Data obrigatória / hora no futuro

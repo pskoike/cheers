@@ -1,6 +1,6 @@
 <div class="container center-align vertical-align form_wrapper z-depth-4">
 <div class="tag-line-home white-text">
-<h5><%=t('.title')%></h5>
+<h5><%=t('.titleh5')%></h5>
 </div>
 <div class="row form_wrapper_bottom_margin">
   <div class="col s12">
@@ -20,7 +20,7 @@
           class: '', value: @hangout.date.nil? ? "" : @hangout.date.strftime("%d/%m/%Y %H:%M")}%>
       <div class="checkbox-force">
         <div class="checkbox-force-item"><%=f.input :optimize_location, as: :boolean, boolean_style: :inline, label:t('.placeholder_boolean'),input_html: {checked: "checked"} %></div>
-        <div id="info-check" class="tooltipped checkbox-force-item" data-position="bottom" data-delay="50" data-tooltip="<%=t('.tooltip')%>""><i class="grey-text tiny material-icons">help</i>
+        <div id="info-check" class="tooltipped checkbox-force-item" data-position="bottom" data-delay="50" data-tooltip="<%=t('.tooltip')%>"><i class="grey-text tiny material-icons">help</i>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
       <%= f.input :longitude, label: false, input_html: {class: 'location_unforced'} %>
 
 
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.button :submit, class: "btn btn-primary"%>
         <p class="center-align blue-grey-text text-lighten-2" id="home-face-text">Powered by Facebook Connect</p>
     <% end %>
 
