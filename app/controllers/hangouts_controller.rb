@@ -164,6 +164,13 @@
     @hangout.place = winner
     @hangout.status = "result"
     @hangout.save!
+
+    winner_coord = {lat: winner.latitude, lng: winner.longitude}
+    #update travel time and distance
+    @hangout.confirmations.each do |confirmation|
+      get_direction(confirmation, winner_coord, @hangout.date)
+    end
+
     @hangout.confirmations.each do |confirmation|
       if confirmation.user != @hangout.user
         HangoutMailer.result(confirmation).deliver_now ####   mail
@@ -210,9 +217,12 @@ private
       @render = 'result'
       #confirmation
       @confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
+
       @transport = confirmation.transportation
+      @confirmation.time_to_place.nil? ? @leaving_time = 0 : @leaving_time = (@hangout.date - @confirmation.time_to_place)
+
       @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
-      @direction = {lat: @hangout.latitude, lng: @hangout.longitude}
+      @direction = {lat: @hangout.place.latitude, lng: @hangout.place.longitude}
       @google_url = "//www.google.com/maps/dir/#{@departure[:lat]},#{@departure[:lng]}/#{@direction[:lat]},#{@direction[:lng]}"
       @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}', target: 'blank'%>"
       @taxi_url = "taxis99://call?"
@@ -226,6 +236,23 @@ private
     venues = fetch.fetch_places
     fetch.find_places(venues)
   end
+
+  def get_direction(confirmation, destination, departure_time)
+    url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=#{confirmation.latitude},#{confirmation.longitude}&destinations=#{destination[:lat]},#{destination[:lng]}&departure_time=#{departure_time.to_i}&mode=#{confirmation.transportation.downcase}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    url.gsub!('"')
+    direction = RestClient.get url
+    direction_info = JSON.parse(direction)
+    confirmation.distance_to_place = direction_info["rows"][0]["elements"][0]["distance"]["value"]
+    if confirmation.transportation == 'DRIVING'
+      confirmation.time_to_place = direction_info["rows"][0]["elements"][0]["duration_in_traffic"]["value"]
+    else
+      confirmation.time_to_place = direction_info["rows"][0]["elements"][0]["duration"]["value"]
+    end
+    authorize confirmation
+    confirmation.save
+    return confirmation
+  end
+
 
   def valid_param?(hangout)
     unless hangout.title.nil?

@@ -19,6 +19,9 @@ class ConfirmationPolicy < ApplicationPolicy
 #  def update?
 #    record.user == user  # Only confirmation creator can update it
 # end
+  def close_vote?
+    true
+  end
 
   def destroy?
     record.user == user  # Only confirmation creator can update it

@@ -34,7 +34,9 @@
   </div>
   <div class="direction-header-item">
     <p ><%=t('.indication')%></p>
-    <p class="way-info"><%=t('.info_itinerary', time: (@confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60), distance: (@confirmation.distance_to_place.nil? ? 0 : @confirmation.distance_to_place / 1000))%>
+    <p class="way-info"><%=t('.info_itinerary', time: (@confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60), distance: (@confirmation.distance_to_place.nil? ? 0 : (@confirmation.distance_to_place.to_f / 1000).round(1)))%>
+    </p>
+    <p class="way-info"><%="#{t('.leaving_time')}: #{@leaving_time.strftime('%H:%M')}"%>
     </p>
   </div>
 </div>

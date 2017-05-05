@@ -59,7 +59,6 @@ class ConfirmationsController < ApplicationController
   end
 
 private
-
   def search_zone
     #Building array of markets with leaving lat/lng of the confirmations
     confirmations = Confirmation.all.where('hangout_id = ?',@hangout.id)
@@ -125,10 +124,6 @@ private
     authorize confirmation
     confirmation.save
     return confirmation
-  end
-
-  def set_confirmation
-    @confirmation = Confirmation.find(params[:id])
   end
 
   def set_hangout

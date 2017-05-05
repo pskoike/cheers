@@ -176,6 +176,7 @@ pt-BR:
       waiting_banner: Confira o lugar escolhido e como chegar ate la
       indication: Itinerario
       info_itinerary: "Tempo: %{time} min | Distancia: %{distance} km"
+      leaving_time: "Horário de saída"
       guest-collapse: Convidados confirmados
     share:
       message: Encontro pronto! Convide seus amigos!
