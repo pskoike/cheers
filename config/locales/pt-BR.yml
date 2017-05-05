@@ -23,7 +23,7 @@ pt-BR:
       subject: "%{hangout_title}: %{guest_name} confirmou!"
   confirmations:
     new:
-      btn-text: Confirmar meu local de saída"
+      btn-text: Confirmar meu local de saída
       explanation: Kippis irá utilizar a localização dos convidados para propor uma lista com os melhores lugares no melhor bairro para todos.
       placeholder: "Buscando localização..."
   devise:
