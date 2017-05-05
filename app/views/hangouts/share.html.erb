@@ -6,15 +6,15 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
-      <h2><%= t('.message') %></h2>
+      <h4 class="padded-top"><%= t('.message') %></h4>
     </div>
   </div>
   <div class="row">
     <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
       <div id="share" class=""></div>
-      <button class="btn-small " onclick="Materialize.toast('Copied', 2000)" data-clipboard-text='<%= hangout_url(@hangout).html_safe %>'>
+      <button class="btn-small blue " onclick="Materialize.toast('Copied', 2000)" data-clipboard-text='<%= hangout_url(@hangout).html_safe %>'>
         <i class="fa fa-files-o" aria-hidden="true"></i> Copy url
-      </button> <%= link_to "View Hangout", hangout_path(@hangout), class: "btn-small grey" %>
+      </button> <%= link_to "View Hangout", hangout_path(@hangout), class: "btn-small " %>
     </div>
       <div class="col s12 m6 l8  offset-m3 offset-l2 center-align">
     </div>

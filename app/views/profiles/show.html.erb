@@ -1,9 +1,9 @@
 <div class="header center-align vertical-align">
   <%= image_tag @user.facebook_picture_url, class: 'circle'%>
   <h4 class="white-text"> <%= @user.first_name %> <%= @user.last_name %></h4>
-  <h4 class="white-text"> <%= t('.title') %></h4>
-</div>
 
+</div>
+<h4 class="center-align padded-top-1"> <%= t('.title') %></h4>
   <ul class="collapsible center-align " data-collapsible="accordion">
     <li>
       <div class="collapsible-header padded-small"  id="open_delay">
@@ -24,16 +24,17 @@
               <% elsif hangout.status == "vote_on_going" %>
                 <%= button_to t('.button_final_vote'), close_vote_hangout_path(hangout), method: :patch, class: "btn-small" %>
               <% else %>
-                <%= button_to t('.vote_closed'), hangout_path(hangout), method: :get, class: "btn-small grey lighten-1" %>
+                <%= button_to t('.vote_closed'), hangout_path(hangout), method: :get, class: "btn-small green lighten-1" %>
               <% end %>
 
-            <%= link_to edit_hangout_path(hangout), class: "btn-small grey lighten-1" do %>
+            <%= link_to edit_hangout_path(hangout), class: "btn-small lighten-1" do %>
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             <% end %>
-            <%= button_to cancel_hg_hangout_path(hangout),class:"btn-small grey lighten-1", method: :patch, data: { confirm: t('.alert_delete') } do %>
+            <%= button_to cancel_hg_hangout_path(hangout),class:"btn-small red lighten-1", method: :patch, data: { confirm: t('.alert_delete') } do %>
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             <% end %>
             </div>
+            <hr class="grey lighten-2">
           <% end %>
         </div>
       <% end %>

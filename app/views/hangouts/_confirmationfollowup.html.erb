@@ -10,16 +10,17 @@
 <div id="map" style="width: 100%; height: 230px;"></div>
 
 <div class="row">
-  <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
+  <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="expandable">
     <li>
       <div class="collapsible-header active">  <%= image_tag current_user.facebook_picture_url, class: 'circle user z-depth-2' %><br><h5><%= "#{current_user.first_name} #{current_user.last_name}" %></h5></div>
       <div class="collapsible-body">
         <% unless @hangout.user == current_user %>
           <%= button_to t('.button_cancel'), share_hangout_path(@hangout), method: :get, class: "btn-small" %>
         <% else %>
+        <p>Inicie a votação quando quiser ou convide mais amigos</p>
         <div class="valign-wrapper orange-text accent-4" style="justify-content: center;">
             <%= button_to t('.button_launch_vote'), launch_vote_hangout_path(@hangout), method: :patch, class: "btn-small" %>
-          <%= button_to share_hangout_path(@hangout), method: :get, class: "btn-small grey lighten-1" do %>
+          <%= button_to share_hangout_path(@hangout), method: :get, class: "btn-small green lighten-1" do %>
           <i class="material-icons">share</i><% end %>
           <%= button_to edit_hangout_path(@hangout),method: :get, class: "btn-small grey lighten-1" do %>
             <i class="material-icons">mode_edit</i>
@@ -29,7 +30,7 @@
       </div>
     </li>
     <li>
-      <div class="collapsible-header"><h5><%= t('.guest-collapse') %></h5></div>
+      <div class="collapsible-header active"><h5><%= t('.guest-collapse') %></h5></div>
       <div class="collapsible-body">
         <ul>
           <div class="row">
