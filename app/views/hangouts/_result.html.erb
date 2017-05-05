@@ -28,15 +28,15 @@
 </div>
 
 <div id="direction_map"></div>
-<div class="direction-header z-depth-3">
-  <div class="center-align vertical-align direction-header-item">
+<div class="direction-header blue-grey lighten-5 center-align">
+  <!-- <div class="center-align vertical-align direction-header-item">
     <%= image_tag @confirmation.user.facebook_picture_url, class: 'avatar z-depth-2'%>
-  </div>
+  </div> -->
   <div class="direction-header-item">
-    <p ><%=t('.indication')%></p>
+    <h5><%=t('.indication')%></h5>
     <p class="way-info"><%=t('.info_itinerary', time: (@confirmation.time_to_place.nil? ? 0 : @confirmation.time_to_place / 60), distance: (@confirmation.distance_to_place.nil? ? 0 : (@confirmation.distance_to_place.to_f / 1000).round(1)))%>
     </p>
-    <p class="way-info"><%="#{t('.leaving_time')}: #{@leaving_time.strftime('%H:%M')}"%>
+    <p class="way-info deep-orange-text"><%="#{t('.leaving_time')}: #{@leaving_time.strftime('%H:%M')}"%>
     </p>
   </div>
 </div>
@@ -55,9 +55,10 @@
 
 
 <div class="row guest-drop-down">
-  <ul class="collapsible collapsible-li center-align z-depth-1" data-collapsible="accordion">
+  <ul class="collapsible collapsible-li center-align " data-collapsible="accordion">
     <li>
-      <div class="collapsible-header vertical-align"><h5><%= t('.guest-collapse') %></h5></div>
+      <div class="collapsible-header active">
+        <h5 class="padded-top-1"><%= t('.guest-collapse') %></h5></div>
       <div class="collapsible-body">
         <ul>
           <div class="row">

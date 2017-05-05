@@ -214,6 +214,7 @@
   padding-left: 8px;
   padding-right: 8px;
   margin: 5px;
+  font-size: 12px;
   // align-content: center;
 }
 
@@ -230,7 +231,7 @@
   font-size: 1rem;
   background-color: #FC6F04;
   margin: -7px;
-  padding: 0.2rem;
+  padding: 0.6rem 0.6rem;
   p{
     margin: 0;
     font-size: 1rem;
@@ -248,6 +249,7 @@
 
 .form_wrapper_bottom_margin{
   margin-bottom: 0;
+  padding: 0 10px;
 }
 
 #hangout_category{
@@ -440,17 +442,17 @@
 .direction-header{
   display: flex;
   align-items: center;
-  line-height: 1rem;
+  // line-height: 1rem;
   &-item{
     flex: 1 0 auto;
   }
 }
 
 .way-info{
-  font-size: 0.9rem;
+  // font-size: 0.9rem;
   /* font-stretch: ultra-condensed; */
-  letter-spacing: -0.5px;
-  margin-top: -10px;
+  // letter-spacing: -0.5px;
+  // margin-top: -10px;
 }
 
 .check-out-guest{
@@ -542,12 +544,17 @@
 }
 
 .checkbox-force {
- display: flex;
- align-items: center;
+    margin-bottom: -30px;
+ i {
+   position: relative;
+ bottom: 31px;
+ right: -19.4px;
+ }
 }
 
 
 #info-check{
   margin-top: 2rem;
-  margin-left: 0.5rem;
+  // margin-left: 0.5rem;
+  // font-size: 0.3rem;
 }

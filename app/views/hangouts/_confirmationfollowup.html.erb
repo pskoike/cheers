@@ -50,7 +50,7 @@
 
 <% content_for(:after_js) do %>
   <script type="text/javascript">
-    Materialize.toast(<%= t('.toast') %>, 3000)
+    Materialize.toast("<%= t('.toast') %>", 3000);
   </script>
 
   <%= javascript_tag do %>
