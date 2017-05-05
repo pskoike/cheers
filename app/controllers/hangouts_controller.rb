@@ -221,11 +221,13 @@ private
       @transport = confirmation.transportation
       @confirmation.time_to_place.nil? ? @leaving_time = 0 : @leaving_time = (@hangout.date - @confirmation.time_to_place)
 
-      @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude}
-      @direction = {lat: @hangout.place.latitude, lng: @hangout.place.longitude}
+      @departure = {lat: @confirmation.latitude, lng: @confirmation.longitude, address: @confirmation.leaving_address}
+      @direction = {lat: @hangout.place.latitude, lng: @hangout.place.longitude, address: @hangout.place.address}
       @google_url = "//www.google.com/maps/dir/#{@departure[:lat]},#{@departure[:lng]}/#{@direction[:lat]},#{@direction[:lng]}"
-      @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}', target: 'blank'%>"
+#      @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}', target: 'blank'%>"
+      @uber_url = "//m.uber.com/ul/?action=setPickup&client_id=BPnTmYM3BWbe7xQhQ7ATVyCcjWAx6HfJ&pickup=my_location&dropoff[latitude]=#{@direction[:lat]}&dropoff[longitude]=#{@direction[:lng]}&dropoff[formatted_address]=#{@direction[:address]}"
       @taxi_url = "taxis99://call?"
+#      @taxi_url = "taxis99://call?endLat=#{@direction[:lat]}&endLng=#{@direction[:lng]}&endName=#{@direction[:address]}"
     elsif @hangout.status == "cancelled"
       @render = 'cancelled'
     end
