@@ -184,6 +184,7 @@ en:
       waiting_banner: Checkout the place and way to get there
       indication: "Your way to get there"
       info_itinerary: "Time: %{time} min | Distance: %{distance} km"
+      leaving_time: "Leaving time"
       guest-collapse: Confirmed guests
     share:
       message: Hangout ready! Invite your friends!
