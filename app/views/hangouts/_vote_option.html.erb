@@ -17,19 +17,19 @@
   <p><%=t('.nb_vote') + ": #{@nb_vote}"%></p>
 
   <div class="final-vote">
-    <%= button_to t('.button_final_vote'), close_vote_hangout_path(@hangout), method: :patch, class: "btn grey lighten-1 z-depth-0" %>
+    <%= button_to t('.button_final_vote'), close_vote_hangout_path(@hangout), method: :patch, class: "btn  z-depth-1" %>
   </div>
   </div>
 <% end %>
 
 <!-- User choice -->
 <div class="container">
-  <h4 class="center-align"><%= t('.has_voted')%></h4>
+  <h4 class="center-align padded-top-1"><%= t('.has_voted')%></h4>
   <!-- <h1><%= voted_place.name %></h1> -->
   <!-- <h2 class="center-align"><%= t('.wait')%></h2> -->
   <div class="row place-wrapper z-depth-1">
     <div class="content">
-      <h4><%= link_to voted_place.name, voted_place.fsq_url, target: 'blank'%></h4>
+      <h5><%= link_to voted_place.name, voted_place.fsq_url, target: 'blank'%></h5>
       <h6><%= voted_place.address %></h6>
       <ul class="list-inline rating_wrapper">
         <li class="box-rating white-text"><%= voted_place.rating %>/10</li>
@@ -46,7 +46,7 @@
 <div class="status-wrapper orange-accent-2">
   <p class="white-text center-align"><%= t('.status', default: 'Voting on! Choose your favorite!') %></p>
 </div>
-<% end %>
+
 <!-- List of places -->
 <div class="container">
   <div class="row">
@@ -62,7 +62,7 @@
     <% place_list.first(5).each do |option|%>
     <div class="row place-wrapper z-depth-1">
       <div class="content">
-        <h4><%= link_to option.place.name, option.place.fsq_url, target: 'blank'%></h4>
+        <h5><%= link_to option.place.name, option.place.fsq_url, target: 'blank'%></h5>
         <h6><%= option.place.address %></h6>
         <ul class="list-inline rating_wrapper">
           <li class="box-rating white-text"><%= option.place.rating %>/10</li>
@@ -78,3 +78,4 @@
 
 <% end %>
   </div>
+<% end %>
